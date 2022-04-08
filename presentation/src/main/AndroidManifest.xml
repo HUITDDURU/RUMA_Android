@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HUITDDURU">
         <activity
-            android:name=".view.MainActivity"
+            android:name="com.example.huitdduru.view.splash.SplashActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.huitdduru.view.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
