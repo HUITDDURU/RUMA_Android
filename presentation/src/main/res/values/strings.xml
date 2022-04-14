@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">HUITDDURU</string>
-    
-<!--  Sign  -->
+
+    <!--  Sign  -->
     <string name="sign_in_description">여러분의 이야기를\n들려주세요.</string>
     <string name="sign_in_email_hint">이메일</string>
     <string name="sign_in_password_hint">비밀번호</string>
     <string name="login_text">로그인</string>
     <string name="recoomend_sign_up">휘뚜루마뚜루 회원가입</string>
-    
+
 </resources>

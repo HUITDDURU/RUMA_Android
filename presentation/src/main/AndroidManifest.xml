@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HUITDDURU">
         <activity
+            android:name=".view.sign.RegisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.main.MainActivity"
             android:exported="false" />
         <activity
