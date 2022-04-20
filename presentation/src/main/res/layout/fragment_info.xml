@@ -48,6 +48,7 @@
         android:fontFamily="@font/font_noto_sans_kr_regular"/>
 
     <Button
+        android:id="@+id/next_btn"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_marginTop="50dp"
