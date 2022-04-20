@@ -24,6 +24,7 @@ object Versions {
     const val ROOM = "2.4.2"
 
     const val GLIDE = "4.12.0"
+    const val LOTTIE = "5.0.3"
 
     const val HILT = "2.38.1"
     const val HILT_VIEWMODEL = "1.0.0-alpha03"
