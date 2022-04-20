@@ -4,13 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/drawable/btn_border.xml" value="0.2415" />
+        <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/drawable/ic_left_arrow.xml" value="0.251" />
         <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/drawable/ic_vector.xml" value="0.2415" />
         <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/font/font_noto_sans_kr_bold.xml" value="0.378125" />
         <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/font/font_noto_sans_kr_regular.xml" value="0.378125" />
         <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/layout/activity_main.xml" value="0.34791666666666665" />
-        <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/layout/activity_register.xml" value="0.34375" />
+        <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/layout/activity_splash.xml" value="0.25" />
+        <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/layout/fragment_info.xml" value="0.25" />
       </map>
     </option>
   </component>

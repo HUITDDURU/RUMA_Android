@@ -8,6 +8,13 @@
     <string name="login_text">로그인</string>
     <string name="recoomend_sign_up">휘뚜루마뚜루 회원가입</string>
     <string name="sign_up_to_login">로그인으로</string>
+    <string name="sign_up_insert_your_info">정보를\n입력해주세요.</string>
+    <string name="sign_up_certify_code">인증코드를\n입력해주세요.</string>
+    <string name="sign_up_profile">마지막으로\n회원정보를 등록해주세요.</string>
+    <string name="sign_up_email_hint">이메일</string>
+    <string name="sign_up_password_hint">비밀번호 (8~16자)</string>
+    <string name="sign_up_password_confirm">비밀번호 확인</string>
+    <string name="sign_up_next">다음</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

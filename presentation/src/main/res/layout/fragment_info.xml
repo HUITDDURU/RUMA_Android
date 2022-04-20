@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="30dp"
+    android:paddingEnd="30dp"
+    android:orientation="vertical"
+    tools:context=".view.sign.InfoFragment">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:src="@mipmap/sign_logo"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_up_insert_your_info"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:fontFamily="@font/font_noto_sans_kr_bold"/>
+
+    <EditText
+        android:id="@+id/email_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="14sp"
+        android:hint="@string/sign_up_email_hint"
+        android:fontFamily="@font/font_noto_sans_kr_regular"/>
+
+    <EditText
+        android:id="@+id/password_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:hint="@string/sign_up_password_hint"
+        android:fontFamily="@font/font_noto_sans_kr_regular"/>
+
+    <EditText
+        android:id="@+id/confirm_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:hint="@string/sign_up_password_confirm"
+        android:fontFamily="@font/font_noto_sans_kr_regular"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="50dp"
+        android:text="@string/sign_up_next"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:backgroundTint="@color/primary"/>
+
+</LinearLayout>

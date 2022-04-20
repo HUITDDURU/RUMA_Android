@@ -30,7 +30,7 @@
                 android:layout_marginStart="10dp"
                 android:text="@string/sign_up_to_login"
                 android:textColor="@color/black"
-                android:fontFamily="@font/font_noto_sans_kr_regular"
+                android:fontFamily="@font/font_noto_sans_kr_regular"/>
 
         </LinearLayout>
 
