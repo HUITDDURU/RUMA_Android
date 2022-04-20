@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">HUITDDURU</string>
+
+    <!--  Sign  -->
+    <string name="sign_in_description">여러분의 이야기를\n들려주세요.</string>
+    <string name="sign_in_email_hint">이메일</string>
+    <string name="sign_in_password_hint">비밀번호</string>
+    <string name="login_text">로그인</string>
+    <string name="recoomend_sign_up">휘뚜루마뚜루 회원가입</string>
+    <string name="sign_up_to_login">로그인으로</string>
+    <string name="sign_up_insert_your_info">정보를\n입력해주세요.</string>
+    <string name="sign_up_certify_code">인증코드를\n입력해주세요.</string>
+    <string name="sign_up_profile">마지막으로\n회원정보를 등록해주세요.</string>
+    <string name="sign_up_email_hint">이메일</string>
+    <string name="sign_up_password_hint">비밀번호 (8~16자)</string>
+    <string name="sign_up_password_confirm">비밀번호 확인</string>
+    <string name="sign_up_next">다음</string>
+    <string name="sign_up_certify_hint">인증코드 6자리</string>
+    <string name="sign_up_nickname_hint">닉네임</string>
+    <string name="sign_up_description_hint">한줄 소개 (선택)</string>
+    <string name="sign_up_explain">프로필 사진을 선택하지 않아도\n기본 프로필 사진이 적용되요.</string>
+    <string name="sign_up_do">회원가입</string>
+    <string name="sign_up_successful">회원가입 완료!</string>
+    <string name="sign_up_successful_description">가입이 완료되었어요.\n로그인 후 여러분의\n이야기를 들려주세요.</string>
+    <string name="sign_up_do_login">로그인 하기</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

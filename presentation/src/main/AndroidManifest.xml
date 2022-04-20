@@ -10,7 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HUITDDURU">
         <activity
-            android:name=".view.MainActivity"
+            android:name=".view.sign.SuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.sign.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.main.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.splash.SplashActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.sign.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
