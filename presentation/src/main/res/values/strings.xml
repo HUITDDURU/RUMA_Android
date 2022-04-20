@@ -20,6 +20,9 @@
     <string name="sign_up_description_hint">한줄 소개 (선택)</string>
     <string name="sign_up_explain">프로필 사진을 선택하지 않아도\n기본 프로필 사진이 적용되요.</string>
     <string name="sign_up_do">회원가입</string>
+    <string name="sign_up_successful">회원가입 완료!</string>
+    <string name="sign_up_successful_description">가입이 완료되었어요.\n로그인 후 여러분의\n이야기를 들려주세요.</string>
+    <string name="sign_up_do_login">로그인 하기</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
