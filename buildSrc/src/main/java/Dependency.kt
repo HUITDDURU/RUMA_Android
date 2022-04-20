@@ -37,6 +37,8 @@ object Dependency {
 
         const val GLIDE = "com.github.bumptech.glide:glide:${Versions.GLIDE}"
         const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:${Versions.GLIDE}"
+
+        const val LOTTIE = "com.airbnb.android:lottie:${Versions.LOTTIE}"
     }
 
     object UnitTest {

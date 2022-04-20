@@ -2,6 +2,7 @@ package com.example.huitdduru.view.sign
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.huitdduru.R
 
 class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
