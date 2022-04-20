@@ -8,6 +8,5 @@ import com.example.huitdduru.view.base.BaseActivity
 class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
     }
 }
