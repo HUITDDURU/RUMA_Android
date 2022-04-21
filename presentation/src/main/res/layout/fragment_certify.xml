@@ -1,59 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingStart="30dp"
-    android:paddingEnd="30dp"
-    android:orientation="vertical"
-    tools:context=".view.sign.CertifyFragment">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:src="@mipmap/sign_logo"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/sign_up_certify_code"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:fontFamily="@font/font_noto_sans_kr_bold"/>
-
-    <EditText
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:hint="@string/sign_up_certify_hint"
-        android:textSize="14sp"
-        android:fontFamily="@font/font_noto_sans_kr_regular"/>
+        android:layout_height="match_parent"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        android:orientation="vertical"
+        tools:context=".view.sign.CertifyFragment">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:hint="@string/sign_up_password_hint"
-        android:fontFamily="@font/font_noto_sans_kr_regular"
-        android:visibility="invisible"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:src="@mipmap/sign_logo"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:hint="@string/sign_up_password_confirm"
-        android:fontFamily="@font/font_noto_sans_kr_regular"
-        android:visibility="invisible"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_up_certify_code"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:fontFamily="@font/font_noto_sans_kr_bold"/>
 
-    <Button
-        android:id="@+id/next_btn"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_marginTop="50dp"
-        android:text="@string/sign_up_next"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:backgroundTint="@color/primary"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="@string/sign_up_certify_hint"
+            android:textSize="14sp"
+            android:fontFamily="@font/font_noto_sans_kr_regular"/>
 
-</LinearLayout>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:hint="@string/sign_up_password_hint"
+            android:fontFamily="@font/font_noto_sans_kr_regular"
+            android:visibility="invisible"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:hint="@string/sign_up_password_confirm"
+            android:fontFamily="@font/font_noto_sans_kr_regular"
+            android:visibility="invisible"/>
+
+        <Button
+            android:id="@+id/next_btn"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginTop="50dp"
+            android:text="@string/sign_up_next"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:backgroundTint="@color/primary"/>
+
+    </LinearLayout>
+
+</layout>
+
