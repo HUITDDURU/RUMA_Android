@@ -1,86 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingStart="30dp"
-    android:paddingEnd="30dp"
-    tools:context=".view.sign.UserFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:src="@mipmap/sign_logo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/font_noto_sans_kr_bold"
-        android:text="@string/sign_up_profile"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-    <ImageView
-        android:id="@+id/profile_iv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_gravity="center"
-        android:src="@drawable/ic_profile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <EditText
-        android:id="@+id/nickname_et"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/font_noto_sans_kr_regular"
-        android:hint="@string/sign_up_nickname_hint"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@+id/profile_iv"
-        tools:layout_editor_absoluteX="30dp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        tools:context=".view.sign.UserFragment">
 
-    <EditText
-        android:id="@+id/description_et"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/font_noto_sans_kr_regular"
-        android:hint="@string/sign_up_description_hint"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@+id/nickname_et"
-        tools:layout_editor_absoluteX="30dp" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:src="@mipmap/sign_logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:fontFamily="@font/font_noto_sans_kr_regular"
-        android:text="@string/sign_up_explain"
-        android:textColor="@color/gray2"
-        app:layout_constraintStart_toStartOf="@+id/description_et"
-        app:layout_constraintTop_toBottomOf="@+id/description_et" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font_noto_sans_kr_bold"
+            android:text="@string/sign_up_profile"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_marginBottom="20dp"
-        android:backgroundTint="@color/primary"
-        android:fontFamily="@font/font_noto_sans_kr_bold"
-        android:text="@string/sign_up_do"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="30dp" />
+        <ImageView
+            android:id="@+id/profile_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_profile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:id="@+id/nickname_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/font_noto_sans_kr_regular"
+            android:hint="@string/sign_up_nickname_hint"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@+id/profile_iv"
+            tools:layout_editor_absoluteX="30dp" />
+
+        <EditText
+            android:id="@+id/description_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font_noto_sans_kr_regular"
+            android:hint="@string/sign_up_description_hint"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@+id/nickname_et"
+            tools:layout_editor_absoluteX="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:fontFamily="@font/font_noto_sans_kr_regular"
+            android:text="@string/sign_up_explain"
+            android:textColor="@color/gray2"
+            app:layout_constraintStart_toStartOf="@+id/description_et"
+            app:layout_constraintTop_toBottomOf="@+id/description_et" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/primary"
+            android:fontFamily="@font/font_noto_sans_kr_bold"
+            android:text="@string/sign_up_do"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="30dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
