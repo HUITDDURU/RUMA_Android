@@ -1,5 +1,6 @@
 package com.example.huitdduru.di
 
+import com.example.data.remote.api.AuthAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -38,5 +39,8 @@ object NetworkModule {
             .baseUrl("")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-    
+
+    @Provides
+    fun provideAuthAPI(retrofit: Retrofit) : AuthAPI =
+        retrofit.create(AuthAPI::class.java)
 }
