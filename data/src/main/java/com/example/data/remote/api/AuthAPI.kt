@@ -4,10 +4,7 @@ import com.example.data.remote.request.*
 import com.example.data.remote.response.LoginResponse
 import com.example.data.remote.response.TokenRefreshResponse
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.POST
-import retrofit2.http.PUT
-import retrofit2.http.Part
+import retrofit2.http.*
 
 interface AuthAPI {
 
@@ -33,7 +30,7 @@ interface AuthAPI {
 
     @PUT("/auth")
     suspend fun tokenRefresh(
-        @Body refresh_token: TokenRefreshRequest
+        @Header("refresh-token") refresh_token: String
     ): Response<TokenRefreshResponse>
-    
+
 }
