@@ -11,6 +11,7 @@ object Versions {
     const val VERSION_CODE = 1
     const val VERSION_NAME = "1.0"
     const val CONSTRAINT_LAYOUT = "2.1.3"
+    const val DATA_STORE = "1.0.0"
 
     const val CORE_KTX = "1.7.0"
     const val APP_COMPAT = "1.4.1"
