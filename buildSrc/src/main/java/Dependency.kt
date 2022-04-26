@@ -21,7 +21,7 @@ object Dependency {
 
         const val DATA_STORE = "androidx.datastore:datastore:${Versions.DATA_STORE}"
         const val DATA_STORE_PREF = "androidx.datastore:datastore-preferences:${Versions.DATA_STORE}"
-        const val DATA_STORE_CORE = "androidx.datastore:datastore-preferences-core:${Versions.DATA_STORE}"
+        const val DATA_STORE_CORE = "androidx.datastore:datastore-core:${Versions.DATA_STORE}"
     }
 
     object Google {
