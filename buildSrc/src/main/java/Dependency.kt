@@ -19,7 +19,8 @@ object Dependency {
         const val ROOM_KTX = "androidx.room:room-ktx:${Versions.ROOM}"
         const val ROOM_COMPILER = "androidx.room:room-compiler:${Versions.ROOM}"
 
-        const val DATA_STORE = "androidx.datastore:datastore-preferences:${Versions.DATA_STORE}"
+        const val DATA_STORE = "androidx.datastore:datastore:${Versions.DATA_STORE}"
+        const val DATA_STORE_PREF = "androidx.datastore:datastore-preferences:${Versions.DATA_STORE}"
     }
 
     object Google {

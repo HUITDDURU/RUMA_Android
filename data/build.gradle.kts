@@ -41,6 +41,9 @@ dependencies {
     androidTestImplementation(Dependency.AndroidTest.ANDROID_JUNIT)
     androidTestImplementation(Dependency.AndroidTest.ESPRESSO_CORE)
 
+    implementation(Dependency.AndroidX.DATA_STORE)
+    implementation(Dependency.AndroidX.DATA_STORE_PREF)
+
     implementation(Dependency.Library.RETROFIT)
     implementation(Dependency.Library.RETROFIT_CONVERTER_GSON)
 
