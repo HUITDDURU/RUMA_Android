@@ -43,6 +43,7 @@ dependencies {
 
     implementation(Dependency.AndroidX.DATA_STORE)
     implementation(Dependency.AndroidX.DATA_STORE_PREF)
+    implementation(Dependency.AndroidX.DATA_STORE_CORE)
 
     implementation(Dependency.Library.RETROFIT)
     implementation(Dependency.Library.RETROFIT_CONVERTER_GSON)
