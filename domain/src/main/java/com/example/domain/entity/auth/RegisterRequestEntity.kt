@@ -2,7 +2,7 @@ package com.example.domain.entity.auth
 
 import okhttp3.MultipartBody
 
-data class RegisterRequest(
+data class RegisterRequestEntity(
     val name: String,
     val email: String,
     val password: String,

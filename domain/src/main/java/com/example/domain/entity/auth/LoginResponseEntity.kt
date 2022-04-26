@@ -1,6 +1,6 @@
 package com.example.domain.entity.auth
 
-class TokenRefreshResponse(
+data class LoginResponseEntity(
     val accessToken: String,
     val refreshToken: String
 )

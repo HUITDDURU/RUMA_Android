@@ -1,5 +1,5 @@
 package com.example.domain.entity.auth
 
-data class SendCodeRequest(
+data class SendCodeRequestEntity(
     val email: String
 )

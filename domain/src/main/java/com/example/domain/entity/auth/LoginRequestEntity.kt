@@ -1,6 +1,6 @@
 package com.example.domain.entity.auth
 
-data class LoginRequest(
+data class LoginRequestEntity(
     val email: String,
     val password: String
 )
