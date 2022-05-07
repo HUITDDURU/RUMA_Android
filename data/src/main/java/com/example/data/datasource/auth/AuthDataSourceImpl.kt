@@ -11,9 +11,9 @@ import com.example.data.util.SafeApiCall
 import com.example.domain.util.RemoteErrorEmitter
 import javax.inject.Inject
 
-class AuthRemoteDataSourceImpl @Inject constructor(
+class AuthDataSourceImpl @Inject constructor(
     private val api: AuthAPI
-) : AuthRemoteDataSource, SafeApiCall() {
+) : AuthDataSource, SafeApiCall() {
     override suspend fun login(
         remoteErrorEmitter: RemoteErrorEmitter,
         body: LoginRequest

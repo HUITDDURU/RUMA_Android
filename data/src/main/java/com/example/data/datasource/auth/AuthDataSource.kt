@@ -8,7 +8,7 @@ import com.example.data.remote.response.LoginResponse
 import com.example.data.remote.response.TokenRefreshResponse
 import com.example.domain.util.RemoteErrorEmitter
 
-interface AuthRemoteDataSource {
+interface AuthDataSource {
     suspend fun login(remoteErrorEmitter: RemoteErrorEmitter ,body: LoginRequest) : LoginResponse?
     suspend fun register(remoteErrorEmitter: RemoteErrorEmitter ,part: RegisterRequest) : Unit
     suspend fun sendCode(remoteErrorEmitter: RemoteErrorEmitter ,body: SendCodeRequest) : Unit
