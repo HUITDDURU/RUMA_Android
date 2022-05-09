@@ -3,7 +3,6 @@ package com.example.data.remote.api
 import com.example.data.remote.request.*
 import com.example.data.remote.response.LoginResponse
 import com.example.data.remote.response.TokenRefreshResponse
-import retrofit2.Response
 import retrofit2.http.*
 
 interface AuthAPI {
@@ -16,17 +15,17 @@ interface AuthAPI {
     @POST("/register")
     suspend fun register(
         @Part registerRequest: RegisterRequest
-    ): Unit
+    )
 
     @POST("/email")
     suspend fun sendCode(
         @Body email: SendCodeRequest
-    ): Unit
+    )
 
     @PUT("/email")
     suspend fun certify(
         @Body body: CertifyRequest
-    ): Unit
+    )
 
     @PUT("/auth")
     suspend fun tokenRefresh(
