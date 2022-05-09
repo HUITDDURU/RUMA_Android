@@ -8,7 +8,9 @@ import com.example.data.remote.request.SendCodeRequest
 import com.example.data.remote.response.LoginResponse
 import com.example.data.remote.response.TokenRefreshResponse
 import com.example.data.util.SafeApiCall
+import com.example.domain.entity.auth.*
 import com.example.domain.util.RemoteErrorEmitter
+import retrofit2.Response
 import javax.inject.Inject
 
 class AuthDataSourceImpl @Inject constructor(
@@ -17,45 +19,42 @@ class AuthDataSourceImpl @Inject constructor(
     override suspend fun login(
         remoteErrorEmitter: RemoteErrorEmitter,
         body: LoginRequest
-    ): LoginResponse {
-        return safeApiCall(remoteErrorEmitter) {
-            api.login(body).body()
+    ): Response<LoginResponse> =
+        safeApiCall(remoteErrorEmitter) {
+            api.login(body).body()!!
         }!!
-    }
+
 
     override suspend fun register(
         remoteErrorEmitter: RemoteErrorEmitter,
         part: RegisterRequest
-    ) {
-        return safeApiCall(remoteErrorEmitter) {
-            api.register(part).body()
+    ): Response<Unit> =
+        safeApiCall(remoteErrorEmitter) {
+            api.register(part).body()!!
         }!!
-    }
 
     override suspend fun sendCode(
         remoteErrorEmitter: RemoteErrorEmitter,
         body: SendCodeRequest
-    ) {
-        return safeApiCall(remoteErrorEmitter) {
-            api.sendCode(body).body()
+    ): Response<Unit> =
+        safeApiCall(remoteErrorEmitter) {
+            api.sendCode(body).body()!!
         }!!
-    }
 
     override suspend fun certify(
         remoteErrorEmitter: RemoteErrorEmitter,
         body: CertifyRequest
-    ) {
-        return safeApiCall(remoteErrorEmitter) {
-            api.certify(body).body()
+    ): Response<Unit> =
+        safeApiCall(remoteErrorEmitter) {
+            api.certify(body).body()!!
         }!!
-    }
 
     override suspend fun tokenRefresh(
         remoteErrorEmitter: RemoteErrorEmitter,
         header: String
-    ): TokenRefreshResponse {
-        return safeApiCall(remoteErrorEmitter) {
-            api.tokenRefresh(header).body()
+    ): Response<TokenRefreshResponse> =
+        safeApiCall(remoteErrorEmitter) {
+            api.tokenRefresh(header).body()!!
         }!!
-    }
+
 }
