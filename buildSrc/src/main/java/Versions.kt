@@ -1,5 +1,5 @@
 object Versions {
-    const val KOTLIN_VERSION = "1.5.0"
+    const val KOTLIN_VERSION = "1.5.21"
     const val KOTLINX_COROUTINES = "1.5.2"
     const val BUILD_GRADLE = "4.2.1"
     const val COMPILE_SDK_VERSION = 32
