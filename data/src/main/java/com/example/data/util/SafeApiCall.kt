@@ -9,6 +9,7 @@ import okhttp3.ResponseBody
 import okio.IOException
 import org.json.JSONObject
 import retrofit2.HttpException
+import retrofit2.Response
 import java.net.SocketTimeoutException
 
 abstract class SafeApiCall {
@@ -21,10 +22,10 @@ abstract class SafeApiCall {
     suspend inline fun <T> safeApiCall(
         emitter: RemoteErrorEmitter,
         crossinline responseFunction: suspend () -> T
-    ): T? {
+    ): Response<T>? {
         return try {
             val response = withContext(Dispatchers.IO) { responseFunction.invoke() }
-            response
+            Response.success(response)
         } catch (e: Exception) {
             withContext(Dispatchers.Main){
                 e.printStackTrace()
