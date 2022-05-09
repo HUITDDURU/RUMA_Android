@@ -19,42 +19,42 @@ class AuthDataSourceImpl @Inject constructor(
     override suspend fun login(
         remoteErrorEmitter: RemoteErrorEmitter,
         body: LoginRequest
-    ): Response<LoginResponse> =
+    ): LoginResponse =
         safeApiCall(remoteErrorEmitter) {
-            api.login(body).body()!!
+            api.login(body)
         }!!
 
 
     override suspend fun register(
         remoteErrorEmitter: RemoteErrorEmitter,
         part: RegisterRequest
-    ): Response<Unit> =
+    ): Unit =
         safeApiCall(remoteErrorEmitter) {
-            api.register(part).body()!!
+            api.register(part)
         }!!
 
     override suspend fun sendCode(
         remoteErrorEmitter: RemoteErrorEmitter,
         body: SendCodeRequest
-    ): Response<Unit> =
+    ): Unit =
         safeApiCall(remoteErrorEmitter) {
-            api.sendCode(body).body()!!
+            api.sendCode(body)
         }!!
 
     override suspend fun certify(
         remoteErrorEmitter: RemoteErrorEmitter,
         body: CertifyRequest
-    ): Response<Unit> =
+    ): Unit =
         safeApiCall(remoteErrorEmitter) {
-            api.certify(body).body()!!
+            api.certify(body)
         }!!
 
     override suspend fun tokenRefresh(
         remoteErrorEmitter: RemoteErrorEmitter,
         header: String
-    ): Response<TokenRefreshResponse> =
+    ): TokenRefreshResponse =
         safeApiCall(remoteErrorEmitter) {
-            api.tokenRefresh(header).body()!!
+            api.tokenRefresh(header)
         }!!
 
 }

@@ -10,9 +10,9 @@ import com.example.domain.util.RemoteErrorEmitter
 import retrofit2.Response
 
 interface AuthDataSource {
-    suspend fun login(remoteErrorEmitter: RemoteErrorEmitter ,body: LoginRequest) : Response<LoginResponse>
-    suspend fun register(remoteErrorEmitter: RemoteErrorEmitter ,part: RegisterRequest) : Response<Unit>
-    suspend fun sendCode(remoteErrorEmitter: RemoteErrorEmitter ,body: SendCodeRequest) : Response<Unit>
-    suspend fun certify(remoteErrorEmitter: RemoteErrorEmitter ,body: CertifyRequest) : Response<Unit>
-    suspend fun tokenRefresh(remoteErrorEmitter: RemoteErrorEmitter ,header: String) : Response<TokenRefreshResponse>
+    suspend fun login(remoteErrorEmitter: RemoteErrorEmitter ,body: LoginRequest) : LoginResponse
+    suspend fun register(remoteErrorEmitter: RemoteErrorEmitter ,part: RegisterRequest) : Unit
+    suspend fun sendCode(remoteErrorEmitter: RemoteErrorEmitter ,body: SendCodeRequest) : Unit
+    suspend fun certify(remoteErrorEmitter: RemoteErrorEmitter ,body: CertifyRequest) : Unit
+    suspend fun tokenRefresh(remoteErrorEmitter: RemoteErrorEmitter ,header: String) : TokenRefreshResponse
 }

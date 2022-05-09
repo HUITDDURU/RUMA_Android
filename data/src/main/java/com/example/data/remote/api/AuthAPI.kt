@@ -11,26 +11,25 @@ interface AuthAPI {
     @POST("/auth")
     suspend fun login(
         @Body body: LoginRequest
-    ): Response<LoginResponse>
+    ): LoginResponse
 
     @POST("/register")
     suspend fun register(
         @Part registerRequest: RegisterRequest
-    ): Response<Unit>
+    ): Unit
 
     @POST("/email")
     suspend fun sendCode(
         @Body email: SendCodeRequest
-    ): Response<Unit>
+    ): Unit
 
     @PUT("/email")
     suspend fun certify(
         @Body body: CertifyRequest
-    ): Response<Unit>
+    ): Unit
 
     @PUT("/auth")
     suspend fun tokenRefresh(
         @Header("refresh-token") refresh_token: String
-    ): Response<TokenRefreshResponse>
-
+    ): TokenRefreshResponse
 }
