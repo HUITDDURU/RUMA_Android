@@ -8,9 +8,7 @@ import com.example.data.remote.request.SendCodeRequest
 import com.example.data.remote.response.LoginResponse
 import com.example.data.remote.response.TokenRefreshResponse
 import com.example.data.util.SafeApiCall
-import com.example.domain.entity.auth.*
 import com.example.domain.util.RemoteErrorEmitter
-import retrofit2.Response
 import javax.inject.Inject
 
 class AuthDataSourceImpl @Inject constructor(

@@ -7,12 +7,11 @@ import com.example.data.remote.request.SendCodeRequest
 import com.example.data.remote.response.LoginResponse
 import com.example.data.remote.response.TokenRefreshResponse
 import com.example.domain.util.RemoteErrorEmitter
-import retrofit2.Response
 
 interface AuthDataSource {
     suspend fun login(remoteErrorEmitter: RemoteErrorEmitter ,body: LoginRequest) : LoginResponse
-    suspend fun register(remoteErrorEmitter: RemoteErrorEmitter ,part: RegisterRequest) : Unit
-    suspend fun sendCode(remoteErrorEmitter: RemoteErrorEmitter ,body: SendCodeRequest) : Unit
-    suspend fun certify(remoteErrorEmitter: RemoteErrorEmitter ,body: CertifyRequest) : Unit
+    suspend fun register(remoteErrorEmitter: RemoteErrorEmitter ,part: RegisterRequest)
+    suspend fun sendCode(remoteErrorEmitter: RemoteErrorEmitter ,body: SendCodeRequest)
+    suspend fun certify(remoteErrorEmitter: RemoteErrorEmitter ,body: CertifyRequest)
     suspend fun tokenRefresh(remoteErrorEmitter: RemoteErrorEmitter ,header: String) : TokenRefreshResponse
 }
