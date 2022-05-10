@@ -1,4 +1,4 @@
-package com.example.data.local
+package com.example.data.local.storage
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
-class LocalStorage @Inject constructor(
+class LocalDataStorage @Inject constructor(
     private val context: Context
 ) {
 
