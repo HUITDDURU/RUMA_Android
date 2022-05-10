@@ -31,4 +31,6 @@ object Versions {
     const val HILT = "2.38.1"
     const val HILT_VIEWMODEL = "1.0.0-alpha03"
     const val MATERIAL = "1.5.0"
+
+    const val TOASTY = "1.5.2"
 }

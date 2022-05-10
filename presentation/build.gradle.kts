@@ -68,4 +68,6 @@ dependencies {
     implementation(Dependency.Google.HILT_ANDROID)
     kapt(Dependency.Google.HILT_ANDROID_COMPILER)
     implementation(Dependency.Google.HILT_VIEWMODEL)
+
+    implementation(Dependency.UI.TOASTY)
 }
