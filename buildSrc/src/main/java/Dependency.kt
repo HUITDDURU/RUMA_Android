@@ -7,6 +7,7 @@ object Dependency {
 
     object AndroidX {
         const val CORE_KTX = "androidx.core:core-ktx:${Versions.CORE_KTX}"
+        const val FRAGMENT_KTX = "androidx.fragment:fragment-ktx:${Versions.FRAGMENT_KTX}"
         const val APP_COMPAT = "androidx.appcompat:appcompat:${Versions.APP_COMPAT}"
         const val RECYCLER_VIEW = "androidx.recyclerview:recyclerview:${Versions.RECYCLER_VIEW}"
         const val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:${Versions.CONSTRAINT_LAYOUT}"

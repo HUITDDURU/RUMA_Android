@@ -7,6 +7,7 @@ object Versions {
     const val MIN_SDK_VERSION = 21
     const val TARGET_SDK_VERSION = 32
     const val LIFECYCLE_KTX = "2.4.1"
+    const val FRAGMENT_KTX = "1.4.1"
     const val RECYCLER_VIEW = "1.2.1"
     const val VERSION_CODE = 1
     const val VERSION_NAME = "1.0"

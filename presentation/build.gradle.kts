@@ -46,6 +46,7 @@ dependencies {
     implementation(Dependency.AndroidX.APP_COMPAT)
     implementation(Dependency.Google.MATERIAL)
     implementation(Dependency.Library.LOTTIE)
+    implementation(Dependency.AndroidX.FRAGMENT_KTX)
     testImplementation(Dependency.UnitTest.JUNIT)
     androidTestImplementation(Dependency.AndroidTest.ANDROID_JUNIT)
     androidTestImplementation(Dependency.AndroidTest.ESPRESSO_CORE)
