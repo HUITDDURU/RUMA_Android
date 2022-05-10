@@ -1,6 +1,7 @@
 package com.example.data.repository
 
 import com.example.data.datasource.auth.AuthDataSource
+import com.example.data.datasource.auth.LocalAuthDataSource
 import com.example.data.mapper.AuthMapper.mapperToCertify
 import com.example.data.mapper.AuthMapper.mapperToCode
 import com.example.data.mapper.AuthMapper.mapperToLogin
@@ -13,12 +14,15 @@ import com.example.domain.util.RemoteErrorEmitter
 import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
-    private val authDataSource: AuthDataSource
+    private val authDataSource: AuthDataSource,
+    private val localAuthDataSource: LocalAuthDataSource
 ) : AuthRepository {
     override suspend fun login(
         body: LoginRequestEntity
-    ): LoginResponseEntity =
-        mapperToLoginEntity(authDataSource.login(mapperToLogin(body)))
+    ){
+        val response = mapperToLoginEntity(authDataSource.login(mapperToLogin(body)))
+        saveToken(response)
+    }
 
     override suspend fun register(
         part: RegisterRequestEntity
@@ -42,4 +46,11 @@ class AuthRepositoryImpl @Inject constructor(
         header: String
     ): TokenRefreshResponseEntity =
         mapperToRefreshEntity(authDataSource.tokenRefresh(header))
+
+    private suspend fun saveToken(loginResponseEntity: LoginResponseEntity){
+        localAuthDataSource.apply {
+            setAccessToken(loginResponseEntity.accessToken)
+            setRefreshToken(loginResponseEntity.refreshToken)
+        }
+    }
 }
