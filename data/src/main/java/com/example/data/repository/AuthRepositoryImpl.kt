@@ -16,35 +16,30 @@ class AuthRepositoryImpl @Inject constructor(
     private val authDataSource: AuthDataSource
 ) : AuthRepository {
     override suspend fun login(
-        remoteErrorEmitter: RemoteErrorEmitter,
         body: LoginRequestEntity
     ): LoginResponseEntity =
-        mapperToLoginEntity(authDataSource.login(remoteErrorEmitter, mapperToLogin(body)))
+        mapperToLoginEntity(authDataSource.login(mapperToLogin(body)))
 
     override suspend fun register(
-        remoteErrorEmitter: RemoteErrorEmitter,
         part: RegisterRequestEntity
     ) {
-        authDataSource.register(remoteErrorEmitter, mapperToRegister(part))
+        authDataSource.register(mapperToRegister(part))
     }
 
     override suspend fun sendCode(
-        remoteErrorEmitter: RemoteErrorEmitter,
         body: SendCodeRequestEntity
     ) {
-        authDataSource.sendCode(remoteErrorEmitter, mapperToCode(body))
+        authDataSource.sendCode(mapperToCode(body))
     }
 
     override suspend fun certify(
-        remoteErrorEmitter: RemoteErrorEmitter,
         body: CertifyRequestEntity
     ) {
-        authDataSource.certify(remoteErrorEmitter, mapperToCertify(body))
+        authDataSource.certify(mapperToCertify(body))
     }
 
     override suspend fun tokenRefresh(
-        remoteErrorEmitter: RemoteErrorEmitter,
         header: String
     ): TokenRefreshResponseEntity =
-        mapperToRefreshEntity(authDataSource.tokenRefresh(remoteErrorEmitter, header))
+        mapperToRefreshEntity(authDataSource.tokenRefresh(header))
 }

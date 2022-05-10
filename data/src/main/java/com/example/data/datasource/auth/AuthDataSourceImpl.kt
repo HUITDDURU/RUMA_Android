@@ -15,44 +15,24 @@ class AuthDataSourceImpl @Inject constructor(
     private val api: AuthAPI
 ) : AuthDataSource, SafeApiCall() {
     override suspend fun login(
-        remoteErrorEmitter: RemoteErrorEmitter,
         body: LoginRequest
-    ): LoginResponse =
-        safeApiCall(remoteErrorEmitter) {
-            api.login(body)
-        }!!
+    ): LoginResponse = api.login(body)
 
 
     override suspend fun register(
-        remoteErrorEmitter: RemoteErrorEmitter,
         part: RegisterRequest
-    ): Unit =
-        safeApiCall(remoteErrorEmitter) {
-            api.register(part)
-        }!!
+    ): Unit = api.register(part)
 
     override suspend fun sendCode(
-        remoteErrorEmitter: RemoteErrorEmitter,
         body: SendCodeRequest
-    ): Unit =
-        safeApiCall(remoteErrorEmitter) {
-            api.sendCode(body)
-        }!!
+    ): Unit = api.sendCode(body)
 
     override suspend fun certify(
-        remoteErrorEmitter: RemoteErrorEmitter,
         body: CertifyRequest
-    ): Unit =
-        safeApiCall(remoteErrorEmitter) {
-            api.certify(body)
-        }!!
+    ): Unit = api.certify(body)
 
     override suspend fun tokenRefresh(
-        remoteErrorEmitter: RemoteErrorEmitter,
         header: String
-    ): TokenRefreshResponse =
-        safeApiCall(remoteErrorEmitter) {
-            api.tokenRefresh(header)
-        }!!
+    ): TokenRefreshResponse = api.tokenRefresh(header)
 
 }
