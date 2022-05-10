@@ -41,6 +41,9 @@ class InfoFragment : BaseFragment<FragmentInfoBinding>(R.layout.fragment_info) {
         if(binding.passwordEt.text.toString() !=
                 binding.confirmEt.text.toString()){
             showToast("비밀번호가 일치하지 않습니다.", ToastType.ERROR)
+        } else if(binding.passwordEt.text.toString().length < 8 ||
+                binding.passwordEt.text.toString().length > 16){
+            showToast("비밀번호는 8~16자만 가능합니다.", ToastType.INFO)
         } else {
             vm.sendCode(binding.emailEt.text.toString())
         }
@@ -51,6 +54,7 @@ class InfoFragment : BaseFragment<FragmentInfoBinding>(R.layout.fragment_info) {
             showToast("인증코드가 발송되었습니다!", ToastType.SUCCESS)
             vm.email = binding.emailEt.text.toString()
             vm.password = binding.passwordEt.text.toString()
+            (activity as RegisterActivity).replace(CertifyFragment())
         }
         else -> {}
     }
