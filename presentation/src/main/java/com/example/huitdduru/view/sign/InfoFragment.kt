@@ -2,6 +2,7 @@ package com.example.huitdduru.view.sign
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.example.huitdduru.R
 import com.example.huitdduru.databinding.FragmentInfoBinding
@@ -16,7 +17,7 @@ import kotlinx.coroutines.flow.collect
 @AndroidEntryPoint
 class InfoFragment : BaseFragment<FragmentInfoBinding>(R.layout.fragment_info) {
 
-    private val vm: RegisterViewModel by viewModels()
+    private val vm by activityViewModels<RegisterViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
