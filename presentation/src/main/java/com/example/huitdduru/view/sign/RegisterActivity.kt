@@ -1,6 +1,7 @@
 package com.example.huitdduru.view.sign
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.example.huitdduru.R
 import com.example.huitdduru.databinding.ActivityRegisterBinding
@@ -16,8 +17,13 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
         val fragmentManager = supportFragmentManager
         fragmentManager.commit {
             add(R.id.container, InfoFragment())
-            add(R.id.container, CertifyFragment())
-            add(R.id.container, UserFragment())
+        }
+    }
+
+    fun replace(fragment: Fragment) {
+        val fragmentManager = supportFragmentManager
+        fragmentManager.commit {
+            replace(R.id.container, fragment)
         }
     }
 }
