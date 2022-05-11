@@ -70,4 +70,7 @@ dependencies {
     implementation(Dependency.Google.HILT_VIEWMODEL)
 
     implementation(Dependency.UI.TOASTY)
+
+    implementation(Dependency.Library.GLIDE)
+    implementation(Dependency.Library.GLIDE_COMPILER)
 }
