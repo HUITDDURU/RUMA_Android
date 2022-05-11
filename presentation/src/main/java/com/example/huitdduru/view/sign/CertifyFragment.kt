@@ -1,18 +1,15 @@
 package com.example.huitdduru.view.sign
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import com.example.huitdduru.R
 import com.example.huitdduru.databinding.FragmentCertifyBinding
 import com.example.huitdduru.util.ToastType
 import com.example.huitdduru.util.repeatOnStarted
 import com.example.huitdduru.view.base.BaseFragment
 import com.example.huitdduru.viewmodel.register.RegisterViewModel
+import com.example.huitdduru.viewmodel.register.RegisterViewModel.Event
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 
@@ -38,8 +35,8 @@ class CertifyFragment : BaseFragment<FragmentCertifyBinding>(R.layout.fragment_c
         }
     }
 
-    private fun handleEvent(event: RegisterViewModel.Event) = when(event) {
-        is RegisterViewModel.Event.SuccessEmailCertify -> {
+    private fun handleEvent(event: Event) = when(event) {
+        is Event.SuccessEmailCertify -> {
             showToast("인증되었습니다!", ToastType.SUCCESS)
             (activity as RegisterActivity).replace(UserFragment())
         }
