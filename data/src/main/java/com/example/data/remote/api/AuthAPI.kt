@@ -12,6 +12,8 @@ interface AuthAPI {
         @Body body: LoginRequest
     ): LoginResponse
 
+
+    @Multipart
     @POST("/register")
     suspend fun register(
         @Part registerRequest: RegisterRequest
