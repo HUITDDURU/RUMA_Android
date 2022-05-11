@@ -31,7 +31,7 @@ class CertifyFragment : BaseFragment<FragmentCertifyBinding>(R.layout.fragment_c
         if(binding.codeEt.text.toString() == ""){
             showToast("인증코드를 입력해주세요.", ToastType.INFO)
         } else {
-            vm.certify(binding.codeEt.text.toString())
+            vm.certify(binding.codeEt.text.toString().trim())
         }
     }
 
