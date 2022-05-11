@@ -9,6 +9,7 @@ import com.example.data.remote.response.LoginResponse
 import com.example.data.remote.response.TokenRefreshResponse
 import com.example.data.util.SafeApiCall
 import com.example.domain.util.RemoteErrorEmitter
+import okhttp3.MultipartBody
 import javax.inject.Inject
 
 class AuthDataSourceImpl @Inject constructor(
@@ -20,8 +21,9 @@ class AuthDataSourceImpl @Inject constructor(
 
 
     override suspend fun register(
-        part: RegisterRequest
-    ): Unit = api.register(part)
+        part: RegisterRequest,
+        image: MultipartBody.Part
+    ): Unit = api.register(part, image)
 
     override suspend fun sendCode(
         body: SendCodeRequest

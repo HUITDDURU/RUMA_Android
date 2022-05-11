@@ -3,6 +3,7 @@ package com.example.data.remote.api
 import com.example.data.remote.request.*
 import com.example.data.remote.response.LoginResponse
 import com.example.data.remote.response.TokenRefreshResponse
+import okhttp3.MultipartBody
 import retrofit2.http.*
 
 interface AuthAPI {
@@ -16,7 +17,8 @@ interface AuthAPI {
     @Multipart
     @POST("/register")
     suspend fun register(
-        @Part registerRequest: RegisterRequest
+        @Part registerRequest: RegisterRequest,
+        @Part file: MultipartBody.Part?
     )
 
     @POST("/email")
