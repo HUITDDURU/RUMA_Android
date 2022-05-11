@@ -12,5 +12,6 @@ import com.example.huitdduru.view.base.BaseFragment
 class UserFragment : BaseFragment<FragmentUserBinding>(R.layout.fragment_user) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.fragment = this
     }
 }
