@@ -42,9 +42,12 @@
             android:id="@+id/profile_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
             android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/profile_radius"
             android:src="@drawable/ic_profile"
+            android:scaleType="center"
+            android:onClick="@{() -> fragment.openGallery()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
