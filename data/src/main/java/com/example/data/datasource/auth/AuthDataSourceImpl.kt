@@ -22,7 +22,7 @@ class AuthDataSourceImpl @Inject constructor(
 
     override suspend fun register(
         part: RegisterRequest,
-        image: MultipartBody.Part
+        image: MultipartBody.Part?
     ): Unit = api.register(part, image)
 
     override suspend fun sendCode(

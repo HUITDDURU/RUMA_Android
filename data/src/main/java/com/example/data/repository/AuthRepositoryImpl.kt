@@ -11,6 +11,7 @@ import com.example.data.mapper.AuthMapper.mapperToRegister
 import com.example.domain.entity.auth.*
 import com.example.domain.repository.AuthRepository
 import com.example.domain.util.RemoteErrorEmitter
+import okhttp3.MultipartBody
 import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
@@ -25,9 +26,10 @@ class AuthRepositoryImpl @Inject constructor(
     }
 
     override suspend fun register(
-        part: RegisterRequestEntity
+        part: RegisterRequestEntity,
+        image: MultipartBody.Part?
     ) {
-        authDataSource.register(mapperToRegister(part))
+        authDataSource.register(mapperToRegister(part), image!!)
     }
 
     override suspend fun sendCode(

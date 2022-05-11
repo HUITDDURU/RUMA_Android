@@ -10,7 +10,7 @@ import okhttp3.MultipartBody
 
 interface AuthDataSource {
     suspend fun login(body: LoginRequest) : LoginResponse
-    suspend fun register(part: RegisterRequest, image: MultipartBody.Part)
+    suspend fun register(part: RegisterRequest, image: MultipartBody.Part?)
     suspend fun sendCode(body: SendCodeRequest)
     suspend fun certify(body: CertifyRequest)
     suspend fun tokenRefresh(header: String) : TokenRefreshResponse
