@@ -16,7 +16,7 @@ object AuthMapper {
         loginRequestEntity.run { LoginRequest(email, password) }
 
     fun mapperToRegister(registerRequestEntity: RegisterRequestEntity) : RegisterRequest =
-        registerRequestEntity.run { RegisterRequest(name, email, password, intro) }
+        registerRequestEntity.run { RegisterRequest(name, email, password, intro, imageUrl) }
 
     fun mapperToCode(sendCodeRequestEntity: SendCodeRequestEntity) : SendCodeRequest =
         sendCodeRequestEntity.run { SendCodeRequest(email) }

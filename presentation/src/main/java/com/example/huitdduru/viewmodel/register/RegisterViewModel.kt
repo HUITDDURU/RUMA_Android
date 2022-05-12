@@ -12,9 +12,11 @@ import com.example.huitdduru.util.MutableEventFlow
 import com.example.huitdduru.util.asEventFlow
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
-import retrofit2.http.Multipart
-import java.lang.RuntimeException
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
+import retrofit2.HttpException
 import javax.inject.Inject
 
 @HiltViewModel
@@ -30,8 +32,8 @@ class RegisterViewModel @Inject constructor(
     var name: String = ""
     var email: String = ""
     var password: String = ""
-    var intro: String? = null
-    var file: MultipartBody.Part? = null
+    var intro: String? = ""
+    var file: String? = ""
 
     fun register() {
         viewModelScope.launch {
@@ -40,11 +42,13 @@ class RegisterViewModel @Inject constructor(
                     name,
                     email,
                     password,
-                    intro!!,
-                    file!!))
+                    intro,
+                    file
+                ))
             }.onSuccess {
                 event(Event.SuccessRegister(true))
             }.onFailure {
+                it
             }
         }
     }
@@ -68,7 +72,7 @@ class RegisterViewModel @Inject constructor(
             }.onSuccess {
                 event(Event.SuccessEmailCertify(true))
             }.onFailure {
-
+                it
             }
         }
     }
@@ -78,8 +82,6 @@ class RegisterViewModel @Inject constructor(
             _eventFlow.emit(event)
         }
     }
-
-
 
     sealed class Event {
         data class SuccessRegister(var state: Boolean = false) : Event()
