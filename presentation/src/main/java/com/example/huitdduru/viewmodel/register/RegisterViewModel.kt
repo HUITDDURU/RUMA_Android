@@ -6,6 +6,7 @@ import com.example.domain.entity.auth.CertifyRequestEntity
 import com.example.domain.entity.auth.RegisterRequestEntity
 import com.example.domain.entity.auth.SendCodeRequestEntity
 import com.example.domain.usecase.auth.CertifyUseCase
+import com.example.domain.usecase.auth.FileUploadUseCase
 import com.example.domain.usecase.auth.RegisterUseCase
 import com.example.domain.usecase.auth.SendCodeUseCase
 import com.example.huitdduru.util.MutableEventFlow
@@ -23,7 +24,8 @@ import javax.inject.Inject
 class RegisterViewModel @Inject constructor(
     private val registerUseCase: RegisterUseCase,
     private val sendCodeUseCase: SendCodeUseCase,
-    private val certifyUseCase: CertifyUseCase
+    private val certifyUseCase: CertifyUseCase,
+    private val fileUploadUseCase: FileUploadUseCase
 ) : ViewModel() {
 
     private val _eventFlow = MutableEventFlow<Event>()
@@ -38,13 +40,15 @@ class RegisterViewModel @Inject constructor(
     fun register() {
         viewModelScope.launch {
             kotlin.runCatching {
-                registerUseCase.invoke(RegisterRequestEntity(
-                    name,
-                    email,
-                    password,
-                    intro,
-                    file
-                ))
+                registerUseCase.invoke(
+                    RegisterRequestEntity(
+                        name,
+                        email,
+                        password,
+                        intro,
+                        file
+                    )
+                )
             }.onSuccess {
                 event(Event.SuccessRegister(true))
             }.onFailure {
@@ -77,19 +81,38 @@ class RegisterViewModel @Inject constructor(
         }
     }
 
+    fun fileUpload(file: MultipartBody.Part) {
+        viewModelScope.launch {
+            kotlin.runCatching {
+                fileUploadUseCase.invoke(file)
+            }.onSuccess {
+                setImage(it)
+                event(Event.SuccessFileUpload(true))
+            }.onFailure {
+                it
+            }
+        }
+    }
+
     private fun event(event: Event) {
         viewModelScope.launch {
             _eventFlow.emit(event)
         }
     }
 
+    private fun setImage(url: HashMap<String, String>) {
+        file = url["imageUrl"]
+    }
+
     sealed class Event {
         data class SuccessRegister(var state: Boolean = false) : Event()
         data class SuccessEmailSend(var state: Boolean = false) : Event()
         data class SuccessEmailCertify(var state: Boolean = false) : Event()
+        data class SuccessFileUpload(var state: Boolean = false) : Event()
+        data class ImageUrl(var url: String) : Event()
         data class ErrorMessage(val errorMessage: String) : Event()
-        object BadRequest: Event()
-        object NotFound: Event()
-        object Conflict: Event()
+        object BadRequest : Event()
+        object NotFound : Event()
+        object Conflict : Event()
     }
 }
