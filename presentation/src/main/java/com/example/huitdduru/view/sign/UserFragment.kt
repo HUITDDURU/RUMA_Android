@@ -39,21 +39,23 @@ class UserFragment : BaseFragment<FragmentUserBinding>(R.layout.fragment_user) {
             startActivity(intent)
             requireActivity().finish()
         }
+        is Event.SuccessFileUpload -> {
+            binding.profileIv.clipToOutline = true
+            Glide.with(requireActivity())
+                .load(Uri.parse(vm.file))
+                .into(binding.profileIv)
+        }
         else -> {}
     }
 
     private val profile =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
             if(it.resultCode == Activity.RESULT_OK){
-                binding.profileIv.clipToOutline = true
-                Glide.with(requireActivity())
-                    .load(it.data?.data)
-                    .into(binding.profileIv)
-                vm.file = galleryUtil.uriToMultipart(
+                vm.fileUpload(galleryUtil.uriToMultipart(
                     requireContext(),
                     it.data?.data!!.path!!,
                     it.data?.data!!
-                )
+                ))
             }
         }
 
