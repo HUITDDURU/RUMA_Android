@@ -37,4 +37,8 @@ class AuthDataSourceImpl @Inject constructor(
         header: String
     ): TokenRefreshResponse = api.tokenRefresh(header)
 
+    override suspend fun fileUpload(
+        file: MultipartBody.Part
+    ): String = api.fileUpload(file)
+
 }
