@@ -49,6 +49,11 @@ class AuthRepositoryImpl @Inject constructor(
     ): TokenRefreshResponseEntity =
         mapperToRefreshEntity(authDataSource.tokenRefresh(header))
 
+    override suspend fun fileUpload(
+        file: MultipartBody.Part
+    ): String =
+        authDataSource.fileUpload(file)
+
     private suspend fun saveToken(loginResponseEntity: LoginResponseEntity){
         localAuthDataSource.apply {
             setAccessToken(loginResponseEntity.accessToken)
