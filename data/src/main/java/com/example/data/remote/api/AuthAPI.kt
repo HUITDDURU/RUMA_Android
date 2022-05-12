@@ -38,5 +38,5 @@ interface AuthAPI {
     @POST("/image")
     suspend fun fileUpload(
         @Part file: MultipartBody.Part
-    ): String
+    ): HashMap<String, String>
 }

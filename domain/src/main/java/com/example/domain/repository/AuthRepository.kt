@@ -9,5 +9,5 @@ interface AuthRepository {
     suspend fun sendCode(body: SendCodeRequestEntity)
     suspend fun certify(body: CertifyRequestEntity)
     suspend fun tokenRefresh(header: String): TokenRefreshResponseEntity
-    suspend fun fileUpload(file: MultipartBody.Part): String
+    suspend fun fileUpload(file: MultipartBody.Part): HashMap<String, String>
 }

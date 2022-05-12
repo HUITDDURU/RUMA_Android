@@ -15,5 +15,5 @@ interface AuthDataSource {
     suspend fun sendCode(body: SendCodeRequest)
     suspend fun certify(body: CertifyRequest)
     suspend fun tokenRefresh(header: String) : TokenRefreshResponse
-    suspend fun fileUpload(file: MultipartBody.Part): String
+    suspend fun fileUpload(file: MultipartBody.Part): HashMap<String, String>
 }

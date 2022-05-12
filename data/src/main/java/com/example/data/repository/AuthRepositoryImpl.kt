@@ -51,7 +51,7 @@ class AuthRepositoryImpl @Inject constructor(
 
     override suspend fun fileUpload(
         file: MultipartBody.Part
-    ): String =
+    ): HashMap<String, String> =
         authDataSource.fileUpload(file)
 
     private suspend fun saveToken(loginResponseEntity: LoginResponseEntity){

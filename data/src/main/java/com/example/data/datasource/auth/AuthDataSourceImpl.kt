@@ -39,6 +39,6 @@ class AuthDataSourceImpl @Inject constructor(
 
     override suspend fun fileUpload(
         file: MultipartBody.Part
-    ): String = api.fileUpload(file)
+    ): HashMap<String, String> = api.fileUpload(file)
 
 }
