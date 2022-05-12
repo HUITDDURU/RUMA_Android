@@ -33,4 +33,10 @@ interface AuthAPI {
     suspend fun tokenRefresh(
         @Header("refresh-token") refresh_token: String
     ): TokenRefreshResponse
+
+    @Multipart
+    @POST("/image")
+    suspend fun fileUpload(
+        @Part file: MultipartBody.Part
+    ): String
 }
