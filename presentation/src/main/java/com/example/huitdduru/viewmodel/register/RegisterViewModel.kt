@@ -1,6 +1,6 @@
 package com.example.huitdduru.viewmodel.register
 
-import androidx.lifecycle.ViewModel
+=import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.entity.auth.CertifyRequestEntity
 import com.example.domain.entity.auth.RegisterRequestEntity
@@ -13,10 +13,7 @@ import com.example.huitdduru.util.MutableEventFlow
 import com.example.huitdduru.util.asEventFlow
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
-import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.HttpException
 import javax.inject.Inject
 
@@ -64,7 +61,9 @@ class RegisterViewModel @Inject constructor(
             }.onSuccess {
                 event(Event.SuccessEmailSend(true))
             }.onFailure {
-
+                when(it){
+                    is HttpException -> event(Event.ErrorMessage("이메일 형식이 올바르지 않습니다."))
+                }
             }
         }
     }
@@ -109,7 +108,6 @@ class RegisterViewModel @Inject constructor(
         data class SuccessEmailSend(var state: Boolean = false) : Event()
         data class SuccessEmailCertify(var state: Boolean = false) : Event()
         data class SuccessFileUpload(var state: Boolean = false) : Event()
-        data class ImageUrl(var url: String) : Event()
         data class ErrorMessage(val errorMessage: String) : Event()
         object BadRequest : Event()
         object NotFound : Event()

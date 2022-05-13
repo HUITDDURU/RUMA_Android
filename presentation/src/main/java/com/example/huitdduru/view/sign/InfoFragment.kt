@@ -56,6 +56,9 @@ class InfoFragment : BaseFragment<FragmentInfoBinding>(R.layout.fragment_info) {
             vm.password = binding.passwordEt.text.toString().trim()
             (activity as RegisterActivity).replace(CertifyFragment())
         }
+        is Event.ErrorMessage -> {
+            showToast(event.errorMessage, ToastType.ERROR)
+        }
         else -> {}
     }
 }
