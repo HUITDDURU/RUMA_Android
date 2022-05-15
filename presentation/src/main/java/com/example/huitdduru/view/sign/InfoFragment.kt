@@ -59,6 +59,6 @@ class InfoFragment : BaseFragment<FragmentInfoBinding>(R.layout.fragment_info) {
         is Event.ErrorMessage -> {
             showToast(event.errorMessage, ToastType.ERROR)
         }
-        else -> {}
+        else -> showToast("알 수 없는 오류가 발생했습니다.", ToastType.ERROR)
     }
 }

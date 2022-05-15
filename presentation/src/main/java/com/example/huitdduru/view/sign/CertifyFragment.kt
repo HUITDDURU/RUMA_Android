@@ -40,6 +40,7 @@ class CertifyFragment : BaseFragment<FragmentCertifyBinding>(R.layout.fragment_c
             showToast("인증되었습니다!", ToastType.SUCCESS)
             (activity as RegisterActivity).replace(UserFragment())
         }
-        else -> {}
+        is Event.ErrorMessage -> showToast(event.errorMessage, ToastType.ERROR)
+        else -> showToast("알 수 없는 오류가 발생했습니다.", ToastType.ERROR)
     }
 }
