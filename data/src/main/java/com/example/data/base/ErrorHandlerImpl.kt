@@ -7,8 +7,9 @@ import retrofit2.HttpException
 import java.net.ConnectException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
+import javax.inject.Inject
 
-abstract class ErrorHandlerImpl : ErrorHandler {
+class ErrorHandlerImpl @Inject constructor() : ErrorHandler {
     override suspend fun<T> invoke(func: suspend () -> T): T =
         try {
             withContext(Dispatchers.IO){
