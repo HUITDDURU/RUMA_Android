@@ -1,4 +1,4 @@
-package com.example.huitdduru.view.base
+package com.example.huitdduru.base
 
 import android.annotation.SuppressLint
 import android.os.Bundle

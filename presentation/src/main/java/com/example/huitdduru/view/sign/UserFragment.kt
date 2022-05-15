@@ -13,7 +13,7 @@ import com.example.huitdduru.databinding.FragmentUserBinding
 import com.example.huitdduru.util.GalleryUtil
 import com.example.huitdduru.util.ToastType
 import com.example.huitdduru.util.repeatOnStarted
-import com.example.huitdduru.view.base.BaseFragment
+import com.example.huitdduru.base.BaseFragment
 import com.example.huitdduru.viewmodel.register.RegisterViewModel
 import com.example.huitdduru.viewmodel.register.RegisterViewModel.Event
 import kotlinx.coroutines.flow.collect

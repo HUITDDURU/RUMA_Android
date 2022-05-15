@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.example.huitdduru.R
 import com.example.huitdduru.databinding.ActivityRegisterBinding
-import com.example.huitdduru.view.base.BaseActivity
+import com.example.huitdduru.base.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
