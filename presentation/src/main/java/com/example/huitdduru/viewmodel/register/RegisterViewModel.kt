@@ -1,7 +1,11 @@
 package com.example.huitdduru.viewmodel.register
 
-=import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.domain.base.BadRequest
+import com.example.domain.base.Conflict
+import com.example.domain.base.NotFound
+import com.example.domain.base.ServerError
 import com.example.domain.entity.auth.CertifyRequestEntity
 import com.example.domain.entity.auth.RegisterRequestEntity
 import com.example.domain.entity.auth.SendCodeRequestEntity
@@ -14,8 +18,8 @@ import com.example.huitdduru.util.asEventFlow
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import okhttp3.MultipartBody
-import retrofit2.HttpException
 import javax.inject.Inject
+
 
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
@@ -49,7 +53,10 @@ class RegisterViewModel @Inject constructor(
             }.onSuccess {
                 event(Event.SuccessRegister(true))
             }.onFailure {
-                it
+                when(it){
+                    is BadRequest -> { event(Event.ErrorMessage("잘못된 요청 구문입니다.")) }
+                    is NotFound -> { event(Event.ErrorMessage("잘못된 요청입니다.")) }
+                }
             }
         }
     }
@@ -62,7 +69,10 @@ class RegisterViewModel @Inject constructor(
                 event(Event.SuccessEmailSend(true))
             }.onFailure {
                 when(it){
-                    is HttpException -> event(Event.ErrorMessage("이메일 형식이 올바르지 않습니다."))
+                    is BadRequest -> { event(Event.ErrorMessage("잘못된 요청 구문입니다.")) }
+                    is NotFound -> { event(Event.ErrorMessage("잘못된 요청입니다..")) }
+                    is Conflict -> { event(Event.ErrorMessage("이미 사용중인 이메일 입니다."))}
+                    is ServerError -> { event(Event.ErrorMessage("잘못된 이메일 형식입니다."))}
                 }
             }
         }
@@ -75,7 +85,10 @@ class RegisterViewModel @Inject constructor(
             }.onSuccess {
                 event(Event.SuccessEmailCertify(true))
             }.onFailure {
-                it
+                when(it){
+                    is BadRequest -> { event(Event.ErrorMessage("잘못된 요청 구문입니다.")) }
+                    is NotFound -> { event(Event.ErrorMessage("인증번호가 일치하지 않습니다.")) }
+                }
             }
         }
     }
@@ -88,7 +101,10 @@ class RegisterViewModel @Inject constructor(
                 setImage(it)
                 event(Event.SuccessFileUpload(true))
             }.onFailure {
-                it
+                when(it){
+                    is BadRequest -> { event(Event.ErrorMessage("잘못된 요청 구문입니다.")) }
+                    is NotFound -> { event(Event.ErrorMessage("잘못된 요청입니다.")) }
+                }
             }
         }
     }
@@ -109,8 +125,5 @@ class RegisterViewModel @Inject constructor(
         data class SuccessEmailCertify(var state: Boolean = false) : Event()
         data class SuccessFileUpload(var state: Boolean = false) : Event()
         data class ErrorMessage(val errorMessage: String) : Event()
-        object BadRequest : Event()
-        object NotFound : Event()
-        object Conflict : Event()
     }
 }
