@@ -10,9 +10,7 @@ import com.example.data.mapper.AuthMapper.mapperToRefreshEntity
 import com.example.data.mapper.AuthMapper.mapperToRegister
 import com.example.domain.entity.auth.*
 import com.example.domain.repository.AuthRepository
-import com.example.domain.util.RemoteErrorEmitter
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
