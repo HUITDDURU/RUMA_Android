@@ -17,7 +17,7 @@ class AuthDataSourceImpl @Inject constructor(
 ) : AuthDataSource {
     override suspend fun login(
         body: LoginRequest
-    ): LoginResponse = api.login(body)
+    ): LoginResponse = errorHandler { api.login(body) }
 
 
     override suspend fun register(
