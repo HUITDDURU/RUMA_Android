@@ -3,6 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="fragment"
+            type="com.example.huitdduru.view.sign.CertifyFragment" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,11 +32,13 @@
             android:fontFamily="@font/font_noto_sans_kr_bold"/>
 
         <EditText
+            android:id="@+id/code_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:hint="@string/sign_up_certify_hint"
             android:textSize="14sp"
+            android:inputType="number"
             android:fontFamily="@font/font_noto_sans_kr_regular"/>
 
         <EditText
@@ -55,6 +63,7 @@
             android:layout_height="?attr/actionBarSize"
             android:layout_marginTop="50dp"
             android:text="@string/sign_up_next"
+            android:onClick="@{() -> fragment.certify()}"
             android:textStyle="bold"
             android:textSize="16sp"
             android:backgroundTint="@color/primary"/>

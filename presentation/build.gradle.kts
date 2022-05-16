@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("dagger.hilt.android.plugin")
+    kotlin("kapt")
 }
 
 android {
@@ -44,6 +46,7 @@ dependencies {
     implementation(Dependency.AndroidX.APP_COMPAT)
     implementation(Dependency.Google.MATERIAL)
     implementation(Dependency.Library.LOTTIE)
+    implementation(Dependency.AndroidX.FRAGMENT_KTX)
     testImplementation(Dependency.UnitTest.JUNIT)
     androidTestImplementation(Dependency.AndroidTest.ANDROID_JUNIT)
     androidTestImplementation(Dependency.AndroidTest.ESPRESSO_CORE)
@@ -63,6 +66,11 @@ dependencies {
     implementation(Dependency.AndroidX.LIFECYCLE_VIEWMODEL_RUNTIME_KTX)
 
     implementation(Dependency.Google.HILT_ANDROID)
-    implementation(Dependency.Google.HILT_ANDROID_COMPILER)
+    kapt(Dependency.Google.HILT_ANDROID_COMPILER)
     implementation(Dependency.Google.HILT_VIEWMODEL)
+
+    implementation(Dependency.UI.TOASTY)
+
+    implementation(Dependency.Library.GLIDE)
+    implementation(Dependency.Library.GLIDE_COMPILER)
 }

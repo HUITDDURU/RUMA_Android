@@ -1,6 +1,8 @@
 package com.example.huitdduru.di
 
 import com.example.data.remote.api.AuthAPI
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,14 +35,20 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit(okHttpClient: OkHttpClient) : Retrofit =
+    fun provideRetrofit(okHttpClient: OkHttpClient, gson: Gson) : Retrofit =
         Retrofit.Builder()
             .client(okHttpClient)
-            .baseUrl("")
-            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl("http://3.39.139.93:9000/")
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
 
     @Provides
     fun provideAuthAPI(retrofit: Retrofit) : AuthAPI =
         retrofit.create(AuthAPI::class.java)
+
+    @Provides
+    fun provideGsonBuilder() : Gson =
+        GsonBuilder()
+            .setLenient()
+            .create()
 }
