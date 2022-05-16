@@ -73,4 +73,7 @@ dependencies {
 
     implementation(Dependency.Library.GLIDE)
     implementation(Dependency.Library.GLIDE_COMPILER)
+
+    implementation(Dependency.AndroidX.NAVIGATION_KTX)
+    implementation(Dependency.AndroidX.NAVIGATION_UI_KTX)
 }
