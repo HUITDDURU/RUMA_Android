@@ -25,7 +25,7 @@ object Dependency {
         const val DATA_STORE_CORE = "androidx.datastore:datastore-core:${Versions.DATA_STORE}"
 
         const val NAVIGATION_KTX = "androidx.navigation:navigation-fragment-ktx:${Versions.NAVIGATION}"
-        const val NAVIGATION_UI_KTX = "android.arch.navigation:navigation-ui-ktx:${Versions.NAVIGATION}"
+        const val NAVIGATION_UI_KTX = "androidx.navigation:navigation-ui-ktx:${Versions.NAVIGATION}"
     }
 
     object Google {
