@@ -40,7 +40,7 @@ class LoginViewModel @Inject constructor(
             }.onFailure {
                 when(it){
                     is BadRequest -> { event(Event.ErrorMessage("잘못된 요청 형식입니다.")) }
-                    is NotFound -> { event(Event.ErrorMessage("존재하지 않는 아이디 입니다.")) }
+                    is NotFound -> { event(Event.ErrorMessage("이메일 또는 비밀번호가 일치하지 않습니다.")) }
                 }
             }
         }
