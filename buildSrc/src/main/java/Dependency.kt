@@ -48,6 +48,8 @@ object Dependency {
         const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:${Versions.GLIDE}"
 
         const val LOTTIE = "com.airbnb.android:lottie:${Versions.LOTTIE}"
+
+        const val DATEPICKER_TIMELINE = "com.github.badoualy:datepicker-timeline:c6dcd05737"
     }
 
     object UnitTest {
