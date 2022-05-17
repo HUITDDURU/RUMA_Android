@@ -33,4 +33,6 @@ object Versions {
     const val MATERIAL = "1.5.0"
 
     const val TOASTY = "1.5.2"
+
+    const val NAVIGATION = "2.4.2"
 }

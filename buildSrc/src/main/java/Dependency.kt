@@ -23,6 +23,9 @@ object Dependency {
         const val DATA_STORE = "androidx.datastore:datastore:${Versions.DATA_STORE}"
         const val DATA_STORE_PREF = "androidx.datastore:datastore-preferences:${Versions.DATA_STORE}"
         const val DATA_STORE_CORE = "androidx.datastore:datastore-core:${Versions.DATA_STORE}"
+
+        const val NAVIGATION_KTX = "androidx.navigation:navigation-fragment-ktx:${Versions.NAVIGATION}"
+        const val NAVIGATION_UI_KTX = "androidx.navigation:navigation-ui-ktx:${Versions.NAVIGATION}"
     }
 
     object Google {
@@ -45,6 +48,8 @@ object Dependency {
         const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:${Versions.GLIDE}"
 
         const val LOTTIE = "com.airbnb.android:lottie:${Versions.LOTTIE}"
+
+        const val DATEPICKER_TIMELINE = "com.github.badoualy:datepicker-timeline:c6dcd05737"
     }
 
     object UnitTest {

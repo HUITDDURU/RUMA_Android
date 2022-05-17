@@ -47,6 +47,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
         is Event.SuccessLogin -> {
             val intent = Intent(this@LoginActivity, MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
         is Event.ErrorMessage -> { showToast(event.errorMessage, ToastType.ERROR) }
     }
