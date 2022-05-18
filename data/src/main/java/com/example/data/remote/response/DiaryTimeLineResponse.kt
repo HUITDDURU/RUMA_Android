@@ -2,7 +2,7 @@ package com.example.data.remote.response
 
 data class DiaryTimeLineResponse(
     val Id: Int,
-    val diaryTimeLineList: ArrayList<TimeLineDiary>,
+    val diaryTimeLineList: List<TimeLineDiary>,
     val isMine: Boolean
 ){
     data class TimeLineDiary(
