@@ -59,6 +59,8 @@ object Dependency {
         const val LOTTIE = "com.airbnb.android:lottie:${Versions.LOTTIE}"
 
         const val DATEPICKER_TIMELINE = "com.github.shrikanth7698:Collapsible-Calendar-View-Android:v1.0.3"
+
+        const val BLURRY = " jp.wasabeef:blurry:${Versions.BLURRY}"
     }
 
     object UnitTest {
