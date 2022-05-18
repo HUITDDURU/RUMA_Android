@@ -1,6 +1,7 @@
 package com.example.huitdduru.di
 
 import com.example.data.remote.api.AuthAPI
+import com.example.data.remote.api.DiaryAPI
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -45,6 +46,10 @@ object NetworkModule {
     @Provides
     fun provideAuthAPI(retrofit: Retrofit) : AuthAPI =
         retrofit.create(AuthAPI::class.java)
+
+    @Provides
+    fun provideDiaryAPI(retrofit: Retrofit) : DiaryAPI =
+        retrofit.create(DiaryAPI::class.java)
 
     @Provides
     fun provideGsonBuilder() : Gson =
