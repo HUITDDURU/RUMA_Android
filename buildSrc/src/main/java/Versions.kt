@@ -35,4 +35,7 @@ object Versions {
     const val TOASTY = "1.5.2"
 
     const val NAVIGATION = "2.4.2"
+
+    const val COMPOSE = "1.1.1"
+    const val BLURRY  = "4.0.1"
 }
