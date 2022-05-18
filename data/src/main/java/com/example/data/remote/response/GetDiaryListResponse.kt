@@ -1,10 +1,10 @@
-package com.example.domain.entity.diary
+package com.example.data.remote.response
 
-data class GetDiaryListResponseEntity(
+data class GetDiaryListResponse(
     val matchedUserName: String,
-    val list: List<DiaryResponseEntity>
+    val list: List<DiaryResponse>
 ){
-    data class DiaryResponseEntity(
+    data class DiaryResponse(
         val id: Int,
         val title: String,
         val feeling: String,
@@ -14,5 +14,3 @@ data class GetDiaryListResponseEntity(
         val writer: String
     )
 }
-
-
