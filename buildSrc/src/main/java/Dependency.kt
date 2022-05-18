@@ -35,6 +35,15 @@ object Dependency {
         const val HILT_GRADLE = "com.google.dagger:hilt-android-gradle-plugin:${Versions.HILT}"
 
         const val MATERIAL = "com.google.android.material:material:${Versions.MATERIAL}"
+
+//        const val COMPOSE_RUNTIME = "androidx.compose.runtime:runtime:${Versions.COMPOSE}"
+//        const val COMPOSE_UI = "androidx.compose.ui:ui:${Versions.COMPOSE}"
+//        const val COMPOSE_FOUNDATION = "androidx.compose.foundation:foundation:${Versions.COMPOSE}"
+//        const val COMPOSE_FOUNDATION_LAYOUT = "androidx.compose.foundation:foundation-layout:${Versions.COMPOSE}"
+//        const val COMPOSE_MATERIAL = "androidx.compose.material:material:${Versions.COMPOSE}"
+//        const val COMPOSE_RUNTIME_LIVEDATA = "androidx.compose.runtime:runtime-livedata:${Versions.COMPOSE}"
+//        const val COMPOSE_UI_TOOLING = "androidx.compose.ui:ui-tooling:${Versions.COMPOSE}"
+//        const val COMPOSE_THEME_ADAPTER = "com.google.android.material:compose-theme-adapter:${Versions.COMPOSE}"
     }
 
     object Library {
@@ -49,7 +58,7 @@ object Dependency {
 
         const val LOTTIE = "com.airbnb.android:lottie:${Versions.LOTTIE}"
 
-        const val DATEPICKER_TIMELINE = "com.github.badoualy:datepicker-timeline:c6dcd05737"
+        const val DATEPICKER_TIMELINE = "com.github.shrikanth7698:Collapsible-Calendar-View-Android:v1.0.3"
     }
 
     object UnitTest {
