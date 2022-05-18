@@ -1,4 +1,4 @@
-package com.example.data.datasource.auth
+package com.example.data.datasource
 
 import kotlinx.coroutines.flow.Flow
 

@@ -1,7 +1,7 @@
 package com.example.data.repository
 
-import com.example.data.datasource.auth.AuthDataSource
-import com.example.data.datasource.auth.LocalAuthDataSource
+import com.example.data.datasource.AuthDataSource
+import com.example.data.datasource.LocalAuthDataSource
 import com.example.data.mapper.AuthMapper.mapperToCertify
 import com.example.data.mapper.AuthMapper.mapperToCode
 import com.example.data.mapper.AuthMapper.mapperToLogin

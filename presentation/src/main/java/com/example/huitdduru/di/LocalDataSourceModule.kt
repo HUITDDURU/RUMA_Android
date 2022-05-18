@@ -1,7 +1,7 @@
 package com.example.huitdduru.di
 
-import com.example.data.datasource.auth.LocalAuthDataSource
-import com.example.data.datasource.auth.LocalAuthDataSourceImpl
+import com.example.data.datasource.LocalAuthDataSource
+import com.example.data.datasource.LocalAuthDataSourceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
