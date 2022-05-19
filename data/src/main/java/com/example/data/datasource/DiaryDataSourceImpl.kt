@@ -18,6 +18,6 @@ class DiaryDataSourceImpl @Inject constructor(
     override suspend fun getDiaryList(header: String, diaryId: Int): GetDiaryListResponse =
         errorHandler { diaryAPI.getDiaryList(header, diaryId) }
 
-    override suspend fun diaryTimeLine(header: String): DiaryTimeLineResponse =
+    override suspend fun diaryTimeLine(header: String): List<DiaryTimeLineResponse> =
         errorHandler { diaryAPI.diaryTimeLine(header) }
 }

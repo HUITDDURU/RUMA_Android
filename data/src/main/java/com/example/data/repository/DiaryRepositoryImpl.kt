@@ -21,6 +21,6 @@ class DiaryRepositoryImpl @Inject constructor(
     override suspend fun getDiaryList(header: String, diaryId: Int): GetDiaryListResponseEntity =
         mapperToGetDiaryList(diaryDataSource.getDiaryList(header, diaryId))
 
-    override suspend fun diaryTimeLine(header: String): DiaryTimeLineResponseEntity =
+    override suspend fun diaryTimeLine(header: String): List<DiaryTimeLineResponseEntity> =
         mapperToDiaryTimeLine(diaryDataSource.diaryTimeLine(header))
 }

@@ -1,7 +1,6 @@
 package com.example.data.datasource
 
 import com.example.data.local.storage.LocalDataStorage
-import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class LocalAuthDataSourceImpl @Inject constructor(
@@ -11,7 +10,7 @@ class LocalAuthDataSourceImpl @Inject constructor(
         localDataStorage.setAccessToken(accessToken)
     }
 
-    override suspend fun getAccessToken(): Flow<String> =
+    override suspend fun getAccessToken(): String? =
         localDataStorage.getAccessToken()
 
     override suspend fun resetAccessToken() {
@@ -22,7 +21,7 @@ class LocalAuthDataSourceImpl @Inject constructor(
         localDataStorage.setRefreshToken(refreshToken)
     }
 
-    override suspend fun getRefreshToken(): Flow<String> =
+    override suspend fun getRefreshToken(): String? =
         localDataStorage.getRefreshToken()
 
     override suspend fun resetRefreshToken() {

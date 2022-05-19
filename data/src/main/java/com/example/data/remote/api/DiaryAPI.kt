@@ -23,5 +23,5 @@ interface DiaryAPI {
     @GET("/diary/chronology")
     suspend fun diaryTimeLine(
         @Header("Authorization") header: String
-    ) : DiaryTimeLineResponse
+    ) : List<DiaryTimeLineResponse>
 }

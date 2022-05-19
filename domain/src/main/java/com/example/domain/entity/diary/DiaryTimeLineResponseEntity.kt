@@ -2,7 +2,7 @@ package com.example.domain.entity.diary
 
 data class DiaryTimeLineResponseEntity(
     val Id: Int,
-    val diaryTimeLineList: List<TimeLineDiaryEntity>,
+    val diaryTimeLine: TimeLineDiaryEntity,
     val isMine: Boolean
 ){
     data class TimeLineDiaryEntity(

@@ -23,12 +23,12 @@ object DiaryMapper {
             )
         }
 
-    fun mapperToDiaryTimeLine(diaryTimeLineResponseEntity: DiaryTimeLineResponse): DiaryTimeLineResponseEntity =
-        diaryTimeLineResponseEntity.run {
+    fun mapperToDiaryTimeLine(diaryTimeLineResponseEntity: List<DiaryTimeLineResponse>): List<DiaryTimeLineResponseEntity> =
+        diaryTimeLineResponseEntity.map {
             DiaryTimeLineResponseEntity(
-                Id,
-                mapperToTimeLine(diaryTimeLineResponseEntity.diaryTimeLineList),
-                isMine
+                it.Id,
+                mapperToTimeLine(it.diaryTimeLine),
+                it.isMine
             )
         }
 
@@ -45,13 +45,8 @@ object DiaryMapper {
             )
         }
 
-    private fun mapperToTimeLine(timeLineDiaryEntity: List<TimeLineDiary>):
-            List<TimeLineDiaryEntity> = timeLineDiaryEntity.toList().map {
-                TimeLineDiaryEntity(
-                    it.id,
-                    it.title,
-                    it.date,
-                    it.writer
-                )
+    private fun mapperToTimeLine(timeLineDiaryEntity: TimeLineDiary):
+            TimeLineDiaryEntity = timeLineDiaryEntity.run {
+                TimeLineDiaryEntity(id, title, date, writer)
     }
 }

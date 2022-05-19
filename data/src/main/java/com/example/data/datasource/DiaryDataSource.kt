@@ -7,5 +7,5 @@ import com.example.data.remote.response.GetDiaryListResponse
 interface DiaryDataSource {
     suspend fun writeDiary(header: String, diaryId: Int, body: WriteDiaryRequest)
     suspend fun getDiaryList(header: String, diaryId: Int) : GetDiaryListResponse
-    suspend fun diaryTimeLine(header: String) : DiaryTimeLineResponse
+    suspend fun diaryTimeLine(header: String) : List<DiaryTimeLineResponse>
 }

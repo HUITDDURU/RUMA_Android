@@ -7,6 +7,6 @@ import javax.inject.Inject
 class DiaryTimeLineUseCase @Inject constructor(
     private val diaryRepository: DiaryRepository
 ){
-    suspend fun invoke(header: String): DiaryTimeLineResponseEntity =
+    suspend fun invoke(header: String): List<DiaryTimeLineResponseEntity> =
         diaryRepository.diaryTimeLine(header)
 }

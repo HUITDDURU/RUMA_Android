@@ -79,6 +79,4 @@ dependencies {
     implementation(Dependency.AndroidX.NAVIGATION_UI_KTX)
 
     implementation(Dependency.Library.DATEPICKER_TIMELINE)
-
-    implementation(Dependency.Library.BLURRY)
 }

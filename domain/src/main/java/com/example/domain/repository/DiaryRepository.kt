@@ -7,5 +7,5 @@ import com.example.domain.entity.diary.WriteDiaryRequestEntity
 interface DiaryRepository {
     suspend fun writeDiary(header: String, diaryId: Int, body: WriteDiaryRequestEntity)
     suspend fun getDiaryList(header: String, diaryId: Int): GetDiaryListResponseEntity
-    suspend fun diaryTimeLine(header: String): DiaryTimeLineResponseEntity
+    suspend fun diaryTimeLine(header: String): List<DiaryTimeLineResponseEntity>
 }
