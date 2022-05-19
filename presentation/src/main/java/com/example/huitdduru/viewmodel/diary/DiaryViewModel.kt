@@ -7,6 +7,7 @@ import com.example.domain.base.BadRequest
 import com.example.domain.base.Forbidden
 import com.example.domain.base.NotFound
 import com.example.domain.base.UnAuthorized
+import com.example.domain.entity.diary.DiaryTimeLineResponseEntity
 import com.example.domain.entity.diary.GetDiaryListResponseEntity
 import com.example.domain.entity.diary.WriteDiaryRequestEntity
 import com.example.domain.usecase.diary.DiaryTimeLineUseCase
@@ -90,9 +91,30 @@ class DiaryViewModel @Inject constructor(
         }
     }
 
+    fun timeLine() {
+        viewModelScope.launch {
+            kotlin.runCatching {
+                diaryTimeLineUseCase.invoke(
+                    localDataStorage.getAccessToken()!!
+                )
+            }.onSuccess {
+                event(Event.SuccessTimeLine(it))
+            }.onFailure {
+                when(it) {
+                    is BadRequest -> { event(Event.ErrorMessage("잘못된 요청 형식입니다.")) }
+                    is UnAuthorized -> { event(Event.ErrorMessage("만료된 토큰입니다.")) }
+                    is Forbidden -> { event(Event.ErrorMessage("요청 권한이 없습니다.")) }
+                    is NotFound -> { event(Event.ErrorMessage("잘못된 요청입니다.")) }
+                    }
+                }
+            }
+        }
+    }
+
     sealed class Event {
         data class SuccessWrite(val status: Boolean = false) : Event()
         data class SuccessGetList(val diaryList : GetDiaryListResponseEntity) : Event()
+        data class SuccessTimeLine(val timeLineList : List<DiaryTimeLineResponseEntity>) : Event()
         data class ErrorMessage(val errorMessage: String) : Event()
     }
 }
