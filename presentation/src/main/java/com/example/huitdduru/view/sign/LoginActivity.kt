@@ -1,8 +1,10 @@
 package com.example.huitdduru.view.sign
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.core.view.WindowInsetsControllerCompat
 import com.example.huitdduru.R
 import com.example.huitdduru.databinding.ActivityLoginBinding
 import com.example.huitdduru.base.BaseActivity
@@ -22,6 +24,12 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.activity = this
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val window = this.window
+            WindowInsetsControllerCompat(window, binding.root).isAppearanceLightStatusBars = true
+            window.statusBarColor = this.getColor(R.color.white)
+        }
 
         repeatOnStarted {
             vm.eventFlow.collect { event -> handlerEvent(event) }
