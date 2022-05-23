@@ -1,9 +1,11 @@
 package com.example.data.mapper
 
 import com.example.data.remote.request.WriteDiaryRequest
+import com.example.data.remote.response.DateDiaryResponse
 import com.example.data.remote.response.GetDiaryListResponse
 import com.example.data.remote.response.GetDiaryListResponse.DiaryResponse
 import com.example.data.remote.response.MonthDiaryResponse
+import com.example.domain.entity.diary.DateDiaryResponseEntity
 import com.example.domain.entity.diary.GetDiaryListResponseEntity
 import com.example.domain.entity.diary.GetDiaryListResponseEntity.DiaryResponseEntity
 import com.example.domain.entity.diary.MonthDiaryResponseEntity
@@ -26,6 +28,18 @@ object DiaryMapper {
             MonthDiaryResponseEntity(
                 it.date,
                 it.count
+            )
+        }
+
+    fun mapperToDateDiary(dateDiaryResponse: List<DateDiaryResponse>): List<DateDiaryResponseEntity> =
+        dateDiaryResponse.map {
+            DateDiaryResponseEntity(
+                it.id,
+                it.title,
+                it.date,
+                it.writer,
+                it.imageUrl,
+                it.isMine
             )
         }
 
