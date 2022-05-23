@@ -20,7 +20,7 @@ class LocalDataStorage @Inject constructor(
 
     suspend fun setAccessToken(data: String) {
         context.dataStore.edit {
-            it[ACCESS_TOKEN_KEY] = data
+            it[ACCESS_TOKEN_KEY] = "Bearer $data"
         }
     }
 
@@ -35,7 +35,7 @@ class LocalDataStorage @Inject constructor(
 
     suspend fun setRefreshToken(data: String) {
         context.dataStore.edit {
-            it[REFRESH_TOKEN_KEY] = data
+            it[REFRESH_TOKEN_KEY] = "Bearer $data"
         }
     }
 
