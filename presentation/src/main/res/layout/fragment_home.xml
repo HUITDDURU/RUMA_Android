@@ -78,6 +78,7 @@
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
             <com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar
+                android:id="@+id/calendar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:selectedItem_textColor="@color/secondary"
