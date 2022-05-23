@@ -2,8 +2,8 @@ package com.example.data.datasource
 
 import com.example.data.remote.api.DiaryAPI
 import com.example.data.remote.request.WriteDiaryRequest
-import com.example.data.remote.response.DiaryTimeLineResponse
 import com.example.data.remote.response.GetDiaryListResponse
+import com.example.data.remote.response.MonthDiaryResponse
 import com.example.domain.base.ErrorHandler
 import javax.inject.Inject
 
@@ -18,6 +18,6 @@ class DiaryDataSourceImpl @Inject constructor(
     override suspend fun getDiaryList(header: String, diaryId: Int): GetDiaryListResponse =
         errorHandler { diaryAPI.getDiaryList(header, diaryId) }
 
-    override suspend fun diaryTimeLine(header: String): List<DiaryTimeLineResponse> =
-        errorHandler { diaryAPI.diaryTimeLine(header) }
+    override suspend fun getMonthDiary(header: String, year: Int, month: Int): List<MonthDiaryResponse> =
+        errorHandler { diaryAPI.getMonthDiary(header, year, month) }
 }
