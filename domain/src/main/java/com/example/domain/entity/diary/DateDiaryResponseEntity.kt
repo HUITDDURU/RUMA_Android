@@ -5,6 +5,6 @@ data class DateDiaryResponseEntity(
     val title: String,
     val date: String,
     val writer: String,
-    val imageUrl: String,
+    val imageUrl: String?,
     val isMine: Boolean
 )
