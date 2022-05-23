@@ -1,6 +1,7 @@
 package com.example.data.remote.api
 
 import com.example.data.remote.request.WriteDiaryRequest
+import com.example.data.remote.response.DateDiaryResponse
 import com.example.data.remote.response.GetDiaryListResponse
 import com.example.data.remote.response.MonthDiaryResponse
 import retrofit2.http.*
@@ -26,4 +27,10 @@ interface DiaryAPI {
         @Path("year") year: Int,
         @Path("month") month: Int
     ) : List<MonthDiaryResponse>
+
+    @GET("/calendar/{date}")
+    suspend fun getDateDiary(
+        @Header("Authorization") header: String,
+        @Path("date") date: String
+    ) : List<DateDiaryResponse>
 }
