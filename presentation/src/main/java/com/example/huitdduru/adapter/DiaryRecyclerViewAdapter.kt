@@ -20,6 +20,7 @@ class DiaryRecyclerViewAdapter :
         private var dateDiaryResponseEntity: DateDiaryResponseEntity? = null
 
         fun bind(dateDiaryResponseEntity: DateDiaryResponseEntity) {
+            binding.diary = dateDiaryResponseEntity
             this.dateDiaryResponseEntity = dateDiaryResponseEntity
         }
     }
