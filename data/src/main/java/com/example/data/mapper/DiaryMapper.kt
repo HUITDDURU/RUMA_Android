@@ -1,14 +1,12 @@
 package com.example.data.mapper
 
 import com.example.data.remote.request.WriteDiaryRequest
-import com.example.data.remote.response.DiaryTimeLineResponse
-import com.example.data.remote.response.DiaryTimeLineResponse.TimeLineDiary
 import com.example.data.remote.response.GetDiaryListResponse
 import com.example.data.remote.response.GetDiaryListResponse.DiaryResponse
-import com.example.domain.entity.diary.DiaryTimeLineResponseEntity
-import com.example.domain.entity.diary.DiaryTimeLineResponseEntity.TimeLineDiaryEntity
+import com.example.data.remote.response.MonthDiaryResponse
 import com.example.domain.entity.diary.GetDiaryListResponseEntity
 import com.example.domain.entity.diary.GetDiaryListResponseEntity.DiaryResponseEntity
+import com.example.domain.entity.diary.MonthDiaryResponseEntity
 import com.example.domain.entity.diary.WriteDiaryRequestEntity
 
 object DiaryMapper {
@@ -23,12 +21,11 @@ object DiaryMapper {
             )
         }
 
-    fun mapperToDiaryTimeLine(diaryTimeLineResponseEntity: List<DiaryTimeLineResponse>): List<DiaryTimeLineResponseEntity> =
-        diaryTimeLineResponseEntity.map {
-            DiaryTimeLineResponseEntity(
-                it.Id,
-                mapperToTimeLine(it.diaryTimeLine),
-                it.isMine
+    fun mapperToMonthDiary(monthDiaryResponse: List<MonthDiaryResponse>): List<MonthDiaryResponseEntity> =
+        monthDiaryResponse.map {
+            MonthDiaryResponseEntity(
+                it.date,
+                it.count
             )
         }
 
@@ -44,9 +41,4 @@ object DiaryMapper {
                 it.writer
             )
         }
-
-    private fun mapperToTimeLine(timeLineDiaryEntity: TimeLineDiary):
-            TimeLineDiaryEntity = timeLineDiaryEntity.run {
-                TimeLineDiaryEntity(id, title, date, writer)
-    }
 }
