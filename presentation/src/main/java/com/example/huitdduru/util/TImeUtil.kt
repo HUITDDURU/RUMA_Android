@@ -24,3 +24,10 @@ fun getDay(): String =
 @SuppressLint("SimpleDateFormat")
 fun getDate(): String =
     SimpleDateFormat("yyyy-MM-dd").format(currentTime())
+
+@SuppressLint("SimpleDateFormat")
+fun getDate(date: String): String {
+    val dateFormat = SimpleDateFormat("yyyy-MM-dd")
+    val formatDate = dateFormat.parse(date)
+    return dateFormat.format(formatDate!!)
+}
