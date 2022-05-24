@@ -1,4 +1,4 @@
-package com.example.huitdduru.util
+package com.example.huitdduru.adapter.binding
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
