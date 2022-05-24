@@ -7,6 +7,10 @@
         <variable
             name="fragment"
             type="com.example.huitdduru.view.home.HomeFragment" />
+
+        <variable
+            name="timeLine"
+            type="com.example.domain.entity.diary.MonthDiaryResponseEntity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -59,21 +63,10 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
+                android:layout_marginEnd="20dp"
                 android:src="@mipmap/main_trade_diary"
-                app:layout_constraintBottom_toTopOf="@+id/trade_diary_cnt_tv"
-                app:layout_constraintEnd_toEndOf="@+id/trade_diary_cnt_tv" />
-
-            <TextView
-                android:id="@+id/trade_diary_cnt_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd=   "20dp"
-                android:text="교환한 일기 3건"
-                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
                 app:layout_constraintEnd_toEndOf="parent" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.cardview.widget.CardView
