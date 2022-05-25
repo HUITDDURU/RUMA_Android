@@ -10,7 +10,7 @@
         android:title="교환"/>
     <item
         android:id="@+id/writeFragment"
-        android:icon="@drawable/ic_main"
+        android:icon="@drawable/ic_write"
         android:title="일기쓰기"/>
     <item
         android:id="@+id/myPageFragment"
