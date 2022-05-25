@@ -1,6 +1,7 @@
 package com.example.huitdduru.view.home
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
@@ -23,7 +24,7 @@ import kotlinx.coroutines.flow.collect
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     private val vm: DiaryViewModel by viewModels()
-    private val adapter = DiaryRecyclerViewAdapter()
+    private lateinit var adapter :DiaryRecyclerViewAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -32,7 +33,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         repeatOnStarted {
             vm.eventFlow.collect { event -> handleEvent(event) }
         }
-
+        adapter = DiaryRecyclerViewAdapter { moveToDiary() }
         vm.getMonthDiary(getYear().toInt(), getMonth().toInt())
         vm.getDateDiary(getDate())
 
@@ -100,6 +101,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                 )
             }
         }
+    }
+
+    private fun moveToDiary() {
+        val intent = Intent(requireContext(), DiaryActivity::class.java)
+        startActivity(intent)
     }
 
     @SuppressLint("SimpleDateFormat")

@@ -11,10 +11,10 @@ import com.example.domain.entity.diary.MonthDiaryResponseEntity
 import com.example.huitdduru.R
 import com.example.huitdduru.databinding.HomeDiaryItemBinding
 
-class DiaryRecyclerViewAdapter :
+class DiaryRecyclerViewAdapter(private val onClick: () -> Unit) :
     ListAdapter<DateDiaryResponseEntity, DiaryRecyclerViewAdapter.ViewHolder>(DiaryDiffUtil) {
 
-    class ViewHolder(private val binding: HomeDiaryItemBinding) :
+    class ViewHolder(private val binding: HomeDiaryItemBinding, private val onClick: () -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
 
         private var dateDiaryResponseEntity: DateDiaryResponseEntity? = null
@@ -22,6 +22,7 @@ class DiaryRecyclerViewAdapter :
         fun bind(dateDiaryResponseEntity: DateDiaryResponseEntity) {
             binding.diary = dateDiaryResponseEntity
             this.dateDiaryResponseEntity = dateDiaryResponseEntity
+            binding.root.setOnClickListener{ onClick() }
         }
     }
 
@@ -32,7 +33,7 @@ class DiaryRecyclerViewAdapter :
             parent,
             false
         )
-        return ViewHolder(binding)
+        return ViewHolder(binding, onClick)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
