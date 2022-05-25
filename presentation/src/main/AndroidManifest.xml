@@ -16,6 +16,9 @@
         android:theme="@style/Theme.HUITDDURU"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".view.home.DiaryActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.sign.SuccessActivity"
             android:exported="false" />
         <activity
