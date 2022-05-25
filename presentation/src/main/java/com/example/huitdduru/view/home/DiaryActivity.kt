@@ -9,6 +9,7 @@ import com.example.huitdduru.databinding.ActivityDiaryBinding
 class DiaryActivity : BaseActivity<ActivityDiaryBinding>(R.layout.activity_diary) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding.activity = this
 
         binding.contentTv.movementMethod = ScrollingMovementMethod()
     }
