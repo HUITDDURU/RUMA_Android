@@ -38,4 +38,5 @@ object Versions {
 
     const val COMPOSE = "1.1.1"
     const val BLURRY  = "4.0.1"
+    const val EMOJI2 = "1.0.0-alpha03"
 }

@@ -47,7 +47,6 @@ dependencies {
     implementation(Dependency.Google.MATERIAL)
     implementation(Dependency.Library.LOTTIE)
     implementation(Dependency.AndroidX.FRAGMENT_KTX)
-    implementation("androidx.legacy:legacy-support-v4:1.0.0")
     testImplementation(Dependency.UnitTest.JUNIT)
     androidTestImplementation(Dependency.AndroidTest.ANDROID_JUNIT)
     androidTestImplementation(Dependency.AndroidTest.ESPRESSO_CORE)
@@ -79,4 +78,7 @@ dependencies {
     implementation(Dependency.AndroidX.NAVIGATION_UI_KTX)
 
     implementation(Dependency.Library.DATEPICKER_TIMELINE)
+
+    implementation(Dependency.Google.EMOJI2)
+    implementation(Dependency.Google.EMOJI2_VIEWS)
 }

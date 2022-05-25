@@ -36,6 +36,9 @@ object Dependency {
 
         const val MATERIAL = "com.google.android.material:material:${Versions.MATERIAL}"
 
+        const val EMOJI2 = "androidx.emoji2:emoji2:${Versions.EMOJI2}"
+        const val EMOJI2_VIEWS = "androidx.emoji2:emoji2-views:${Versions.EMOJI2}"
+
 //        const val COMPOSE_RUNTIME = "androidx.compose.runtime:runtime:${Versions.COMPOSE}"
 //        const val COMPOSE_UI = "androidx.compose.ui:ui:${Versions.COMPOSE}"
 //        const val COMPOSE_FOUNDATION = "androidx.compose.foundation:foundation:${Versions.COMPOSE}"
