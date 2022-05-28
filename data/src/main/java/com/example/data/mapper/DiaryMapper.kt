@@ -2,14 +2,12 @@ package com.example.data.mapper
 
 import com.example.data.remote.request.WriteDiaryRequest
 import com.example.data.remote.response.DateDiaryResponse
+import com.example.data.remote.response.DiaryDetailResponse
 import com.example.data.remote.response.GetDiaryListResponse
 import com.example.data.remote.response.GetDiaryListResponse.DiaryResponse
 import com.example.data.remote.response.MonthDiaryResponse
-import com.example.domain.entity.diary.DateDiaryResponseEntity
-import com.example.domain.entity.diary.GetDiaryListResponseEntity
+import com.example.domain.entity.diary.*
 import com.example.domain.entity.diary.GetDiaryListResponseEntity.DiaryResponseEntity
-import com.example.domain.entity.diary.MonthDiaryResponseEntity
-import com.example.domain.entity.diary.WriteDiaryRequestEntity
 
 object DiaryMapper {
     fun mapperToWriteDiaryEntity(writeDiaryRequest: WriteDiaryRequestEntity): WriteDiaryRequest =
@@ -53,6 +51,19 @@ object DiaryMapper {
                 it.content,
                 it.date,
                 it.writer
+            )
+        }
+
+    fun mapperToDiaryDetail(diaryDetailResponse: DiaryDetailResponse): DiaryDetailResponseEntity =
+        diaryDetailResponse.run {
+            DiaryDetailResponseEntity(
+                id,
+                title,
+                feeling,
+                date,
+                content,
+                imageUrl,
+                writer
             )
         }
 }
