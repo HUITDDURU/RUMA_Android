@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
@@ -16,14 +17,15 @@ import com.example.huitdduru.databinding.FragmentHomeBinding
 import com.example.huitdduru.util.*
 import com.example.huitdduru.viewmodel.diary.DiaryViewModel
 import com.example.huitdduru.viewmodel.diary.DiaryViewModel.Event
+import com.example.huitdduru.viewmodel.register.RegisterViewModel
 import com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 
 @AndroidEntryPoint
-class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
+class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), DiaryRecyclerViewAdapter.OnItemClickListener {
 
-    private val vm: DiaryViewModel by viewModels()
+    private val vm by activityViewModels<DiaryViewModel>()
     private lateinit var adapter :DiaryRecyclerViewAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,7 +35,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         repeatOnStarted {
             vm.eventFlow.collect { event -> handleEvent(event) }
         }
-        adapter = DiaryRecyclerViewAdapter { moveToDiary() }
+        adapter = DiaryRecyclerViewAdapter(this)
+
         vm.getMonthDiary(getYear().toInt(), getMonth().toInt())
         vm.getDateDiary(getDate())
 
@@ -71,11 +74,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             }
 
         })
+
         val snapHelper = PagerSnapHelper()
         snapHelper.attachToRecyclerView(binding.diaryRv)
         binding.diaryRv.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.diaryRv.adapter = adapter
+    }
+
+    override fun onItemClick(diaryId: Int) {
+        vm.diaryDetail(diaryId)
     }
 
     private fun handleEvent(event: Event) = when (event) {
@@ -84,6 +92,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         }
         is Event.SuccessGetDateDiary -> {
             adapter.submitList(event.dateDiary)
+        }
+        is Event.SuccessDiaryDetail -> {
+            moveToDiary()
         }
         else -> {
         }

@@ -11,18 +11,28 @@ import com.example.domain.entity.diary.MonthDiaryResponseEntity
 import com.example.huitdduru.R
 import com.example.huitdduru.databinding.HomeDiaryItemBinding
 
-class DiaryRecyclerViewAdapter(private val onClick: () -> Unit) :
+class DiaryRecyclerViewAdapter(private val listener: OnItemClickListener) :
     ListAdapter<DateDiaryResponseEntity, DiaryRecyclerViewAdapter.ViewHolder>(DiaryDiffUtil) {
 
-    class ViewHolder(private val binding: HomeDiaryItemBinding, private val onClick: () -> Unit) :
+    interface OnItemClickListener {
+        fun onItemClick(diaryId: Int)
+    }
+
+    inner class ViewHolder(private val binding: HomeDiaryItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         private var dateDiaryResponseEntity: DateDiaryResponseEntity? = null
 
         fun bind(dateDiaryResponseEntity: DateDiaryResponseEntity) {
-            binding.diary = dateDiaryResponseEntity
             this.dateDiaryResponseEntity = dateDiaryResponseEntity
-            binding.root.setOnClickListener{ onClick() }
+            binding.diary = dateDiaryResponseEntity
+
+            val position = absoluteAdapterPosition
+            if(position != RecyclerView.NO_POSITION){
+                val item = getItem(position)
+                binding.root.setOnClickListener { listener?.onItemClick(item.id) }
+            }
+
         }
     }
 
@@ -33,7 +43,7 @@ class DiaryRecyclerViewAdapter(private val onClick: () -> Unit) :
             parent,
             false
         )
-        return ViewHolder(binding, onClick)
+        return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
