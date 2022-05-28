@@ -2,13 +2,11 @@ package com.example.data.repository
 
 import com.example.data.datasource.DiaryDataSource
 import com.example.data.mapper.DiaryMapper.mapperToDateDiary
+import com.example.data.mapper.DiaryMapper.mapperToDiaryDetail
 import com.example.data.mapper.DiaryMapper.mapperToMonthDiary
 import com.example.data.mapper.DiaryMapper.mapperToGetDiaryList
 import com.example.data.mapper.DiaryMapper.mapperToWriteDiaryEntity
-import com.example.domain.entity.diary.DateDiaryResponseEntity
-import com.example.domain.entity.diary.GetDiaryListResponseEntity
-import com.example.domain.entity.diary.MonthDiaryResponseEntity
-import com.example.domain.entity.diary.WriteDiaryRequestEntity
+import com.example.domain.entity.diary.*
 import com.example.domain.repository.DiaryRepository
 import javax.inject.Inject
 
@@ -29,4 +27,6 @@ class DiaryRepositoryImpl @Inject constructor(
     override suspend fun getDateDiary(header: String, date: String): List<DateDiaryResponseEntity> =
         mapperToDateDiary(diaryDataSource.getDateDiary(header, date))
 
+    override suspend fun diaryDetail(header: String, diaryId: Int): DiaryDetailResponseEntity =
+        mapperToDiaryDetail(diaryDataSource.diaryDetail(header, diaryId))
 }
