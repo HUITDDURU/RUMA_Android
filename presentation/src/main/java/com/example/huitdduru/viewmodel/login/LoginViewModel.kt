@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.base.BadRequest
 import com.example.domain.base.NotFound
+import com.example.domain.base.ServerError
 import com.example.domain.entity.auth.LoginRequestEntity
 import com.example.domain.usecase.auth.LoginUseCase
 import com.example.huitdduru.util.MutableEventFlow
@@ -41,6 +42,7 @@ class LoginViewModel @Inject constructor(
                 when(it){
                     is BadRequest -> { event(Event.ErrorMessage("잘못된 요청 형식입니다.")) }
                     is NotFound -> { event(Event.ErrorMessage("이메일 또는 비밀번호가 일치하지 않습니다.")) }
+                    is ServerError -> { event(Event.ErrorMessage("알 수 없는 오류가 발생했습니다.")) }
                 }
             }
         }

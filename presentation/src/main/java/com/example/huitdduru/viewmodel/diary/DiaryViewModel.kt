@@ -3,10 +3,7 @@ package com.example.huitdduru.viewmodel.diary
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.data.local.storage.LocalDataStorage
-import com.example.domain.base.BadRequest
-import com.example.domain.base.Forbidden
-import com.example.domain.base.NotFound
-import com.example.domain.base.UnAuthorized
+import com.example.domain.base.*
 import com.example.domain.entity.diary.*
 import com.example.domain.usecase.diary.*
 import com.example.huitdduru.util.MutableEventFlow
@@ -131,6 +128,7 @@ class DiaryViewModel @Inject constructor(
             is UnAuthorized -> event(Event.ErrorMessage("만료된 토큰입니다."))
             is Forbidden -> event(Event.ErrorMessage("요청 권한이 없습니다."))
             is NotFound -> event(Event.ErrorMessage("잘못된 요청입니다."))
+            is ServerError -> event(Event.ErrorMessage("알 수 없는 오류가 발생했습니다."))
         }
     }
 
