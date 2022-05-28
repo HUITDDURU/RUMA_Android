@@ -83,7 +83,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), 
     }
 
     override fun onItemClick(diaryId: Int) {
-        vm.diaryDetail(diaryId)
+        val intent = Intent(requireContext(), DiaryActivity::class.java)
+        intent.putExtra("diaryId", diaryId)
+        startActivity(intent)
     }
 
     private fun handleEvent(event: Event) = when (event) {
@@ -92,9 +94,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), 
         }
         is Event.SuccessGetDateDiary -> {
             adapter.submitList(event.dateDiary)
-        }
-        is Event.SuccessDiaryDetail -> {
-            moveToDiary()
         }
         else -> {
         }
@@ -112,11 +111,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), 
                 )
             }
         }
-    }
-
-    private fun moveToDiary() {
-        val intent = Intent(requireContext(), DiaryActivity::class.java)
-        startActivity(intent)
     }
 
     @SuppressLint("SimpleDateFormat")
