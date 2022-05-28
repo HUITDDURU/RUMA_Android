@@ -50,6 +50,7 @@ dependencies {
     testImplementation(Dependency.UnitTest.JUNIT)
     androidTestImplementation(Dependency.AndroidTest.ANDROID_JUNIT)
     androidTestImplementation(Dependency.AndroidTest.ESPRESSO_CORE)
+    implementation(Dependency.AndroidX.RECYCLER_VIEW)
 
     implementation(Dependency.Library.RETROFIT)
     implementation(Dependency.Library.RETROFIT_CONVERTER_GSON)
