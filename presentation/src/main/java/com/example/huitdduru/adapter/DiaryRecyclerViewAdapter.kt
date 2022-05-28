@@ -30,7 +30,7 @@ class DiaryRecyclerViewAdapter(private val listener: OnItemClickListener) :
             val position = absoluteAdapterPosition
             if(position != RecyclerView.NO_POSITION){
                 val item = getItem(position)
-                binding.root.setOnClickListener { listener?.onItemClick(item.id) }
+                binding.root.setOnClickListener { listener.onItemClick(item.id) }
             }
 
         }
