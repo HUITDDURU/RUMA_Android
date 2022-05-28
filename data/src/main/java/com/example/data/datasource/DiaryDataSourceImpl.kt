@@ -3,6 +3,7 @@ package com.example.data.datasource
 import com.example.data.remote.api.DiaryAPI
 import com.example.data.remote.request.WriteDiaryRequest
 import com.example.data.remote.response.DateDiaryResponse
+import com.example.data.remote.response.DiaryDetailResponse
 import com.example.data.remote.response.GetDiaryListResponse
 import com.example.data.remote.response.MonthDiaryResponse
 import com.example.domain.base.ErrorHandler
@@ -24,5 +25,8 @@ class DiaryDataSourceImpl @Inject constructor(
 
     override suspend fun getDateDiary(header: String, date: String): List<DateDiaryResponse> =
         errorHandler { diaryAPI.getDateDiary(header, date) }
+
+    override suspend fun diaryDetail(header: String, diaryId: Int): DiaryDetailResponse =
+        errorHandler { diaryAPI.diaryDetail(header, diaryId) }
 
 }
