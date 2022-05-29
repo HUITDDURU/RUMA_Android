@@ -1,15 +1,18 @@
 package com.example.huitdduru.base
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.LayoutRes
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import com.example.huitdduru.R
 import com.example.huitdduru.util.ToastType
 import es.dmoral.toasty.Toasty
 
@@ -25,6 +28,26 @@ abstract class BaseFragment<T: ViewDataBinding>(@LayoutRes private val layoutRes
         _binding = DataBindingUtil.inflate(inflater, layoutResId, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        when(layoutResId){
+            R.layout.fragment_home -> {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    val window = requireActivity().window
+                    WindowInsetsControllerCompat(window, view).isAppearanceLightStatusBars = false
+                    window.statusBarColor = requireContext().getColor(R.color.primary)
+                }
+            }
+            else -> {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    val window = requireActivity().window
+                    WindowInsetsControllerCompat(window, view).isAppearanceLightStatusBars = true
+                    window.statusBarColor = requireContext().getColor(R.color.white)
+                }
+            }
+        }
     }
 
     override fun onDestroyView() {

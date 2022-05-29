@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="activity"
+            type="com.example.huitdduru.view.home.DiaryActivity" />
+        <variable
+            name="data"
+            type="com.example.domain.entity.diary.DiaryDetailResponseEntity" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".view.home.DiaryActivity">
+
+        <ImageView
+            android:id="@+id/image_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.1"
+            android:scaleType="fitXY"
+            app:loadImage="@{data.image}"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/diary_background"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:orientation="vertical"
+            android:layout_weight="0.9">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/writer_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/font_noto_sans_kr_bold"
+                    android:includeFontPadding="false"
+                    android:text="@{data.writer}"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/date_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/font_noto_sans_kr_regular"
+                    android:includeFontPadding="false"
+                    android:text="@{data.date}"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <androidx.emoji2.widget.EmojiTextView
+                    android:id="@+id/feeling_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_gravity="center"
+                    android:text="@{data.feeling}"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/close_btn"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:onClick="@{() -> activity.finish()}"
+                        android:layout_gravity="end"
+                        android:background="@null"
+                        android:src="@drawable/ic_close" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:text="@{data.title}"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/font_noto_sans_kr_bold"
+                android:includeFontPadding="false" />
+
+            <TextView
+                android:id="@+id/content_tv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/font_noto_sans_kr_regular"
+                android:text="@{data.content}"
+                android:textColor="@color/gray2"
+                android:textSize="16sp"
+                android:scrollbars="vertical"
+                android:includeFontPadding="false"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>
+

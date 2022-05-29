@@ -1,4 +1,4 @@
-package com.example.data.datasource.auth
+package com.example.data.datasource
 
 import com.example.data.remote.api.AuthAPI
 import com.example.data.remote.request.CertifyRequest
