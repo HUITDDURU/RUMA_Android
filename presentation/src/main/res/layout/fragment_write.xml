@@ -4,12 +4,288 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context=".view.write.WriteFragment">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/notify_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:background="@color/primary">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_notify"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/font_noto_sans_kr_bold"
+                    android:includeFontPadding="false"
+                    android:text="@string/write_notify_title"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/write_notify_content"
+                    android:textColor="@color/white"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/write_diary"
+                    android:textColor="@color/black"
+                    android:textSize="28sp"
+                    android:fontFamily="@font/font_noto_sans_kr_bold"
+                    android:includeFontPadding="false"/>
+
+                <TextView
+                    android:id="@+id/user_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/font_noto_sans_kr_regular"
+                    android:textSize="14sp"
+                    android:includeFontPadding="false"/>
+
+                <EditText
+                    android:id="@+id/title_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/write_title_hint"
+                    android:backgroundTint="@color/gray2"
+                    android:paddingStart="10dp"
+                    android:paddingBottom="15dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/font_noto_sans_kr_regular"
+                    android:includeFontPadding="false"/>
+
+                <EditText
+                    android:id="@+id/date_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/write_date_hint"
+                    android:backgroundTint="@color/gray2"
+                    android:layout_marginTop="16dp"
+                    android:paddingStart="10dp"
+                    android:paddingBottom="15dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/font_noto_sans_kr_regular"
+                    android:includeFontPadding="false"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/write_feeling_hint"
+                    android:layout_marginTop="16dp"
+                    android:textColor="@color/gray2"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/font_noto_sans_kr_regular"
+                    android:includeFontPadding="false"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <androidx.emoji2.widget.EmojiButton
+                        android:id="@+id/happy_eb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:text="@string/happy"
+                        android:background="@drawable/emoji_button_background"/>
+
+                    <androidx.emoji2.widget.EmojiButton
+                        android:id="@+id/sad_eb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:text="@string/sad"
+                        android:background="@drawable/emoji_button_background"/>
+
+                    <androidx.emoji2.widget.EmojiButton
+                        android:id="@+id/angry_eb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:text="@string/angry"
+                        android:background="@drawable/emoji_button_background"/>
+
+                    <androidx.emoji2.widget.EmojiButton
+                        android:id="@+id/freak_eb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:text="@string/freak"
+                        android:background="@drawable/emoji_button_background"/>
+
+                    <androidx.emoji2.widget.EmojiButton
+                        android:id="@+id/think_eb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:text="@string/think"
+                        android:background="@drawable/emoji_button_background"/>
+
+                    <androidx.emoji2.widget.EmojiButton
+                        android:id="@+id/celebrate_eb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:text="@string/party"
+                        android:background="@drawable/emoji_button_background"/>
+
+                    <androidx.emoji2.widget.EmojiButton
+                        android:id="@+id/love_eb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:text="@string/love"
+                        android:background="@drawable/emoji_button_background"/>
+
+                    <androidx.emoji2.widget.EmojiButton
+                        android:id="@+id/star_eb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:text="@string/star"
+                        android:background="@drawable/emoji_button_background"/>
+
+                    <androidx.emoji2.widget.EmojiButton
+                        android:id="@+id/bored_eb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:text="@string/bored"
+                        android:background="@drawable/emoji_button_background"/>
+
+                    <androidx.emoji2.widget.EmojiButton
+                        android:id="@+id/dislike_eb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/dislike"
+                        android:background="@drawable/emoji_button_background"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/write_content_hint"
+                    android:textSize="14sp"
+                    android:textColor="@color/gray2"/>
+
+                <androidx.emoji2.widget.EmojiEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="top"
+                    android:padding="10dp"
+                    android:textSize="14sp"
+                    android:background="@drawable/content_background"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_image_add"/>
+
+                        <TextView
+                            android:id="@+id/image_add_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="@string/write_add_image_hint"
+                            android:textSize="14sp"
+                            android:textColor="@color/gray2"
+                            android:fontFamily="@font/font_noto_sans_kr_regular"
+                            android:includeFontPadding="false"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/write_save_hint"
+                        android:fontFamily="@font/font_noto_sans_kr_bold"
+                        android:includeFontPadding="false"
+                        android:backgroundTint="@color/primary"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
 
 </layout>
 
