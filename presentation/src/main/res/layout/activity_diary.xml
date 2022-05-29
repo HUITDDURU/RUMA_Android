@@ -25,7 +25,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1.1"
             android:scaleType="fitXY"
-            app:loadImage="@{data.imageUrl}"/>
+            app:loadImage="@{data.image}"/>
 
         <LinearLayout
             android:layout_width="match_parent"

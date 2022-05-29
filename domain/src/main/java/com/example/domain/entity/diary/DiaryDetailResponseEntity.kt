@@ -6,6 +6,6 @@ data class DiaryDetailResponseEntity(
     val feeling: String,
     val date: String,
     val content: String,
-    val imageUrl: String?,
+    val image: String?,
     val writer: String
 )

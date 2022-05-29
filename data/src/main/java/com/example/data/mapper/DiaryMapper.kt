@@ -62,7 +62,7 @@ object DiaryMapper {
                 feeling,
                 date,
                 content,
-                imageUrl,
+                image,
                 writer
             )
         }
