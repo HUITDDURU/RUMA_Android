@@ -4,6 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="fragment"
+            type="com.example.huitdduru.view.write.WriteFragment" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -134,94 +140,114 @@
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
-                    <androidx.emoji2.widget.EmojiButton
+                    <ToggleButton
                         android:id="@+id/happy_eb"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
                         android:layout_weight="1"
-                        android:text="@string/happy"
-                        android:background="@drawable/emoji_button_background"/>
+                        android:onClick="@{() -> fragment.emojiChecked(happyEb)}"
+                        android:textOff="@string/happy"
+                        android:textOn="@string/happy"
+                        android:background="@drawable/emoji_button_state"/>
 
-                    <androidx.emoji2.widget.EmojiButton
+                    <ToggleButton
                         android:id="@+id/sad_eb"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
                         android:layout_weight="1"
-                        android:text="@string/sad"
-                        android:background="@drawable/emoji_button_background"/>
+                        android:onClick="@{() -> fragment.emojiChecked(sadEb)}"
+                        android:textOff="@string/sad"
+                        android:textOn="@string/sad"
+                        android:background="@drawable/emoji_button_state"/>
 
-                    <androidx.emoji2.widget.EmojiButton
+                    <ToggleButton
                         android:id="@+id/angry_eb"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
                         android:layout_weight="1"
-                        android:text="@string/angry"
-                        android:background="@drawable/emoji_button_background"/>
+                        android:onClick="@{() -> fragment.emojiChecked(angryEb)}"
+                        android:textOff="@string/angry"
+                        android:textOn="@string/angry"
+                        android:background="@drawable/emoji_button_state"/>
 
-                    <androidx.emoji2.widget.EmojiButton
+                    <ToggleButton
                         android:id="@+id/freak_eb"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
                         android:layout_weight="1"
-                        android:text="@string/freak"
-                        android:background="@drawable/emoji_button_background"/>
+                        android:onClick="@{() -> fragment.emojiChecked(freakEb)}"
+                        android:textOff="@string/freak"
+                        android:textOn="@string/freak"
+                        android:background="@drawable/emoji_button_state"/>
 
-                    <androidx.emoji2.widget.EmojiButton
+                    <ToggleButton
                         android:id="@+id/think_eb"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
                         android:layout_weight="1"
-                        android:text="@string/think"
-                        android:background="@drawable/emoji_button_background"/>
+                        android:onClick="@{() -> fragment.emojiChecked(thinkEb)}"
+                        android:textOff="@string/think"
+                        android:textOn="@string/think"
+                        android:background="@drawable/emoji_button_state"/>
 
-                    <androidx.emoji2.widget.EmojiButton
+                    <ToggleButton
                         android:id="@+id/celebrate_eb"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
                         android:layout_weight="1"
-                        android:text="@string/party"
-                        android:background="@drawable/emoji_button_background"/>
+                        android:onClick="@{() -> fragment.emojiChecked(celebrateEb)}"
+                        android:textOff="@string/party"
+                        android:textOn="@string/party"
+                        android:background="@drawable/emoji_button_state"/>
 
-                    <androidx.emoji2.widget.EmojiButton
+                    <ToggleButton
                         android:id="@+id/love_eb"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
                         android:layout_weight="1"
-                        android:text="@string/love"
-                        android:background="@drawable/emoji_button_background"/>
+                        android:onClick="@{() -> fragment.emojiChecked(loveEb)}"
+                        android:textOff="@string/love"
+                        android:textOn="@string/love"
+                        android:background="@drawable/emoji_button_state"/>
 
-                    <androidx.emoji2.widget.EmojiButton
+                    <ToggleButton
                         android:id="@+id/star_eb"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
                         android:layout_weight="1"
-                        android:text="@string/star"
-                        android:background="@drawable/emoji_button_background"/>
+                        android:onClick="@{() -> fragment.emojiChecked(starEb)}"
+                        android:textOff="@string/star"
+                        android:textOn="@string/star"
+                        android:background="@drawable/emoji_button_state"/>
 
-                    <androidx.emoji2.widget.EmojiButton
+                    <ToggleButton
                         android:id="@+id/bored_eb"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
                         android:layout_weight="1"
-                        android:text="@string/bored"
-                        android:background="@drawable/emoji_button_background"/>
+                        android:onClick="@{() -> fragment.emojiChecked(boredEb)}"
+                        android:textOff="@string/bored"
+                        android:textOn="@string/bored"
+                        android:background="@drawable/emoji_button_state"/>
 
-                    <androidx.emoji2.widget.EmojiButton
+                    <ToggleButton
                         android:id="@+id/dislike_eb"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/dislike"
-                        android:background="@drawable/emoji_button_background"/>
+                        android:onClick="@{() -> fragment.emojiChecked(dislikeEb)}"
+                        android:textOff="@string/dislike"
+                        android:textOn="@string/dislike"
+                        android:background="@drawable/emoji_button_state"/>
 
                 </LinearLayout>
 
