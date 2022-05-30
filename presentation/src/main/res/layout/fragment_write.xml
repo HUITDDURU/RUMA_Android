@@ -14,6 +14,7 @@
             android:id="@+id/notify_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:paddingStart="30dp"
             android:paddingEnd="30dp"
             android:background="@color/primary">
