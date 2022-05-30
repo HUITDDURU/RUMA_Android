@@ -29,4 +29,24 @@
 <!--  home  -->
     <string name="home_has_not_diary">교환중인 일기가 없습니다.</string>
     
+<!--  write  -->
+    <string name="write_notify_title">교환 중인 일기가 있습니다.</string>
+    <string name="write_notify_content">알림을 클릭하면 교환 일기를 작성할 수 있습니다.</string>
+    <string name="write_diary">일기 작성</string>
+    <string name="write_title_hint">제목</string>
+    <string name="write_date_hint">날짜</string>
+    <string name="write_feeling_hint">기분</string>
+    <string name="write_content_hint">내용</string>
+    <string name="write_add_image_hint">사진 추가하기</string>
+    <string name="write_save_hint">저장</string>
+    <string name="happy">&#128518;</string>
+    <string name="sad">&#128557;</string>
+    <string name="angry">&#129324;</string>
+    <string name="freak">&#128534;</string>
+    <string name="think">&#129300;</string>
+    <string name="party">&#129395;</string>
+    <string name="love">&#128536;</string>
+    <string name="star">&#129321;</string>
+    <string name="bored">&#128528;</string>
+    <string name="dislike">&#128547;</string>
 </resources>
