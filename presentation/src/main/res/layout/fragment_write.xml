@@ -235,6 +235,7 @@
                     android:gravity="top"
                     android:padding="10dp"
                     android:textSize="14sp"
+                    android:scrollbars="vertical"
                     android:background="@drawable/content_background"/>
 
                 <LinearLayout
