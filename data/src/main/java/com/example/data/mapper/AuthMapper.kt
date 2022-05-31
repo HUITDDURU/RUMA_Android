@@ -10,7 +10,7 @@ import com.example.domain.entity.auth.*
 
 object AuthMapper {
     fun mapperToLoginEntity(loginResponse: LoginResponse) : LoginResponseEntity =
-        loginResponse.run { LoginResponseEntity(accessToken, refreshToken) }
+        loginResponse.run { LoginResponseEntity(accessToken, refreshToken, diaryId) }
 
     fun mapperToLogin(loginRequestEntity: LoginRequestEntity) : LoginRequest =
         loginRequestEntity.run { LoginRequest(email, password) }

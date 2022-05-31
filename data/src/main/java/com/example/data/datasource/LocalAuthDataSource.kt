@@ -10,4 +10,7 @@ interface LocalAuthDataSource {
     suspend fun getRefreshToken(): String?
     suspend fun resetRefreshToken()
 
+    suspend fun setDiaryId(diaryId: Int)
+    suspend fun getDiaryId(): Int
+    suspend fun resetDiaryId()
 }

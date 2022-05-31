@@ -44,7 +44,7 @@ class DiaryViewModel @Inject constructor(
             kotlin.runCatching {
                 writeDiaryUseCase.invoke(
                     localDataStorage.getAccessToken()!!,
-                    diaryId,
+                    localDataStorage.getDiaryId(),
                     WriteDiaryRequestEntity(
                         title,
                         feeling,
