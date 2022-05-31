@@ -121,6 +121,8 @@
                     android:paddingBottom="15dp"
                     android:textSize="14sp"
                     android:textColor="@color/black"
+                    android:focusable="false"
+                    android:onClick="@{() -> fragment.datePicker()}"
                     android:fontFamily="@font/font_noto_sans_kr_regular"
                     android:includeFontPadding="false"/>
 
