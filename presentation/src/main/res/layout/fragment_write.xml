@@ -262,6 +262,7 @@
                     android:textColor="@color/gray2"/>
 
                 <androidx.emoji2.widget.EmojiEditText
+                    android:id="@+id/content_et"
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
                     android:layout_marginTop="10dp"
