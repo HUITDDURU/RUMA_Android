@@ -8,6 +8,7 @@
         <variable
             name="fragment"
             type="com.example.huitdduru.view.sign.UserFragment" />
+        <import type="com.example.huitdduru.util.GalleryUtilKt"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -47,7 +48,7 @@
             android:background="@drawable/profile_radius"
             android:src="@drawable/ic_profile"
             android:scaleType="center"
-            android:onClick="@{() -> fragment.openGallery()}"
+            android:onClick="@{() -> GalleryUtilKt.openGallery(fragment.requireActivity(), fragment.profile)}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />

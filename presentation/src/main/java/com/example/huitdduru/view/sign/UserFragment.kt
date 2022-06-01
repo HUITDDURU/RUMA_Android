@@ -10,10 +10,10 @@ import androidx.fragment.app.activityViewModels
 import com.bumptech.glide.Glide
 import com.example.huitdduru.R
 import com.example.huitdduru.databinding.FragmentUserBinding
-import com.example.huitdduru.util.GalleryUtil
 import com.example.huitdduru.util.ToastType
 import com.example.huitdduru.util.repeatOnStarted
 import com.example.huitdduru.base.BaseFragment
+import com.example.huitdduru.util.uriToMultipart
 import com.example.huitdduru.viewmodel.register.RegisterViewModel
 import com.example.huitdduru.viewmodel.register.RegisterViewModel.Event
 import kotlinx.coroutines.flow.collect
@@ -21,12 +21,10 @@ import kotlinx.coroutines.flow.collect
 class UserFragment : BaseFragment<FragmentUserBinding>(R.layout.fragment_user) {
 
     private val vm by activityViewModels<RegisterViewModel>()
-    private lateinit var galleryUtil: GalleryUtil
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.fragment = this
-        galleryUtil = GalleryUtil(requireActivity())
 
         repeatOnStarted {
             vm.eventFlow.collect { event -> handleEvent(event) }
@@ -48,18 +46,16 @@ class UserFragment : BaseFragment<FragmentUserBinding>(R.layout.fragment_user) {
         else -> {}
     }
 
-    private val profile =
+    val profile =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
             if(it.resultCode == Activity.RESULT_OK){
-                vm.fileUpload(galleryUtil.uriToMultipart(
+                vm.fileUpload(uriToMultipart(
                     requireContext(),
                     it.data?.data!!.path!!,
                     it.data?.data!!
                 ))
             }
         }
-
-    fun openGallery() = galleryUtil.openGallery(profile)
 
     fun register() {
         if(binding.nicknameEt.text.toString() == ""){
