@@ -5,11 +5,13 @@ import androidx.lifecycle.viewModelScope
 import com.example.data.local.storage.LocalDataStorage
 import com.example.domain.base.*
 import com.example.domain.entity.diary.*
+import com.example.domain.usecase.auth.FileUploadUseCase
 import com.example.domain.usecase.diary.*
 import com.example.huitdduru.util.MutableEventFlow
 import com.example.huitdduru.util.asEventFlow
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import okhttp3.MultipartBody
 import java.time.LocalDateTime
 import javax.inject.Inject
 
@@ -20,6 +22,7 @@ class DiaryViewModel @Inject constructor(
     private val diaryTimeLineUseCase: GetMonthDiaryUseCase,
     private val getDateDiaryUseCase: GetDateDiaryUseCase,
     private val diaryDetailUseCase: DiaryDetailUseCase,
+    private val fileUploadUseCase: FileUploadUseCase,
     private val localDataStorage: LocalDataStorage
 ) : ViewModel() {
 
@@ -33,10 +36,9 @@ class DiaryViewModel @Inject constructor(
     }
 
     fun writeDiary(
-        diaryId: Int,
         title: String,
         feeling: String,
-        date: LocalDateTime,
+        date: String,
         content: String,
         imageUrl: String?
     ) {
@@ -44,7 +46,7 @@ class DiaryViewModel @Inject constructor(
             kotlin.runCatching {
                 writeDiaryUseCase.invoke(
                     localDataStorage.getAccessToken()!!,
-                    diaryId,
+                    localDataStorage.getDiaryId(),
                     WriteDiaryRequestEntity(
                         title,
                         feeling,
@@ -122,6 +124,18 @@ class DiaryViewModel @Inject constructor(
         }
     }
 
+    fun imageUpload(file: MultipartBody.Part) {
+        viewModelScope.launch {
+            kotlin.runCatching {
+                fileUploadUseCase.invoke(file)
+            }.onSuccess {
+                event(Event.SuccessFileUpload(it["imageUrl"]!!))
+            }.onFailure {
+                errorMessage(throwable = it)
+            }
+        }
+    }
+
     private fun errorMessage(throwable: Throwable) {
         when (throwable) {
             is BadRequest -> event(Event.ErrorMessage("잘못된 요청 형식입니다."))
@@ -138,6 +152,7 @@ class DiaryViewModel @Inject constructor(
         data class SuccessTimeLine(val monthDiary: List<MonthDiaryResponseEntity>) : Event()
         data class SuccessGetDateDiary(val dateDiary: List<DateDiaryResponseEntity>) : Event()
         data class SuccessDiaryDetail(val diaryDetail: DiaryDetailResponseEntity) : Event()
+        data class SuccessFileUpload(val imageUrl: String) : Event()
         data class ErrorMessage(val errorMessage: String) : Event()
     }
 }

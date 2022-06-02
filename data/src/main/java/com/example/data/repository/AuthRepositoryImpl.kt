@@ -56,6 +56,7 @@ class AuthRepositoryImpl @Inject constructor(
         localAuthDataSource.apply {
             setAccessToken(loginResponseEntity.accessToken)
             setRefreshToken(loginResponseEntity.refreshToken)
+            setDiaryId(loginResponseEntity.diaryId)
         }
     }
 }

@@ -25,14 +25,14 @@
             android:name=".view.sign.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".view.main.MainActivity"
+            android:name=".view.sign.LoginActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".view.splash.SplashActivity"
             android:exported="false" />
         <activity
-            android:name=".view.sign.LoginActivity"
+            android:name=".view.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

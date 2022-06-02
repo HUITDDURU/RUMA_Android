@@ -8,6 +8,8 @@
         <variable
             name="fragment"
             type="com.example.huitdduru.view.write.WriteFragment" />
+        <import type="com.example.huitdduru.util.GalleryUtilKt"/>
+        <import type="com.example.huitdduru.util.TImeUtilKt"/>
     </data>
 
     <LinearLayout
@@ -121,6 +123,8 @@
                     android:paddingBottom="15dp"
                     android:textSize="14sp"
                     android:textColor="@color/black"
+                    android:focusable="false"
+                    android:onClick="@{() -> TImeUtilKt.datePicker(dateEt, fragment.requireContext())}"
                     android:fontFamily="@font/font_noto_sans_kr_regular"
                     android:includeFontPadding="false"/>
 
@@ -260,6 +264,7 @@
                     android:textColor="@color/gray2"/>
 
                 <androidx.emoji2.widget.EmojiEditText
+                    android:id="@+id/content_et"
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
                     android:layout_marginTop="10dp"
@@ -296,15 +301,18 @@
                             android:text="@string/write_add_image_hint"
                             android:textSize="14sp"
                             android:textColor="@color/gray2"
+                            android:onClick="@{() -> GalleryUtilKt.openGallery(fragment.requireActivity(), fragment.profile)}"
                             android:fontFamily="@font/font_noto_sans_kr_regular"
                             android:includeFontPadding="false"/>
 
                     </LinearLayout>
 
                     <Button
+                        android:id="@+id/save_btn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/write_save_hint"
+                        android:onClick="@{() -> fragment.write()}"
                         android:fontFamily="@font/font_noto_sans_kr_bold"
                         android:includeFontPadding="false"
                         android:backgroundTint="@color/primary"/>

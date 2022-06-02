@@ -20,50 +20,48 @@ import java.io.File
 import java.io.InputStream
 import java.lang.Exception
 
-class GalleryUtil(private val activity: Activity) {
-    fun openGallery(startForResult: ActivityResultLauncher<Intent>) {
-        val writePermission =
-            ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-        val readPermission =
-            ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE)
+fun openGallery(activity: Activity, startForResult: ActivityResultLauncher<Intent>) {
+    val writePermission =
+        ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+    val readPermission =
+        ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE)
 
-        if (writePermission == PackageManager.PERMISSION_DENIED || readPermission == PackageManager.PERMISSION_DENIED) {
-            ActivityCompat.requestPermissions(
-                activity,
-                arrayOf(
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                    Manifest.permission.READ_EXTERNAL_STORAGE
-                ),
-                0
-            )
+    if (writePermission == PackageManager.PERMISSION_DENIED || readPermission == PackageManager.PERMISSION_DENIED) {
+        ActivityCompat.requestPermissions(
+            activity,
+            arrayOf(
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            ),
+            0
+        )
+    } else {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.apply {
+            data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+            type = "image/*"
+            putExtra("crop", "true")
+            putExtra("aspectX", 1)
+            putExtra("aspectY", 1)
         }
-        else {
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.apply {
-                data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-                type = "image/*"
-                putExtra("crop", "true")
-                putExtra("aspectX", 1)
-                putExtra("aspectY", 1)
-            }
-            startForResult.launch(intent)
-        }
+        startForResult.launch(intent)
+    }
+}
+
+fun uriToMultipart(context: Context, filePath: String, uri: Uri): MultipartBody.Part {
+    val file = File(filePath)
+    var inputStream: InputStream? = null
+    try {
+        inputStream = context.contentResolver.openInputStream(uri)
+    } catch (e: Exception) {
+        e.printStackTrace()
     }
 
-    fun uriToMultipart(context: Context ,filePath: String, uri: Uri) : MultipartBody.Part {
-        val file = File(filePath)
-        var inputStream: InputStream? = null
-        try{
-            inputStream = context.contentResolver.openInputStream(uri)
-        } catch (e: Exception){
-            e.printStackTrace()
-        }
-
-        val bitmap = BitmapFactory.decodeStream(inputStream)
-        val byteArrayOutputStream = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 20, byteArrayOutputStream)
-        val requestFile = byteArrayOutputStream.toByteArray().toRequestBody("image/jpg".toMediaTypeOrNull())
-        val body = MultipartBody.Part.createFormData("file", file.name, requestFile)
-        return body
-    }
+    val bitmap = BitmapFactory.decodeStream(inputStream)
+    val byteArrayOutputStream = ByteArrayOutputStream()
+    bitmap.compress(Bitmap.CompressFormat.JPEG, 20, byteArrayOutputStream)
+    val requestFile =
+        byteArrayOutputStream.toByteArray().toRequestBody("image/jpg".toMediaTypeOrNull())
+    val body = MultipartBody.Part.createFormData("file", file.name, requestFile)
+    return body
 }

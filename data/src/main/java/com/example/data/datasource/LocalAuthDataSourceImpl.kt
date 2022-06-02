@@ -27,4 +27,15 @@ class LocalAuthDataSourceImpl @Inject constructor(
     override suspend fun resetRefreshToken() {
         localDataStorage.setRefreshToken("")
     }
+
+    override suspend fun setDiaryId(diaryId: Int) {
+        localDataStorage.setDiaryId(diaryId)
+    }
+
+    override suspend fun getDiaryId(): Int =
+        localDataStorage.getDiaryId()
+
+    override suspend fun resetDiaryId() {
+        localDataStorage.setDiaryId(0)
+    }
 }
