@@ -26,10 +26,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-<!--  home  -->
+    <!--  home  -->
     <string name="home_has_not_diary">교환중인 일기가 없습니다.</string>
-    
-<!--  write  -->
+
+    <!--  write  -->
     <string name="write_notify_title">교환 중인 일기가 있습니다.</string>
     <string name="write_notify_content">알림을 클릭하면 교환 일기를 작성할 수 있습니다.</string>
     <string name="write_diary">일기 작성</string>
@@ -49,8 +49,10 @@
     <string name="star">&#129321;</string>
     <string name="bored">&#128528;</string>
     <string name="dislike">&#128547;</string>
-    
-<!--  mypage  -->
+
+    <!--  mypage  -->
     <string name="profile_edit">정보 수정</string>
     <string name="diary_text">일기장</string>
+    <string name="profile_edit_text">프로필 수정</string>
+    <string name="save_button_text">저장하기</string>
 </resources>

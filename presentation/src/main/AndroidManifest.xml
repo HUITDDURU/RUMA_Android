@@ -16,6 +16,9 @@
         android:theme="@style/Theme.HUITDDURU"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ProfileEditActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.home.DiaryActivity"
             android:exported="false" />
         <activity
@@ -27,7 +30,7 @@
         <activity
             android:name=".view.sign.LoginActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".view.splash.SplashActivity"
             android:exported="false" />
