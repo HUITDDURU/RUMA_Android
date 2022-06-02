@@ -1,20 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.mypage.MyPageFragment">
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        android:orientation="vertical">
 
-        <!-- TODO: Update blank fragment layout -->
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+            android:id="@+id/name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="user1234"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/font_noto_sans_kr_bold"
+            android:includeFontPadding="false"/>
 
-    </FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/profile_iv"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_profile"
+                android:background="@drawable/profile_radius"
+                android:scaleType="center"/>
+
+            <TextView
+                android:id="@+id/description_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:maxLines="6"
+                android:layout_gravity="center"
+                android:textColor="@color/gray1"
+                android:fontFamily="@font/font_noto_sans_kr_regular"
+                android:includeFontPadding="false"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/edit_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/profile_edit"
+            android:fontFamily="@font/font_noto_sans_kr_bold"
+            android:includeFontPadding="false"
+            android:backgroundTint="@color/light_gray1"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray1"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/diary_text"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/font_noto_sans_kr_bold"
+            android:includeFontPadding="false"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/diary_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
+
+
+        
+    </LinearLayout>
 
 </layout>
 

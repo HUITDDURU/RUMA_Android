@@ -16,6 +16,7 @@
         <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/drawable/ic_profile.xml" value="0.1795" />
         <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/drawable/ic_vector.xml" value="0.2415" />
         <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/drawable/ic_write.xml" value="0.1795" />
+        <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/drawable/mypage_diary_background.xml" value="0.1765" />
         <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/drawable/profile_radius.xml" value="0.1825" />
         <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/drawable/selected_calendar_item_background.xml" value="0.26" />
         <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/drawable/today_item_background.xml" value="0.1745" />
@@ -35,10 +36,11 @@
         <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/layout/fragment_exchange.xml" value="0.34791666666666665" />
         <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/layout/fragment_info.xml" value="0.33" />
-        <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/layout/fragment_my_page.xml" value="0.34791666666666665" />
+        <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/layout/fragment_my_page.xml" value="0.33" />
         <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/layout/fragment_user.xml" value="0.33" />
         <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/layout/fragment_write.xml" value="0.33" />
         <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/layout/home_diary_item.xml" value="0.33" />
+        <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/layout/mypage_diary_item.xml" value="0.33" />
         <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/layout/selected_calendar_item.xml" value="0.2598958333333333" />
         <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/menu/nav_menu.xml" value="0.1" />
       </map>
