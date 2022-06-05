@@ -1,5 +1,6 @@
 package com.example.huitdduru.view.mypage
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
@@ -30,5 +31,9 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
     private fun handleEvent(event: Event) = when(event){
         is Event.SuccessUserInfo -> { binding.userInfo = event.userInfo }
         else -> {}
+    }
+
+    fun moveToEdit() {
+        startActivity(Intent(requireActivity(), ProfileEditActivity::class.java))
     }
 }

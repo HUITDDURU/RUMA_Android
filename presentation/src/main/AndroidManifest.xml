@@ -16,7 +16,7 @@
         android:theme="@style/Theme.HUITDDURU"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ProfileEditActivity"
+            android:name=".view.mypage.ProfileEditActivity"
             android:exported="false" />
         <activity
             android:name=".view.home.DiaryActivity"
