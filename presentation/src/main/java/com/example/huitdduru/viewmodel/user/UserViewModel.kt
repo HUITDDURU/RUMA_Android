@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.data.local.storage.LocalDataStorage
 import com.example.domain.base.*
 import com.example.domain.entity.user.EditRequestEntity
+import com.example.domain.entity.user.UserInfoResponseEntity
 import com.example.domain.usecase.auth.FileUploadUseCase
 import com.example.domain.usecase.user.DiaryListUseCase
 import com.example.domain.usecase.user.EditUseCase
@@ -12,10 +13,12 @@ import com.example.domain.usecase.user.ResignUseCase
 import com.example.domain.usecase.user.UserInfoUseCase
 import com.example.huitdduru.util.MutableEventFlow
 import com.example.huitdduru.util.asEventFlow
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import okhttp3.MultipartBody
 import javax.inject.Inject
 
+@HiltViewModel
 class UserViewModel @Inject constructor(
     private val editUseCase: EditUseCase,
     private val resignUseCase: ResignUseCase,
@@ -85,7 +88,7 @@ class UserViewModel @Inject constructor(
                     localDataStorage.getAccessToken()!!
                 )
             }.onSuccess {
-                event(Event.SuccessUserInfo(true))
+                event(Event.SuccessUserInfo(it))
             }.onFailure {
                 errorMessage(throwable = it)
             }
@@ -119,7 +122,7 @@ class UserViewModel @Inject constructor(
         data class SuccessEdit(var state: Boolean = false) : Event()
         data class SuccessResign(var state: Boolean = false) : Event()
         data class SuccessGetDiaryList(var state: Boolean = false) : Event()
-        data class SuccessUserInfo(var state: Boolean = false) : Event()
+        data class SuccessUserInfo(val userInfo: UserInfoResponseEntity) : Event()
         data class SuccessFileUpload(var state: Boolean = false) : Event()
         data class ErrorMessage(val errorMessage: String) : Event()
 
