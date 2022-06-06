@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.data.local.storage.LocalDataStorage
 import com.example.domain.base.*
+import com.example.domain.entity.user.DiaryResponseEntity
 import com.example.domain.entity.user.EditRequestEntity
 import com.example.domain.entity.user.UserInfoResponseEntity
 import com.example.domain.usecase.auth.FileUploadUseCase
@@ -74,7 +75,7 @@ class UserViewModel @Inject constructor(
                     localDataStorage.getAccessToken()!!
                 )
             }.onSuccess {
-                event(Event.SuccessGetDiaryList(true))
+                event(Event.SuccessGetDiaryList(diaryList = it))
             }.onFailure {
                 errorMessage(throwable = it)
             }
@@ -121,7 +122,7 @@ class UserViewModel @Inject constructor(
     sealed class Event {
         data class SuccessEdit(var state: Boolean = false) : Event()
         data class SuccessResign(var state: Boolean = false) : Event()
-        data class SuccessGetDiaryList(var state: Boolean = false) : Event()
+        data class SuccessGetDiaryList(val diaryList: List<DiaryResponseEntity>) : Event()
         data class SuccessUserInfo(val userInfo: UserInfoResponseEntity) : Event()
         data class SuccessFileUpload(var state: Boolean = false) : Event()
         data class ErrorMessage(val errorMessage: String) : Event()
