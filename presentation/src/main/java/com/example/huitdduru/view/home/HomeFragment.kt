@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.example.domain.entity.diary.MonthDiaryResponseEntity
@@ -17,7 +16,6 @@ import com.example.huitdduru.databinding.FragmentHomeBinding
 import com.example.huitdduru.util.*
 import com.example.huitdduru.viewmodel.diary.DiaryViewModel
 import com.example.huitdduru.viewmodel.diary.DiaryViewModel.Event
-import com.example.huitdduru.viewmodel.register.RegisterViewModel
 import com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -83,7 +81,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), 
     }
 
     override fun onItemClick(diaryId: Int) {
-        val intent = Intent(requireContext(), DiaryActivity::class.java)
+        val intent = Intent(requireContext(), DiaryDetailActivity::class.java)
         intent.putExtra("diaryId", diaryId)
         startActivity(intent)
     }
