@@ -7,7 +7,7 @@
     <data>
         <variable
             name="activity"
-            type="com.example.huitdduru.view.home.DiaryActivity" />
+            type="com.example.huitdduru.view.home.DiaryDetailActivity" />
         <variable
             name="data"
             type="com.example.domain.entity.diary.DiaryDetailResponseEntity" />
@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".view.home.DiaryActivity">
+        tools:context=".view.home.DiaryDetailActivity">
 
         <ImageView
             android:id="@+id/image_iv"

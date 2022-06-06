@@ -19,7 +19,7 @@
             android:name=".view.mypage.ProfileEditActivity"
             android:exported="false" />
         <activity
-            android:name=".view.home.DiaryActivity"
+            android:name=".view.home.DiaryDetailActivity"
             android:exported="false" />
         <activity
             android:name=".view.sign.SuccessActivity"

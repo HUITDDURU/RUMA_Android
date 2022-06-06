@@ -14,7 +14,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 
 @AndroidEntryPoint
-class DiaryActivity : BaseActivity<ActivityDiaryBinding>(R.layout.activity_diary) {
+class DiaryDetailActivity : BaseActivity<ActivityDiaryBinding>(R.layout.activity_diary_detail) {
 
     private val vm : DiaryViewModel by viewModels()
 
