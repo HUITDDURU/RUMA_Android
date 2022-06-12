@@ -64,11 +64,11 @@
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/font_noto_sans_kr_regular"
             android:includeFontPadding="false"
-            android:text="@{diary.hoursAgo.toString() + ``}"
             android:textColor="@color/gray2"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            hourToDay="@{diary.hoursAgo}"/>
 
         <TextView
             android:layout_width="wrap_content"
