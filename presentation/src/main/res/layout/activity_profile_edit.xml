@@ -8,6 +8,9 @@
         <variable
             name="activity"
             type="com.example.huitdduru.view.mypage.ProfileEditActivity" />
+        <variable
+            name="userInfo"
+            type="com.example.domain.entity.user.UserInfoResponseEntity" />
         <import type="com.example.huitdduru.util.GalleryUtilKt"/>
     </data>
 
@@ -60,7 +63,7 @@
             android:background="@drawable/profile_radius"
             android:scaleType="fitXY"
             android:onClick="@{() -> GalleryUtilKt.openGallery(activity, activity.profile)}"
-            />
+            loadImage="@{userInfo.img}"/>
 
         <EditText
             android:id="@+id/description_et"
@@ -68,6 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:hint="@string/description_edit_hint"
+            android:text="@{userInfo.intro}"
             android:textColor="@color/gray1"
             android:fontFamily="@font/font_noto_sans_kr_regular"
             android:includeFontPadding="false"

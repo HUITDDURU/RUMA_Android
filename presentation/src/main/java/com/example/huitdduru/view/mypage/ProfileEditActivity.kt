@@ -34,9 +34,7 @@ class ProfileEditActivity :
 
     private fun handleEvent(event: Event) = when (event) {
         is Event.SuccessFileUpload -> { loadImage(binding.profileIv, vm.imageUrl) }
-        is Event.SuccessUserInfo -> {
-
-        }
+        is Event.SuccessUserInfo -> { binding.userInfo = event.userInfo }
         else -> {}
     }
 
