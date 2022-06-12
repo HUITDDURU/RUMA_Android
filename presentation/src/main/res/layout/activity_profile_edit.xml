@@ -4,6 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="activity"
+            type="com.example.huitdduru.view.mypage.ProfileEditActivity" />
+        <import type="com.example.huitdduru.util.GalleryUtilKt"/>
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -51,13 +58,16 @@
             android:layout_gravity="center"
             android:src="@drawable/ic_profile"
             android:background="@drawable/profile_radius"
-            android:scaleType="fitXY"/>
+            android:scaleType="fitXY"
+            android:onClick="@{() -> GalleryUtilKt.openGallery(activity, activity.profile)}"
+            />
 
         <EditText
             android:id="@+id/description_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:hint="@string/description_edit_hint"
             android:textColor="@color/gray1"
             android:fontFamily="@font/font_noto_sans_kr_regular"
             android:includeFontPadding="false"
