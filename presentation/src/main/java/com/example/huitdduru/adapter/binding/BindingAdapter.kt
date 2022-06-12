@@ -9,6 +9,7 @@ import com.example.huitdduru.R
 
 @BindingAdapter("loadImage")
 fun loadImage(imageView: ImageView, url: String?) {
+    imageView.clipToOutline = true
     Glide.with(imageView).load(url)
         .centerCrop()
         .error(R.drawable.ic_profile)
