@@ -34,12 +34,4 @@ abstract class BaseActivity<T: ViewDataBinding>(@LayoutRes private val layoutRes
             ToastType.WARNING -> Toasty.warning(this, msg, Toast.LENGTH_SHORT, true).show()
         }
     }
-
-    fun showDialog(title: String, body: String){
-        AwesomeDialog.build(this)
-            .title(title)
-            .body(body)
-            .icon(R.drawable.ic_warning)
-            .show()
-    }
 }
