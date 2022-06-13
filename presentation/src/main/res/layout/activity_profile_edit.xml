@@ -11,6 +11,9 @@
         <variable
             name="userInfo"
             type="com.example.domain.entity.user.UserInfoResponseEntity" />
+        <variable
+            name="vm"
+            type="com.example.huitdduru.viewmodel.user.UserViewModel" />
         <import type="com.example.huitdduru.util.GalleryUtilKt"/>
     </data>
 
@@ -47,6 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:onClick="@{() -> activity.resign()}"
                 android:text="@string/resign_text"
                 android:textSize="16sp"
                 android:textColor="@color/red"/>
