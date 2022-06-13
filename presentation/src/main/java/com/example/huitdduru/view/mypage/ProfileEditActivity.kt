@@ -1,9 +1,12 @@
 package com.example.huitdduru.view.mypage
 
 import android.app.Activity
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.annotation.RequiresApi
+import com.example.awesomedialog.*
 import com.example.huitdduru.R
 import com.example.huitdduru.adapter.binding.loadImage
 import com.example.huitdduru.base.BaseActivity
@@ -34,8 +37,20 @@ class ProfileEditActivity :
 
     private fun handleEvent(event: Event) = when (event) {
         is Event.SuccessFileUpload -> { loadImage(binding.profileIv, vm.imageUrl) }
-        is Event.SuccessUserInfo -> { binding.userInfo = event.userInfo }
+            is Event.SuccessUserInfo -> { binding.userInfo = event.userInfo }
         else -> {}
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    fun resign(){
+        AwesomeDialog.build(this)
+            .body("탈퇴한 계정은 복구가 불가능합니다.")
+            .icon(R.drawable.ic_warning)
+            .onPositive(
+                text = "탈퇴하기",
+                buttonBackgroundColor = R.drawable.dialog_button_background){
+            }
+            .show()
     }
 
     val profile =
