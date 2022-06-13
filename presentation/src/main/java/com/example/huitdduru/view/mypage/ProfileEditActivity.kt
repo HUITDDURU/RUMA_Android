@@ -11,6 +11,7 @@ import com.example.huitdduru.R
 import com.example.huitdduru.adapter.binding.loadImage
 import com.example.huitdduru.base.BaseActivity
 import com.example.huitdduru.databinding.ActivityProfileEditBinding
+import com.example.huitdduru.util.ToastType
 import com.example.huitdduru.util.repeatOnStarted
 import com.example.huitdduru.util.uriToMultipart
 import com.example.huitdduru.viewmodel.user.UserViewModel
@@ -27,6 +28,7 @@ class ProfileEditActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.activity = this
+        binding.vm = vm
 
         repeatOnStarted {
             vm.eventFlow.collect { event -> handleEvent(event) }
@@ -37,7 +39,8 @@ class ProfileEditActivity :
 
     private fun handleEvent(event: Event) = when (event) {
         is Event.SuccessFileUpload -> { loadImage(binding.profileIv, vm.imageUrl) }
-            is Event.SuccessUserInfo -> { binding.userInfo = event.userInfo }
+        is Event.SuccessUserInfo -> { binding.userInfo = event.userInfo }
+        is Event.SuccessEdit -> { showToast("정보가 수정되었습니다!", ToastType.SUCCESS)}
         else -> {}
     }
 

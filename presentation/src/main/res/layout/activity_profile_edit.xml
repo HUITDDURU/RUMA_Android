@@ -92,6 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:text="@string/save_button_text"
+            android:onClick="@{() -> vm.edit(descriptionEt.getText().toString())}"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:fontFamily="@font/font_noto_sans_kr_bold"
