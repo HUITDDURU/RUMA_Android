@@ -62,6 +62,7 @@ class UserViewModel @Inject constructor(
                 )
             }.onSuccess {
                 event(Event.SuccessResign(true))
+                tokenReset()
             }.onFailure {
                 errorMessage(throwable = it)
             }
@@ -89,6 +90,7 @@ class UserViewModel @Inject constructor(
                     localDataStorage.getAccessToken()!!
                 )
             }.onSuccess {
+                setImage(it.img)
                 event(Event.SuccessUserInfo(it))
             }.onFailure {
                 errorMessage(throwable = it)
@@ -101,12 +103,21 @@ class UserViewModel @Inject constructor(
             kotlin.runCatching {
                 fileUploadUseCase.invoke(file)
             }.onSuccess {
-                imageUrl = it["imageUrl"]
+                setImage(it["imageUrl"])
                 event(Event.SuccessFileUpload(true))
             }.onFailure {
                 errorMessage(throwable = it)
             }
         }
+    }
+
+    private suspend fun tokenReset() {
+        localDataStorage.setAccessToken("")
+        localDataStorage.setRefreshToken("")
+    }
+
+    private fun setImage(url: String?) {
+        imageUrl = url
     }
 
     private fun errorMessage(throwable: Throwable) {
