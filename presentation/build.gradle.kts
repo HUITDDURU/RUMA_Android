@@ -82,4 +82,6 @@ dependencies {
 
     implementation(Dependency.Google.EMOJI2)
     implementation(Dependency.Google.EMOJI2_VIEWS)
+
+    implementation(Dependency.Library.AWESOME_DIALOG)
 }
