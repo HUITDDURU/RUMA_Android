@@ -16,6 +16,13 @@ fun loadImage(imageView: ImageView, url: String?) {
         .into(imageView)
 }
 
+@BindingAdapter("loadDiaryImage")
+fun loadDiaryImage(imageView: ImageView, url: String?) {
+    Glide.with(imageView).load(url)
+        .centerCrop()
+        .into(imageView)
+}
+
 @SuppressLint("SetTextI18n")
 @BindingAdapter("hourToDay")
 fun hourToDay(textView: TextView, hour: Int) {
