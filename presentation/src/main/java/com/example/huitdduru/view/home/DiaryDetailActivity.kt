@@ -5,7 +5,7 @@ import android.text.method.ScrollingMovementMethod
 import androidx.activity.viewModels
 import com.example.huitdduru.R
 import com.example.huitdduru.base.BaseActivity
-import com.example.huitdduru.databinding.ActivityDiaryBinding
+import com.example.huitdduru.databinding.ActivityDiaryDetailBinding
 import com.example.huitdduru.util.ToastType
 import com.example.huitdduru.util.repeatOnStarted
 import com.example.huitdduru.viewmodel.diary.DiaryViewModel
@@ -14,7 +14,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 
 @AndroidEntryPoint
-class DiaryActivity : BaseActivity<ActivityDiaryBinding>(R.layout.activity_diary) {
+class DiaryDetailActivity : BaseActivity<ActivityDiaryDetailBinding>(R.layout.activity_diary_detail) {
 
     private val vm : DiaryViewModel by viewModels()
 

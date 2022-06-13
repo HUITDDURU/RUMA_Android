@@ -64,6 +64,8 @@ object Dependency {
         const val DATEPICKER_TIMELINE = "com.github.shrikanth7698:Collapsible-Calendar-View-Android:v1.0.3"
 
         const val BLURRY = " jp.wasabeef:blurry:${Versions.BLURRY}"
+
+        const val AWESOME_DIALOG = "com.github.chnouman:AwesomeDialog:${Versions.AWESOME_DIALOG}"
     }
 
     object UnitTest {

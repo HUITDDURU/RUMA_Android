@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.huitdduru">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -14,12 +15,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HUITDDURU"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:replace="android:icon">
         <activity
-            android:name=".ProfileEditActivity"
+            android:name=".view.mypage.DiaryActivity"
             android:exported="false" />
         <activity
-            android:name=".view.home.DiaryActivity"
+            android:name=".view.mypage.ProfileEditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.home.DiaryDetailActivity"
             android:exported="false" />
         <activity
             android:name=".view.sign.SuccessActivity"

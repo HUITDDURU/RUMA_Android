@@ -55,4 +55,6 @@
     <string name="diary_text">일기장</string>
     <string name="profile_edit_text">프로필 수정</string>
     <string name="save_button_text">저장하기</string>
+    <string name="resign_text">탈퇴하기</string>
+    <string name="description_edit_hint">한 줄 소개 변경</string>
 </resources>
