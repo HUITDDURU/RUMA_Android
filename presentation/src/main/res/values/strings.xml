@@ -57,4 +57,11 @@
     <string name="save_button_text">저장하기</string>
     <string name="resign_text">탈퇴하기</string>
     <string name="description_edit_hint">한 줄 소개 변경</string>
+    
+    <!--  exchange  -->
+    <string name="exchange_title">일기 메이트 연결</string>
+    <string name="exchange_random_title">무작위 사용자\n찾아보기</string>
+    <string name="exchange_random_description">무작위 사용자를 찾아\n일기 교환을 시작하세요.</string>
+    <string name="exchange_friends_title">친구와\n교환하기</string>
+    <string name="exchange_friends_description">주어진 일기 코드를 공유해\n친구와 일기를 교환하세요.</string>
 </resources>
