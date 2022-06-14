@@ -71,4 +71,7 @@
     <string name="exchange_input_code_hint">친구코드 입력</string>
     <string name="exchange_random_matching_title">무작위 사용자 찾기</string>
     <string name="exchange_random_matching">무작위로 사용자를 찾는 중입니다.\n잠시만 기다려 주세요.</string>
+    <string name="find_mate_title">무작위 사용자 찾기</string>
+    <string name="random_match_accept">수락</string>
+    <string name="random_match_refuse">거절</string>
 </resources>
