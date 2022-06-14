@@ -24,4 +24,7 @@ class UserRepositoryImpl @Inject constructor(
 
     override suspend fun userInfo(header: String): UserInfoResponseEntity =
         mapperToInfoEntity(userDataSource.userInfo(header))
+
+    override suspend fun code(header: String): HashMap<String, String> =
+        userDataSource.code(header)
 }

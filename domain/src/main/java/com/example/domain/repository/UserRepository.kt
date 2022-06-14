@@ -9,4 +9,5 @@ interface UserRepository {
     suspend fun resign(header: String)
     suspend fun diaryList(header: String): List<DiaryResponseEntity>
     suspend fun userInfo(header: String): UserInfoResponseEntity
+    suspend fun code(header: String): HashMap<String, String>
 }
