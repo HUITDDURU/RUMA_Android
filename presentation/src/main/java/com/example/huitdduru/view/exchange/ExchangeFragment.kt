@@ -9,6 +9,6 @@ import com.example.huitdduru.databinding.FragmentExchangeBinding
 class ExchangeFragment : BaseFragment<FragmentExchangeBinding>(R.layout.fragment_exchange) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.fragment = this
     }
-
 }
