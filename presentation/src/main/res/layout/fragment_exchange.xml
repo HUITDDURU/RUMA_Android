@@ -41,7 +41,8 @@
                 android:orientation="vertical"
                 android:layout_weight="1"
                 android:layout_marginEnd="6dp"
-                android:background="@drawable/mate_select_background">
+                android:background="@drawable/mate_select_background"
+                android:onClick="@{() -> fragment.moveToMatch(0)}">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -84,7 +85,8 @@
                 android:orientation="vertical"
                 android:layout_weight="1"
                 android:layout_marginStart="6dp"
-                android:background="@drawable/mate_select_background">
+                android:background="@drawable/mate_select_background"
+                android:onClick="@{() -> fragment.moveToMatch(1)}">
 
                 <ImageView
                     android:layout_width="wrap_content"
