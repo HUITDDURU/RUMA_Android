@@ -57,4 +57,28 @@
     <string name="save_button_text">저장하기</string>
     <string name="resign_text">탈퇴하기</string>
     <string name="description_edit_hint">한 줄 소개 변경</string>
+    
+    <!--  exchange  -->
+    <string name="exchange_title">일기 메이트 연결</string>
+    <string name="exchange_random_title">무작위 사용자\n찾아보기</string>
+    <string name="exchange_random_description">무작위 사용자를 찾아\n일기 교환을 시작하세요.</string>
+    <string name="exchange_friends_title">친구와\n교환하기</string>
+    <string name="exchange_friends_description">주어진 일기 코드를 공유해\n친구와 일기를 교환하세요.</string>
+    <string name="exchange_prev_text">교환 페이지로</string>
+    <string name="exchange_your_code">친구초대 코드</string>
+    <string name="exchange_recommend_your_friends">친구에게 코드를 보내\n일기 교환을 시작하세요!</string>
+    <string name="exchange_input_code_title">친구에게 받은 코드 입력</string>
+    <string name="exchange_input_code_hint">친구코드 입력</string>
+    <string name="exchange_random_matching_title">무작위 사용자 찾기</string>
+    <string name="exchange_random_matching">무작위로 사용자를 찾는 중입니다.\n잠시만 기다려 주세요.</string>
+    <string name="find_mate_title">무작위 사용자 찾기</string>
+    <string name="random_match_accept">수락</string>
+    <string name="random_match_refuse">거절</string>
+    <string name="find_mate_refuse_title">일기 교환 거절</string>
+    <string name="find_mate_refuse_description">일기 교환이 거절되었습니다.</string>
+    <string name="match_try">다시 매칭하기</string>
+    <string name="move_to_back">이전페이지로 돌아가기</string>
+    <string name="find_mate_success_title">일기 교환 시작!</string>
+    <string name="find_mate_success_description">이제부터 일기를 교환할 수 있습니다.</string>
+    <string name="exchange_diary_start">일기 교환하기</string>
 </resources>

@@ -18,6 +18,9 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:icon">
         <activity
+            android:name=".view.exchange.MatchActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.mypage.DiaryActivity"
             android:exported="false" />
         <activity
