@@ -112,7 +112,7 @@
                 android:includeFontPadding="false"/>
 
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/match_try_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
