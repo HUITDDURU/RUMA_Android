@@ -9,4 +9,5 @@ interface UserDataSource {
     suspend fun resign(header: String)
     suspend fun diaryList(header: String): List<DiaryResponse>
     suspend fun userInfo(header: String): UserInfoResponse
+    suspend fun code(header: String): HashMap<String, String>
 }
