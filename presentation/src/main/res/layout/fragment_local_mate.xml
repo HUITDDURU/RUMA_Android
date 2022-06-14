@@ -102,6 +102,23 @@
             android:fontFamily="@font/font_noto_sans_kr_regular"
             android:includeFontPadding="false"/>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/match_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/accept_btn_background"
+            android:text="@string/exchange_diary_start"
+            android:fontFamily="@font/font_noto_sans_kr_bold"
+            android:textSize="16sp"
+            android:includeFontPadding="false"/>
+
+
     </LinearLayout>
 
 </layout>
