@@ -12,5 +12,6 @@ import com.example.huitdduru.databinding.FragmentLocalMateBinding
 class LocalMateFragment : BaseFragment<FragmentLocalMateBinding>(R.layout.fragment_local_mate) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.fragment = this
     }
 }

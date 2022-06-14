@@ -2,6 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="fragment"
+            type="com.example.huitdduru.view.exchange.LocalMateFragment" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,7 +26,8 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/ic_right_arrow"
-                android:background="@null"/>
+                android:background="@null"
+                android:onClick="@{() -> fragment.activity.finish()}"/>
 
             <TextView
                 android:layout_width="wrap_content"
