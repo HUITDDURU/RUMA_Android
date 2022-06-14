@@ -78,4 +78,7 @@
     <string name="find_mate_refuse_description">일기 교환이 거절되었습니다.</string>
     <string name="match_try">다시 매칭하기</string>
     <string name="move_to_back">이전페이지로 돌아가기</string>
+    <string name="find_mate_success_title">일기 교환 시작!</string>
+    <string name="find_mate_success_description">이제부터 일기를 교환할 수 있습니다.</string>
+    <string name="exchange_diary_start">일기 교환하기</string>
 </resources>
