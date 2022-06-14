@@ -22,4 +22,7 @@ class UserDataSourceImpl @Inject constructor(
 
     override suspend fun userInfo(header: String): UserInfoResponse =
         errorHandler { userAPI.userInfo(header) }
+
+    override suspend fun code(header: String): HashMap<String, String> =
+        errorHandler { userAPI.code(header) }
 }

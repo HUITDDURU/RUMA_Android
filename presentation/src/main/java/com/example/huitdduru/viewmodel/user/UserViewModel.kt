@@ -8,10 +8,7 @@ import com.example.domain.entity.user.DiaryResponseEntity
 import com.example.domain.entity.user.EditRequestEntity
 import com.example.domain.entity.user.UserInfoResponseEntity
 import com.example.domain.usecase.auth.FileUploadUseCase
-import com.example.domain.usecase.user.DiaryListUseCase
-import com.example.domain.usecase.user.EditUseCase
-import com.example.domain.usecase.user.ResignUseCase
-import com.example.domain.usecase.user.UserInfoUseCase
+import com.example.domain.usecase.user.*
 import com.example.huitdduru.util.MutableEventFlow
 import com.example.huitdduru.util.asEventFlow
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -26,6 +23,7 @@ class UserViewModel @Inject constructor(
     private val diaryListUseCase: DiaryListUseCase,
     private val userInfoUseCase: UserInfoUseCase,
     private val fileUploadUseCase: FileUploadUseCase,
+    private val codeUseCase: CodeUseCase,
     private val localDataStorage: LocalDataStorage
 ): ViewModel() {
     private val _eventFlow = MutableEventFlow<Event>()
@@ -98,6 +96,20 @@ class UserViewModel @Inject constructor(
         }
     }
 
+    fun code(){
+        viewModelScope.launch {
+            kotlin.runCatching {
+                codeUseCase.invoke(
+                    localDataStorage.getAccessToken()!!
+                )
+            }.onSuccess {
+                event(Event.SuccessCode(it["code"]!!))
+            }.onFailure {
+                errorMessage(throwable = it)
+            }
+        }
+    }
+
     fun imageUpload(file: MultipartBody.Part){
         viewModelScope.launch {
             kotlin.runCatching {
@@ -135,8 +147,8 @@ class UserViewModel @Inject constructor(
         data class SuccessResign(var state: Boolean = false) : Event()
         data class SuccessGetDiaryList(val diaryList: List<DiaryResponseEntity>) : Event()
         data class SuccessUserInfo(val userInfo: UserInfoResponseEntity) : Event()
+        data class SuccessCode(val code: String) : Event()
         data class SuccessFileUpload(var state: Boolean = false) : Event()
         data class ErrorMessage(val errorMessage: String) : Event()
-
     }
 }

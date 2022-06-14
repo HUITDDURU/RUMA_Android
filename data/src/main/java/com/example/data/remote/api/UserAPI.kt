@@ -26,4 +26,9 @@ interface UserAPI {
     suspend fun userInfo(
         @Header("Authorization") header: String
     ): UserInfoResponse
+
+    @GET("/code")
+    suspend fun code(
+        @Header("Authorization") header: String
+    ): HashMap<String, String>
 }
