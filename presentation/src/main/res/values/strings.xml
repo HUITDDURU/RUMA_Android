@@ -74,4 +74,8 @@
     <string name="find_mate_title">무작위 사용자 찾기</string>
     <string name="random_match_accept">수락</string>
     <string name="random_match_refuse">거절</string>
+    <string name="find_mate_refuse_title">일기 교환 거절</string>
+    <string name="find_mate_refuse_description">일기 교환이 거절되었습니다.</string>
+    <string name="match_try">다시 매칭하기</string>
+    <string name="move_to_back">이전페이지로 돌아가기</string>
 </resources>
