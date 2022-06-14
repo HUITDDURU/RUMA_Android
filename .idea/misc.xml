@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/drawable/accept_btn_background.xml" value="0.1755" />
         <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/drawable/btn_border.xml" value="0.2415" />
         <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/drawable/calendar_item_background.xml" value="0.26" />
         <entry key="..\:/Programming/RUMA_Android/presentation/src/main/res/drawable/content_background.xml" value="0.257" />
