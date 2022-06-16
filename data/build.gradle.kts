@@ -50,6 +50,10 @@ dependencies {
     implementation(Dependency.Library.RETROFIT)
     implementation(Dependency.Library.RETROFIT_CONVERTER_GSON)
 
+    implementation(Dependency.Library.SOCKET_IO) {
+        exclude(group = "org.json", module = "json")
+    }
+
     implementation(Dependency.Library.OKHTTP)
     implementation(Dependency.Library.OKHTTP_LOGGING_INTERCEPTOR)
     implementation(Dependency.Library.OKHTTP_URL_CONNECTION)
