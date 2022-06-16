@@ -59,6 +59,10 @@ dependencies {
     implementation(Dependency.Library.OKHTTP_LOGGING_INTERCEPTOR)
     implementation(Dependency.Library.OKHTTP_URL_CONNECTION)
 
+    implementation(Dependency.Library.SOCKET_IO) {
+        exclude(group = "org.json", module = "json")
+    }
+
     implementation(Dependency.Kotlin.COROUTINES_ANDROID)
     implementation(Dependency.Kotlin.COROUTINES_CORE)
 
