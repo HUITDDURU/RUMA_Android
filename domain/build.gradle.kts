@@ -46,6 +46,9 @@ dependencies {
     implementation(Dependency.Library.OKHTTP_URL_CONNECTION)
     implementation(Dependency.Library.OKHTTP_LOGGING_INTERCEPTOR)
 
+    implementation(Dependency.Kotlin.COROUTINES_ANDROID)
+    implementation(Dependency.Kotlin.COROUTINES_CORE)
+
     implementation(Dependency.Google.HILT_VIEWMODEL)
     implementation(Dependency.Google.HILT_ANDROID)
     kapt(Dependency.Google.HILT_ANDROID_COMPILER)
