@@ -9,11 +9,13 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import io.socket.client.IO
+import io.socket.client.Socket
+import io.socket.engineio.client.transports.WebSocket
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -47,6 +49,19 @@ object NetworkModule {
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
+
+    @Singleton
+    @Provides
+    fun provideSocket(options: IO.Options): Socket =
+        IO.socket(SOCKET_BASE_URL, options)
+
+    @Provides
+    fun provideOptions(okHttpClient: OkHttpClient): IO.Options =
+        IO.Options().apply {
+            callFactory = okHttpClient
+            webSocketFactory = okHttpClient
+            transports = arrayOf(WebSocket.NAME)
+        }
 
     @Provides
     fun provideAuthAPI(retrofit: Retrofit) : AuthAPI =
