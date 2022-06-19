@@ -10,11 +10,11 @@ class SocketDataSourceImpl @Inject constructor(
     private val socket: Socket
 ): SocketDataSource{
     override suspend fun connect() {
-        TODO("Not yet implemented")
+        socket.connect()
     }
 
     override suspend fun disconnect() {
-        TODO("Not yet implemented")
+        socket.disconnect()
     }
 
     override suspend fun matching() {
