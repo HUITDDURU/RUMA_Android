@@ -12,7 +12,7 @@ interface SocketDataSource {
     suspend fun accept(accept: Boolean)
     suspend fun localMatching(code: String)
     suspend fun userInfo(): UserInfoResponseEntity
-    suspend fun unexpectedCancel(): SharedFlow<HashMap<String, String>>
-    suspend fun success(): SharedFlow<HashMap<String, String>>
+    suspend fun unexpectedCancel(): SharedFlow<String>
+    suspend fun success(): SharedFlow<String>
     suspend fun error(): ErrorResponseEntity
 }

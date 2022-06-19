@@ -2,8 +2,10 @@ package com.example.data.datasource
 
 import com.example.domain.entity.match.ErrorResponseEntity
 import com.example.domain.entity.user.UserInfoResponseEntity
+import com.google.gson.Gson
 import io.socket.client.Socket
 import io.socket.emitter.Emitter
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 import org.json.JSONObject
 import javax.inject.Inject
@@ -11,6 +13,9 @@ import javax.inject.Inject
 class SocketDataSourceImpl @Inject constructor(
     private val socket: Socket
 ): SocketDataSource{
+
+    private val _receiveMessage = MutableSharedFlow<HashMap>
+
     override suspend fun connect() {
         socket.connect()
     }
@@ -38,14 +43,14 @@ class SocketDataSourceImpl @Inject constructor(
     }
 
     override suspend fun userInfo(): UserInfoResponseEntity {
+        socket.on("success")
+    }
+
+    override suspend fun unexpectedCancel(): SharedFlow<String> {
         TODO("Not yet implemented")
     }
 
-    override suspend fun unexpectedCancel(): SharedFlow<HashMap<String, String>> {
-        TODO("Not yet implemented")
-    }
-
-    override suspend fun success(): SharedFlow<HashMap<String, String>> {
+    override suspend fun success(): SharedFlow<String> {
         TODO("Not yet implemented")
     }
 
@@ -57,7 +62,13 @@ class SocketDataSourceImpl @Inject constructor(
         val json = args[0].toString()
     }
 
-    private val onErrorMessage = Emitter.Listener { args ->
+    private val onError = Emitter.Listener { args ->
         val json = args[0].toString()
+        Gson().fromJson(json, ErrorResponseEntity::class.java)
+    }
+
+    private val onUserInfo = Emitter.Listener { args ->
+        val json = args[0].toString()
+        Gson().fromJson(json, UserInfoResponseEntity::class.java)
     }
 }
