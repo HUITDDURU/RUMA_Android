@@ -9,7 +9,7 @@ interface SocketDataSource {
     suspend fun disconnect()
     suspend fun matching()
     suspend fun cancel()
-    suspend fun accept()
+    suspend fun accept(accept: Boolean)
     suspend fun localMatching(code: String)
     suspend fun userInfo(): UserInfoResponseEntity
     suspend fun unexpectedCancel(): SharedFlow<HashMap<String, String>>
