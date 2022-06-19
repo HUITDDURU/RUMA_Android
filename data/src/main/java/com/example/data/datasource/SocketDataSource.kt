@@ -14,5 +14,4 @@ interface SocketDataSource {
     suspend fun userInfo(): UserInfoResponseEntity
     suspend fun unexpectedCancel(): SharedFlow<String>
     suspend fun success(): SharedFlow<String>
-    suspend fun error(): ErrorResponseEntity
 }

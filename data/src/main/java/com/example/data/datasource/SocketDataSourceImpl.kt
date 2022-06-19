@@ -1,6 +1,5 @@
 package com.example.data.datasource
 
-import com.example.domain.entity.match.ErrorResponseEntity
 import com.example.domain.entity.user.UserInfoResponseEntity
 import com.google.gson.Gson
 import io.socket.client.Socket
@@ -14,7 +13,8 @@ class SocketDataSourceImpl @Inject constructor(
     private val socket: Socket
 ): SocketDataSource{
 
-    private val _receiveMessage = MutableSharedFlow<HashMap>
+    private val _receiveMessage = MutableSharedFlow<String>()
+    private lateinit var userInfo: UserInfoResponseEntity
 
     override suspend fun connect() {
         socket.connect()
@@ -43,7 +43,7 @@ class SocketDataSourceImpl @Inject constructor(
     }
 
     override suspend fun userInfo(): UserInfoResponseEntity {
-        socket.on("success")
+        socket.on("success", onUserInfo)
     }
 
     override suspend fun unexpectedCancel(): SharedFlow<String> {
@@ -54,21 +54,12 @@ class SocketDataSourceImpl @Inject constructor(
         TODO("Not yet implemented")
     }
 
-    override suspend fun error(): ErrorResponseEntity {
-        TODO("Not yet implemented")
-    }
-
     private val onMessage = Emitter.Listener { args ->
         val json = args[0].toString()
     }
 
-    private val onError = Emitter.Listener { args ->
-        val json = args[0].toString()
-        Gson().fromJson(json, ErrorResponseEntity::class.java)
-    }
-
     private val onUserInfo = Emitter.Listener { args ->
         val json = args[0].toString()
-        Gson().fromJson(json, UserInfoResponseEntity::class.java)
+        userInfo = Gson().fromJson(json, UserInfoResponseEntity::class.java)
     }
 }
