@@ -53,14 +53,6 @@ class SocketDataSourceImpl @Inject constructor(
         return userInfo
     }
 
-    override suspend fun unexpectedCancel(): SharedFlow<String> {
-        TODO("Not yet implemented")
-    }
-
-    override suspend fun success(): SharedFlow<String> {
-        TODO("Not yet implemented")
-    }
-
     private val onMessage = Emitter.Listener { args ->
         val json = args[0].toString()
     }
