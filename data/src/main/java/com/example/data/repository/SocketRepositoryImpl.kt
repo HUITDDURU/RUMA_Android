@@ -9,30 +9,29 @@ class SocketRepositoryImpl @Inject constructor(
     private val socketDataSource: SocketDataSource
 ): SocketRepository {
     override suspend fun connect() {
-        TODO("Not yet implemented")
+        socketDataSource.connect()
     }
 
     override suspend fun disconnect() {
-        TODO("Not yet implemented")
+        socketDataSource.disconnect()
     }
 
     override suspend fun matching() {
-        TODO("Not yet implemented")
+        socketDataSource.matching()
     }
 
     override suspend fun cancel() {
-        TODO("Not yet implemented")
+        socketDataSource.cancel()
     }
 
     override suspend fun accept(accept: Boolean) {
-        TODO("Not yet implemented")
+        socketDataSource.accept(accept)
     }
 
     override suspend fun localMatching(code: String) {
-        TODO("Not yet implemented")
+        socketDataSource.localMatching(code)
     }
 
-    override suspend fun userInfo(): UserInfoResponseEntity {
-        TODO("Not yet implemented")
-    }
+    override suspend fun userInfo(): UserInfoResponseEntity =
+        socketDataSource.userInfo()
 }
