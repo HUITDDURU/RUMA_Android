@@ -47,7 +47,9 @@ class SocketDataSourceImpl @Inject constructor(
     }
 
     override suspend fun userInfo(): UserInfoResponseEntity {
-        socket.on("success", onUserInfo)
+        socket.on("success", onMessage)
+        socket.on("cancel", onMessage)
+        socket.on("userInfo", onUserInfo)
         return userInfo
     }
 
