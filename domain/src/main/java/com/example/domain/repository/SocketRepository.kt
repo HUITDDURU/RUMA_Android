@@ -2,7 +2,7 @@ package com.example.domain.repository
 
 import com.example.domain.entity.user.UserInfoResponseEntity
 
-interface SocketInterface {
+interface SocketRepository {
     suspend fun connect()
     suspend fun disconnect()
     suspend fun matching()
