@@ -41,7 +41,9 @@ class SocketDataSourceImpl @Inject constructor(
     }
 
     override suspend fun localMatching(code: String) {
-        TODO("Not yet implemented")
+        val data = JSONObject()
+        data.put("code", code)
+        socket.emit("matching.friend", data)
     }
 
     override suspend fun userInfo(): UserInfoResponseEntity {
