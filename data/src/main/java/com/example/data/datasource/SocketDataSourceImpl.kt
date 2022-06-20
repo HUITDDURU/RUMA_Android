@@ -54,7 +54,8 @@ class SocketDataSourceImpl @Inject constructor(
     }
 
     private val onMessage = Emitter.Listener { args ->
-        val json = args[0].toString()
+        val json = JSONObject(args[0].toString())
+        _receiveMessage.tryEmit(json.getString(""))
     }
 
     private val onUserInfo = Emitter.Listener { args ->
