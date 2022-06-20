@@ -6,6 +6,7 @@ import io.socket.client.Socket
 import io.socket.emitter.Emitter
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import org.json.JSONObject
 import javax.inject.Inject
 
@@ -14,6 +15,7 @@ class SocketDataSourceImpl @Inject constructor(
 ): SocketDataSource{
 
     private val _receiveMessage = MutableSharedFlow<String>()
+    val receiveMessage = _receiveMessage.asSharedFlow()
     private lateinit var userInfo: UserInfoResponseEntity
 
     override suspend fun connect() {
@@ -44,6 +46,7 @@ class SocketDataSourceImpl @Inject constructor(
 
     override suspend fun userInfo(): UserInfoResponseEntity {
         socket.on("success", onUserInfo)
+        return userInfo
     }
 
     override suspend fun unexpectedCancel(): SharedFlow<String> {
