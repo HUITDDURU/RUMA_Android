@@ -28,4 +28,10 @@ abstract class RemoteDataSourceModule {
     abstract fun provideUserDataSource(
         userDataSourceImpl: UserDataSourceImpl
     ): UserDataSource
+
+    @Singleton
+    @Binds
+    abstract fun provideSocketDataSource(
+        socketDataSourceImpl: SocketDataSourceImpl
+    ): SocketDataSource
 }
