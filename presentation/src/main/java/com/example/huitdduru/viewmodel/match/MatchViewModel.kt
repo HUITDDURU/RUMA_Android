@@ -19,7 +19,9 @@ class MatchViewModel @Inject constructor(
     private val localMatchingUseCase: LocalMatchingUseCase,
     private val matchingAcceptUseCase: MatchingAcceptUseCase,
     private val matchingCancelUseCase: MatchingCancelUseCase,
-    private val matchingUseCase: MatchingUseCase
+    private val matchingUseCase: MatchingUseCase,
+    private val cancel: CancelUseCase,
+    private val success: SuccessUseCase
 ): ViewModel() {
 
     private val _eventFlow = MutableEventFlow<Event>()
