@@ -43,6 +43,14 @@ class MatchViewModel @Inject constructor(
         }
     }
 
+    fun matching() {
+        viewModelScope.launch {
+            matchingUseCase.invoke()
+        }
+    }
+
+    
+
     sealed class Event {
     }
 }
