@@ -49,7 +49,13 @@ class MatchViewModel @Inject constructor(
         }
     }
 
-    
+    fun localMatching(code: String) {
+        viewModelScope.launch {
+            localMatchingUseCase.invoke(code)
+        }
+    }
+
+
 
     sealed class Event {
     }
