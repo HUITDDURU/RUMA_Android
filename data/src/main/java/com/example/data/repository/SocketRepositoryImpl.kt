@@ -20,8 +20,8 @@ class SocketRepositoryImpl @Inject constructor(
         socketDataSource.matching()
     }
 
-    override suspend fun cancel() {
-        socketDataSource.cancel()
+    override suspend fun matchingCancel() {
+        socketDataSource.matchingCancel()
     }
 
     override suspend fun accept(accept: Boolean) {

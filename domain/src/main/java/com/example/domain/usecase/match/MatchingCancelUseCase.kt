@@ -6,5 +6,5 @@ import javax.inject.Inject
 class MatchingCancelUseCase @Inject constructor(
     private val socketRepository: SocketRepository
 ){
-    suspend fun invoke() = socketRepository.cancel()
+    suspend fun invoke() = socketRepository.matchingCancel()
 }

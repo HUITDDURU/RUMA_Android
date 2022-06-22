@@ -30,7 +30,7 @@ class SocketDataSourceImpl @Inject constructor(
         socket.on("matching.start", null)
     }
 
-    override suspend fun cancel() {
+    override suspend fun matchingCancel() {
         socket.on("matching.cancel", onMessage)
     }
 
