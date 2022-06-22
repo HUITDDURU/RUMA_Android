@@ -3,6 +3,7 @@ package com.example.data.repository
 import com.example.data.datasource.SocketDataSource
 import com.example.domain.entity.user.UserInfoResponseEntity
 import com.example.domain.repository.SocketRepository
+import kotlinx.coroutines.flow.SharedFlow
 import javax.inject.Inject
 
 class SocketRepositoryImpl @Inject constructor(
@@ -34,4 +35,10 @@ class SocketRepositoryImpl @Inject constructor(
 
     override suspend fun userInfo(): UserInfoResponseEntity =
         socketDataSource.userInfo()
+
+    override suspend fun cancel(): SharedFlow<String> =
+        socketDataSource.cancel()
+
+    override suspend fun success(): SharedFlow<String> =
+        socketDataSource.success()
 }

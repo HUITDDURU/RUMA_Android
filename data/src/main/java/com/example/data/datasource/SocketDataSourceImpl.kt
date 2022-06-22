@@ -15,7 +15,7 @@ class SocketDataSourceImpl @Inject constructor(
 ): SocketDataSource{
 
     private val _receiveMessage = MutableSharedFlow<String>()
-    val receiveMessage = _receiveMessage.asSharedFlow()
+    private val receiveMessage = _receiveMessage.asSharedFlow()
     private lateinit var userInfo: UserInfoResponseEntity
 
     override suspend fun connect() {
@@ -47,10 +47,18 @@ class SocketDataSourceImpl @Inject constructor(
     }
 
     override suspend fun userInfo(): UserInfoResponseEntity {
-        socket.on("success", onMessage)
-        socket.on("cancel", onMessage)
         socket.on("userInfo", onUserInfo)
         return userInfo
+    }
+
+    override suspend fun cancel(): SharedFlow<String> {
+        socket.on("cancel", onMessage)
+        return receiveMessage
+    }
+
+    override suspend fun success(): SharedFlow<String> {
+        socket.on("success", onMessage)
+        return receiveMessage
     }
 
     private val onMessage = Emitter.Listener { args ->
