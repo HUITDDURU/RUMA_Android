@@ -27,7 +27,7 @@ class SocketDataSourceImpl @Inject constructor(
     }
 
     override suspend fun matching() {
-        socket.on("matching.start", onMessage)
+        socket.emit("matching.start")
     }
 
     override suspend fun matchingCancel() {
@@ -47,7 +47,7 @@ class SocketDataSourceImpl @Inject constructor(
     }
 
     override suspend fun userInfo(): UserInfoResponseEntity {
-        socket.on("userInfo", onUserInfo)
+        socket.on("userinfo", onUserInfo)
         return userInfo
     }
 
