@@ -33,7 +33,7 @@ class SocketRepositoryImpl @Inject constructor(
         socketDataSource.localMatching(code)
     }
 
-    override suspend fun userInfo(): UserInfoResponseEntity =
+    override suspend fun userInfo(): SharedFlow<UserInfoResponseEntity> =
         socketDataSource.userInfo()
 
     override suspend fun cancel(): SharedFlow<String> =

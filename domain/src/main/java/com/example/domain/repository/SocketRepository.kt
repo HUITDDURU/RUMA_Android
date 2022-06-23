@@ -10,7 +10,7 @@ interface SocketRepository {
     suspend fun matchingCancel()
     suspend fun accept(accept: Boolean)
     suspend fun localMatching(code: String)
-    suspend fun userInfo(): UserInfoResponseEntity
+    suspend fun userInfo(): SharedFlow<UserInfoResponseEntity>
     suspend fun cancel(): SharedFlow<String>
     suspend fun success(): SharedFlow<String>
 }

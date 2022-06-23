@@ -16,7 +16,9 @@ class SocketDataSourceImpl @Inject constructor(
 
     private val _receiveMessage = MutableSharedFlow<String>()
     private val receiveMessage = _receiveMessage.asSharedFlow()
-    private lateinit var userInfo: UserInfoResponseEntity
+
+    private val _userInfo = MutableSharedFlow<UserInfoResponseEntity>()
+    private val userInfo = _userInfo.asSharedFlow()
 
     override suspend fun connect() {
         socket.connect()
@@ -46,7 +48,7 @@ class SocketDataSourceImpl @Inject constructor(
         socket.emit("matching.friend", data)
     }
 
-    override suspend fun userInfo(): UserInfoResponseEntity {
+    override suspend fun userInfo(): SharedFlow<UserInfoResponseEntity> {
         socket.on("userinfo", onUserInfo)
         return userInfo
     }
@@ -63,11 +65,11 @@ class SocketDataSourceImpl @Inject constructor(
 
     private val onMessage = Emitter.Listener { args ->
         val json = JSONObject(args[0].toString())
-        _receiveMessage.tryEmit(json.getString(""))
+        _receiveMessage.tryEmit(json.getString("message"))
     }
 
     private val onUserInfo = Emitter.Listener { args ->
         val json = args[0].toString()
-        userInfo = Gson().fromJson(json, UserInfoResponseEntity::class.java)
+        _userInfo.tryEmit(Gson().fromJson(json, UserInfoResponseEntity::class.java))
     }
 }
