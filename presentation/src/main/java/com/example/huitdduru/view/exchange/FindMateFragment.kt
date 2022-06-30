@@ -9,6 +9,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.example.huitdduru.R
 import com.example.huitdduru.base.BaseFragment
 import com.example.huitdduru.databinding.FragmentFindMateBinding
+import com.example.huitdduru.util.ToastType
 import com.example.huitdduru.util.repeatOnStarted
 import com.example.huitdduru.viewmodel.match.MatchViewModel
 import com.example.huitdduru.viewmodel.match.MatchViewModel.Event
@@ -31,9 +32,21 @@ class FindMateFragment : BaseFragment<FragmentFindMateBinding>(R.layout.fragment
         repeatOnStarted {
             vm.eventFlow.collect { event -> handleEvent(event) }
         }
+
+        lifecycleScope.launch {
+            vm.sharedFlow.collect {
+                showToast(it, ToastType.INFO)
+            }
+        }
     }
 
     private fun handleEvent(event: Event) = when(event){
+        is Event.SuccessMatch -> {
+            (activity as MatchActivity).replace(AcceptFragment())
+        }
+        is Event.SuccessCancel -> {
+            (activity as MatchActivity).replace(RefuseFragment())
+        }
         else -> {}
     }
 }
