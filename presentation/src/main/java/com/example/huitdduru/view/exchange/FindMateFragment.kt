@@ -32,12 +32,6 @@ class FindMateFragment : BaseFragment<FragmentFindMateBinding>(R.layout.fragment
         repeatOnStarted {
             vm.eventFlow.collect { event -> handleEvent(event) }
         }
-
-        lifecycleScope.launch {
-            vm.sharedFlow.collect {
-                showToast(it, ToastType.INFO)
-            }
-        }
     }
 
     private fun handleEvent(event: Event) = when(event){
