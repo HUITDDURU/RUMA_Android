@@ -126,6 +126,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/match_try_button_background"
+                android:onClick="@{() -> fragment.moveToRandom()}"
                 android:text="@string/match_try"
                 android:textSize="16sp"
                 android:textColor="@color/white"

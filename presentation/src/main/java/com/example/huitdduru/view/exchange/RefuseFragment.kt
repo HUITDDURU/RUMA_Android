@@ -17,4 +17,8 @@ class RefuseFragment : BaseFragment<FragmentRefuseBinding>(R.layout.fragment_ref
         binding.fragment = this
         binding.vm = vm
     }
+
+    fun moveToRandom(){
+        (activity as MatchActivity).replace(RandomMateFragment())
+    }
 }
