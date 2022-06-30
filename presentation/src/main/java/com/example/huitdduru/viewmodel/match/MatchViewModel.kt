@@ -36,6 +36,8 @@ class MatchViewModel @Inject constructor(
     private val _infoFlow = MutableSharedFlow<UserInfoResponseEntity>(replay = 0)
     val infoFlow = _infoFlow.asSharedFlow()
 
+    private var userInfo : UserInfoResponseEntity? = null
+
     private fun event(event: Event) {
         viewModelScope.launch {
             _eventFlow.emit(event)
@@ -89,7 +91,7 @@ class MatchViewModel @Inject constructor(
             getUserInfoUseCase.invoke().runCatching {
                 collect{
                     event(Event.SuccessFindUser(true))
-                    _infoFlow.emit(it)
+                    userInfo = it
                 }
             }
         }
@@ -122,6 +124,8 @@ class MatchViewModel @Inject constructor(
             }
         }
     }
+
+    fun getUser() = userInfo
 
     sealed class Event {
         data class SuccessFindUser(var status: Boolean = false) : Event()
