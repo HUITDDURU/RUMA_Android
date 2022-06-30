@@ -4,12 +4,44 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:orientation="vertical"
         tools:context=".view.mypage.DiaryActivity">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:text="rlawlsrms님과의 일기장"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/font_noto_sans_kr_bold"
+            android:includeFontPadding="false"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/diary_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="30dp"
+            android:layout_weight="1"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+        <Button
+            android:id="@+id/write_button"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginBottom="20dp"
+            android:text="일기쓰기"
+            android:fontFamily="@font/font_noto_sans_kr_bold"
+            android:includeFontPadding="false"/>
+
+    </LinearLayout>
 
 </layout>
 
