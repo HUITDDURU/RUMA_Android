@@ -33,9 +33,6 @@ class MatchViewModel @Inject constructor(
     private val _sharedFlow = MutableSharedFlow<String>(replay = 0)
     val sharedFlow = _sharedFlow.asSharedFlow()
 
-    private val _infoFlow = MutableSharedFlow<UserInfoResponseEntity>(replay = 0)
-    val infoFlow = _infoFlow.asSharedFlow()
-
     private var userInfo : UserInfoResponseEntity? = null
 
     private fun event(event: Event) {
@@ -104,6 +101,8 @@ class MatchViewModel @Inject constructor(
             }.onSuccess { flow ->
                 flow.collect { message ->
                     receiveMessage(message)
+                    event(Event.SuccessMatch(false))
+                    event(Event.SuccessCancel(true))
                 }
             }.onFailure {
                 event(Event.ErrorMessage("오류가 발생했습니다."))
@@ -118,6 +117,8 @@ class MatchViewModel @Inject constructor(
             }.onSuccess { flow ->
                 flow.collect { message ->
                     receiveMessage(message)
+                    event(Event.SuccessMatch(true))
+                    event(Event.SuccessCancel(false))
                 }
             }.onFailure {
                 event(Event.ErrorMessage("오류가 발생했습니다."))
@@ -129,6 +130,8 @@ class MatchViewModel @Inject constructor(
 
     sealed class Event {
         data class SuccessFindUser(var status: Boolean = false) : Event()
+        data class SuccessMatch(var status: Boolean = false) : Event()
+        data class SuccessCancel(var status: Boolean = false) : Event()
         data class ErrorMessage(val errorMessage: String) : Event()
     }
 }
