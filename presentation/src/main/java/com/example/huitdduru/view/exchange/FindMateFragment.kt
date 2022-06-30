@@ -24,7 +24,7 @@ class FindMateFragment : BaseFragment<FragmentFindMateBinding>(R.layout.fragment
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.fragment = this
-        binding.userInfo = vm.getUser()
+        binding.vm = vm
         vm.cancel()
         vm.success()
 

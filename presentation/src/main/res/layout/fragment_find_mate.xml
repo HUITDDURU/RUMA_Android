@@ -7,8 +7,8 @@
             name="fragment"
             type="com.example.huitdduru.view.exchange.FindMateFragment" />
         <variable
-            name="userInfo"
-            type="com.example.domain.entity.user.UserInfoResponseEntity" />
+            name="vm"
+            type="com.example.huitdduru.viewmodel.match.MatchViewModel" />
     </data>
 
     <LinearLayout
@@ -62,7 +62,7 @@
                     android:background="@drawable/profile_radius"
                     android:src="@drawable/ic_profile"
                     android:scaleType="fitCenter"
-                    loadImage="@{userInfo.img}"/>
+                    loadImage="@{vm.getUser().img}"/>
 
                 <TextView
                     android:id="@+id/mate_name"
@@ -71,7 +71,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:text="@{userInfo.name}"
+                    android:text="@{vm.getUser().name}"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:fontFamily="@font/font_noto_sans_kr_regular"
@@ -88,7 +88,7 @@
                 android:layout_marginBottom="30dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="40dp"
-                android:text="@{userInfo.intro}"
+                android:text="@{vm.getUser().intro}"
                 android:textColor="@color/gray1"
                 android:fontFamily="@font/font_noto_sans_kr_regular"
                 android:includeFontPadding="false"/>
