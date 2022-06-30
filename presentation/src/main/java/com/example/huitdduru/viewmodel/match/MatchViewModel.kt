@@ -1,7 +1,9 @@
 package com.example.huitdduru.viewmodel.match
 
+import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.domain.entity.user.UserInfoResponseEntity
 import com.example.domain.usecase.match.*
@@ -30,6 +32,9 @@ class MatchViewModel @Inject constructor(
 
     private val _sharedFlow = MutableSharedFlow<String>(replay = 0)
     val sharedFlow = _sharedFlow.asSharedFlow()
+
+    private val _infoFlow = MutableSharedFlow<UserInfoResponseEntity>(replay = 0)
+    val infoFlow = _infoFlow.asSharedFlow()
 
     private fun event(event: Event) {
         viewModelScope.launch {
@@ -81,12 +86,11 @@ class MatchViewModel @Inject constructor(
 
     fun getUserInfo() {
         viewModelScope.launch {
-            kotlin.runCatching {
-                getUserInfoUseCase.invoke()
-            }.onSuccess {
-                event(Event.SuccessGetUserInfo(it))
-            }.onFailure {
-                event(Event.ErrorMessage("오류가 발생했습니다."))
+            getUserInfoUseCase.invoke().runCatching {
+                collect{
+                    event(Event.SuccessFindUser(true))
+                    _infoFlow.emit(it)
+                }
             }
         }
     }
@@ -120,7 +124,7 @@ class MatchViewModel @Inject constructor(
     }
 
     sealed class Event {
-        data class SuccessGetUserInfo(val userInfo: UserInfoResponseEntity) : Event()
+        data class SuccessFindUser(var status: Boolean = false) : Event()
         data class ErrorMessage(val errorMessage: String) : Event()
     }
 }
