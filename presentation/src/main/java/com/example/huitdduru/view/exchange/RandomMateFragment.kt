@@ -2,6 +2,7 @@ package com.example.huitdduru.view.exchange
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.addCallback
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -25,7 +26,6 @@ class RandomMateFragment : BaseFragment<FragmentRandomMateBinding>(R.layout.frag
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.fragment = this
-        vm.matchingAccept(false)
         vm.matching()
         vm.getUserInfo()
 
@@ -45,5 +45,10 @@ class RandomMateFragment : BaseFragment<FragmentRandomMateBinding>(R.layout.frag
             (activity as MatchActivity).replace(FindMateFragment())
         }
         else -> {}
+    }
+
+    fun backPress(){
+        vm.matchingCancel()
+        requireActivity().finish()
     }
 }
