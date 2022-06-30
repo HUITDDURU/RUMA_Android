@@ -112,6 +112,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="20dp"
+                android:onClick="@{() -> fragment.requireActivity().finish()}"
                 android:text="@string/move_to_back"
                 android:textColor="@color/gray1"
                 android:fontFamily="@font/font_noto_sans_kr_regular"
