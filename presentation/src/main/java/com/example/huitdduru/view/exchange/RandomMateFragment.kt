@@ -25,6 +25,7 @@ class RandomMateFragment : BaseFragment<FragmentRandomMateBinding>(R.layout.frag
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.fragment = this
+        vm.matchingAccept(false)
         vm.matching()
         vm.getUserInfo()
 
@@ -40,7 +41,7 @@ class RandomMateFragment : BaseFragment<FragmentRandomMateBinding>(R.layout.frag
     }
 
     private fun handleEvent(event: Event) = when(event) {
-        is Event.SuccessGetUserInfo -> {
+        is Event.SuccessFindUser -> {
             (activity as MatchActivity).replace(FindMateFragment())
         }
         else -> {}
