@@ -1,10 +1,10 @@
 package com.example.huitdduru.viewmodel.match
 
-import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.data.local.storage.LocalDataStorage
+import com.example.domain.base.*
+import com.example.domain.entity.match.MateResponseEntity
 import com.example.domain.entity.user.UserInfoResponseEntity
 import com.example.domain.usecase.match.*
 import com.example.huitdduru.util.MutableEventFlow
@@ -24,7 +24,10 @@ class MatchViewModel @Inject constructor(
     private val matchingCancelUseCase: MatchingCancelUseCase,
     private val matchingUseCase: MatchingUseCase,
     private val cancelUseCase: CancelUseCase,
-    private val successUseCase: SuccessUseCase
+    private val successUseCase: SuccessUseCase,
+    private val mateUseCase: MateUseCase,
+    private val terminateUseCase: TerminateUseCase,
+    private val localDataStorage: LocalDataStorage
 ): ViewModel() {
 
     private val _eventFlow = MutableEventFlow<Event>()
@@ -126,12 +129,48 @@ class MatchViewModel @Inject constructor(
         }
     }
 
+    fun mate(){
+        viewModelScope.launch {
+            kotlin.runCatching {
+                mateUseCase.invoke(localDataStorage.getAccessToken()!!)
+            }.onSuccess {
+                event(Event.SuccessMate(mate = it))
+            }.onFailure {
+                errorMessage(throwable = it)
+            }
+        }
+    }
+
+    fun terminate(){
+        viewModelScope.launch {
+            kotlin.runCatching {
+                terminateUseCase.invoke(localDataStorage.getAccessToken()!!)
+            }.onSuccess {
+                event(Event.SuccessTerminate(true))
+            }.onFailure {
+                errorMessage(throwable = it)
+            }
+        }
+    }
+
     fun getUser() = userInfo
+
+    private fun errorMessage(throwable: Throwable) {
+        when (throwable) {
+            is BadRequest -> event(Event.ErrorMessage("잘못된 요청 형식입니다."))
+            is UnAuthorized -> event(Event.ErrorMessage("만료된 토큰입니다."))
+            is Forbidden -> event(Event.ErrorMessage("요청 권한이 없습니다."))
+            is NotFound -> event(Event.ErrorMessage("잘못된 요청입니다."))
+            is ServerError -> event(Event.ErrorMessage("알 수 없는 오류가 발생했습니다."))
+        }
+    }
 
     sealed class Event {
         data class SuccessFindUser(var status: Boolean = false) : Event()
         data class SuccessMatch(var status: Boolean = false) : Event()
         data class SuccessCancel(var status: Boolean = false) : Event()
+        data class SuccessMate(val mate: MateResponseEntity) : Event()
+        data class SuccessTerminate(var status: Boolean = false) : Event()
         data class ErrorMessage(val errorMessage: String) : Event()
     }
 }
