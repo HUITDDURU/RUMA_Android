@@ -1,5 +1,6 @@
 package com.example.huitdduru.di
 
+import com.example.data.local.storage.LocalDataStorage
 import com.example.data.remote.api.AuthAPI
 import com.example.data.remote.api.DiaryAPI
 import com.example.data.remote.api.UserAPI
@@ -17,6 +18,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 import javax.inject.Singleton
 
 @Module
@@ -56,11 +58,14 @@ object NetworkModule {
         IO.socket(SOCKET_BASE_URL, options)
 
     @Provides
-    fun provideOptions(okHttpClient: OkHttpClient): IO.Options =
+    fun provideOptions(
+        okHttpClient: OkHttpClient
+    ): IO.Options =
         IO.Options().apply {
             callFactory = okHttpClient
             webSocketFactory = okHttpClient
             transports = arrayOf(WebSocket.NAME)
+            query = "Authorization=eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTY2NDQzNzQsImV4cCI6MTY1NzY0NDM3NCwic3ViIjoiYWJoMDkyMG9uZUBnbWFpbC5jb20iLCJ0eXBlIjoiYWNjZXNzIn0.zB6M21fEmSYUDuPqEw6U0wYRp_1Kq4Z9Gl7gd-PWn5I"
         }
 
     @Provides

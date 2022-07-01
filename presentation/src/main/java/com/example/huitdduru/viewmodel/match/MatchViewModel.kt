@@ -117,8 +117,8 @@ class MatchViewModel @Inject constructor(
             }.onSuccess { flow ->
                 flow.collect { message ->
                     receiveMessage(message)
-                    event(Event.SuccessMatch(true))
                     event(Event.SuccessCancel(false))
+                    event(Event.SuccessMatch(true))
                 }
             }.onFailure {
                 event(Event.ErrorMessage("오류가 발생했습니다."))

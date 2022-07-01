@@ -36,10 +36,12 @@ class FindMateFragment : BaseFragment<FragmentFindMateBinding>(R.layout.fragment
 
     private fun handleEvent(event: Event) = when(event){
         is Event.SuccessMatch -> {
-            (activity as MatchActivity).replace(AcceptFragment())
+            if(event.status) (activity as MatchActivity).replace(AcceptFragment())
+            else {}
         }
         is Event.SuccessCancel -> {
-            (activity as MatchActivity).replace(RefuseFragment())
+            if(event.status) (activity as MatchActivity).replace(RefuseFragment())
+            else {}
         }
         else -> {}
     }

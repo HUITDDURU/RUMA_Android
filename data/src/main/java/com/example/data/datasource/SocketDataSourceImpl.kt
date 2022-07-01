@@ -14,11 +14,21 @@ class SocketDataSourceImpl @Inject constructor(
     private val socket: Socket
 ): SocketDataSource{
 
-    private val _receiveMessage = MutableSharedFlow<String>()
-    private val receiveMessage = _receiveMessage.asSharedFlow()
+    private val _receiveMessage = MutableSharedFlow<String>(extraBufferCapacity = 1)
+    val receiveMessage: SharedFlow<String> = _receiveMessage.asSharedFlow()
 
-    private val _userInfo = MutableSharedFlow<UserInfoResponseEntity>()
-    private val userInfo = _userInfo.asSharedFlow()
+    private val _userInfo = MutableSharedFlow<UserInfoResponseEntity>(extraBufferCapacity = 1)
+    val userInfo: SharedFlow<UserInfoResponseEntity> = _userInfo.asSharedFlow()
+
+    private val onMessage = Emitter.Listener { args ->
+        val json = JSONObject(args[0].toString())
+        _receiveMessage.tryEmit(json.getString("message"))
+    }
+
+    private val onUserInfo = Emitter.Listener { args ->
+        val json = args[0].toString()
+        _userInfo.tryEmit(Gson().fromJson(json, UserInfoResponseEntity::class.java))
+    }
 
     override suspend fun connect() {
         socket.connect()
@@ -33,7 +43,7 @@ class SocketDataSourceImpl @Inject constructor(
     }
 
     override suspend fun matchingCancel() {
-        socket.on("matching.cancel", onMessage)
+        socket.emit("matching.cancel")
     }
 
     override suspend fun accept(accept: Boolean) {
@@ -61,15 +71,5 @@ class SocketDataSourceImpl @Inject constructor(
     override suspend fun success(): SharedFlow<String> {
         socket.on("success", onMessage)
         return receiveMessage
-    }
-
-    private val onMessage = Emitter.Listener { args ->
-        val json = JSONObject(args[0].toString())
-        _receiveMessage.tryEmit(json.getString("message"))
-    }
-
-    private val onUserInfo = Emitter.Listener { args ->
-        val json = args[0].toString()
-        _userInfo.tryEmit(Gson().fromJson(json, UserInfoResponseEntity::class.java))
     }
 }
