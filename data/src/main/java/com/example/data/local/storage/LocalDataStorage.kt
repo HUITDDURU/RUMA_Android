@@ -7,9 +7,12 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 class LocalDataStorage @Inject constructor(
@@ -63,6 +66,19 @@ class LocalDataStorage @Inject constructor(
         } catch (e: Exception){
             e.printStackTrace()
             0
+        }
+
+    fun getAuthorization(): String? =
+        runBlocking {
+            try {
+                val preferences = context.dataStore.data.first()
+                val token = preferences[ACCESS_TOKEN_KEY] ?: "Access token not found"
+                val a = token.split(" ")[1]
+                a
+            } catch (e: Exception){
+                e.printStackTrace()
+                null
+            }
         }
 }
 

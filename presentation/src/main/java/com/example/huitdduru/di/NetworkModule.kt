@@ -59,13 +59,14 @@ object NetworkModule {
 
     @Provides
     fun provideOptions(
-        okHttpClient: OkHttpClient
+        okHttpClient: OkHttpClient,
+        localDataStorage: LocalDataStorage
     ): IO.Options =
         IO.Options().apply {
             callFactory = okHttpClient
             webSocketFactory = okHttpClient
             transports = arrayOf(WebSocket.NAME)
-            query = "Authorization=eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTY2NDQzNzQsImV4cCI6MTY1NzY0NDM3NCwic3ViIjoiYWJoMDkyMG9uZUBnbWFpbC5jb20iLCJ0eXBlIjoiYWNjZXNzIn0.zB6M21fEmSYUDuPqEw6U0wYRp_1Kq4Z9Gl7gd-PWn5I"
+            query = "Authorization=${localDataStorage.getAuthorization()}"
         }
 
     @Provides
