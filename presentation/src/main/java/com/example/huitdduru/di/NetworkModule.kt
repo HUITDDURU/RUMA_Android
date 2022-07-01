@@ -3,6 +3,7 @@ package com.example.huitdduru.di
 import com.example.data.local.storage.LocalDataStorage
 import com.example.data.remote.api.AuthAPI
 import com.example.data.remote.api.DiaryAPI
+import com.example.data.remote.api.MatchAPI
 import com.example.data.remote.api.UserAPI
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -80,6 +81,10 @@ object NetworkModule {
     @Provides
     fun provideUserAPI(retrofit: Retrofit) : UserAPI =
         retrofit.create(UserAPI::class.java)
+
+    @Provides
+    fun provideMatchAPI(retrofit: Retrofit) : MatchAPI =
+        retrofit.create(MatchAPI::class.java)
 
     @Provides
     fun provideGsonBuilder() : Gson =
