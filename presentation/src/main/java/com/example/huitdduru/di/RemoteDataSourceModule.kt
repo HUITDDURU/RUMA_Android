@@ -31,6 +31,12 @@ abstract class RemoteDataSourceModule {
 
     @Singleton
     @Binds
+    abstract fun provideMatchDataSource(
+        matchDataSourceImpl: MatchDataSourceImpl
+    ): MatchDataSource
+
+    @Singleton
+    @Binds
     abstract fun provideSocketDataSource(
         socketDataSourceImpl: SocketDataSourceImpl
     ): SocketDataSource
