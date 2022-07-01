@@ -3,6 +3,7 @@ package com.example.data.remote.api
 import com.example.data.remote.response.MateResponse
 import retrofit2.http.GET
 import retrofit2.http.Header
+import retrofit2.http.PUT
 
 interface MatchAPI {
     @GET("/match")
@@ -10,5 +11,8 @@ interface MatchAPI {
         @Header("Authorization") header: String
     ): MateResponse
 
-    
+    @PUT("/match")
+    suspend fun terminate(
+        @Header("Authorization") header: String
+    )
 }
