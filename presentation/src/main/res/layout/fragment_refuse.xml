@@ -6,6 +6,9 @@
         <variable
             name="fragment"
             type="com.example.huitdduru.view.exchange.RefuseFragment" />
+        <variable
+            name="vm"
+            type="com.example.huitdduru.viewmodel.match.MatchViewModel" />
     </data>
 
     <LinearLayout
@@ -58,7 +61,8 @@
                     android:layout_gravity="center"
                     android:background="@drawable/profile_radius"
                     android:src="@drawable/ic_profile"
-                    android:scaleType="fitCenter"/>
+                    android:scaleType="fitCenter"
+                    loadImage="@{vm.getUser().img}"/>
 
                 <TextView
                     android:id="@+id/mate_name"
@@ -67,6 +71,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_gravity="center"
                     android:gravity="center"
+                    android:text="@{vm.getUser().name}"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:fontFamily="@font/font_noto_sans_kr_regular"
@@ -83,6 +88,7 @@
                 android:layout_marginBottom="30dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="40dp"
+                android:text="@{vm.getUser().intro}"
                 android:textColor="@color/white"
                 android:fontFamily="@font/font_noto_sans_kr_regular"
                 android:includeFontPadding="false"/>
@@ -106,6 +112,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="20dp"
+                android:onClick="@{() -> fragment.requireActivity().finish()}"
                 android:text="@string/move_to_back"
                 android:textColor="@color/gray1"
                 android:fontFamily="@font/font_noto_sans_kr_regular"
@@ -119,6 +126,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/match_try_button_background"
+                android:onClick="@{() -> fragment.moveToRandom()}"
                 android:text="@string/match_try"
                 android:textSize="16sp"
                 android:textColor="@color/white"

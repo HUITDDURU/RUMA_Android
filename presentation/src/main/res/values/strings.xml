@@ -72,6 +72,7 @@
     <string name="exchange_random_matching_title">무작위 사용자 찾기</string>
     <string name="exchange_random_matching">무작위로 사용자를 찾는 중입니다.\n잠시만 기다려 주세요.</string>
     <string name="find_mate_title">무작위 사용자 찾기</string>
+    <string name="find_user">사용자를 발견했습니다!</string>
     <string name="random_match_accept">수락</string>
     <string name="random_match_refuse">거절</string>
     <string name="find_mate_refuse_title">일기 교환 거절</string>
