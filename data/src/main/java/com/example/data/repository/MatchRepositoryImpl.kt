@@ -1,14 +1,16 @@
 package com.example.data.repository
 
 import com.example.data.datasource.MatchDataSource
-import com.example.data.remote.response.MateResponse
+import com.example.domain.entity.match.MateResponseEntity
+import com.example.data.mapper.MatchMapper.mapperToMateEntity
+import com.example.domain.repository.MatchRepository
 import javax.inject.Inject
 
 class MatchRepositoryImpl @Inject constructor(
     private val matchDataSource: MatchDataSource
-): MatchDataSource {
-    override suspend fun mate(header: String): MateResponse =
-        matchDataSource.mate(header)
+): MatchRepository {
+    override suspend fun mate(header: String): MateResponseEntity =
+       mapperToMateEntity(matchDataSource.mate(header))
 
     override suspend fun terminate(header: String) =
         matchDataSource.terminate(header)
